@@ -6701,7 +6701,6 @@ int CHDWallet::ExtKeyLoadMaster()
     WalletLogPrintf("Loading master ext key.\n");
 
     LOCK(cs_wallet);
-
     CKeyID idMaster;
 
     CHDWalletDB wdb(*database, "r+");
@@ -6720,7 +6719,7 @@ int CHDWallet::ExtKeyLoadMaster()
     if (!pEKMaster->kp.IsValidP()) { // wallet could be locked, check pk
         delete pEKMaster;
         pEKMaster = nullptr;
-        return werrorN(1, "%s Loaded master ext key is invalid %s.", __func__, pEKMaster->GetIDString58());
+        return werrorN(1, "%s Master ext key is invalid: %s.", __func__, HDKeyIDToString(idMaster));
     }
 
     if (pEKMaster->nFlags & EAF_IS_CRYPTED) {
@@ -7586,7 +7585,7 @@ int CHDWallet::NewKeyFromAccount(CPubKey &pkOut, bool fInternal, bool fHardened,
 
 int CHDWallet::NewStealthKeyFromAccount(
     CHDWalletDB *pwdb, const CKeyID &idAccount, const std::string &sLabel,
-    CEKAStealthKey &akStealthOut, uint32_t nPrefixBits, const char *pPrefix, bool fBech32, uint32_t *pscankey_num)
+    CEKAStealthKey &akStealthOut, uint32_t nPrefixBits, const char *pPrefix, bool fBech32, uint32_t *pscankey_num, bool add_to_lookahead)
 {
     // Scan secrets must be stored uncrypted - always derive hardened keys
 
@@ -7655,9 +7654,11 @@ int CHDWallet::NewStealthKeyFromAccount(
     akStealthOut = CEKAStealthKey(nChain, nScanOut, kScan, nChain, nSpendOut, pkSpend, nPrefixBits, nPrefix);
     akStealthOut.sLabel = sLabel;
     if (pscankey_num) {
-        CKeyID idKey = akStealthOut.GetID();
-        auto insert = sea->mapStealthKeys.insert(std::pair<CKeyID, CEKAStealthKey>(idKey, akStealthOut));
-        sea->setLookAheadStealth.insert(&insert.first->second);
+        if (add_to_lookahead) {
+            CKeyID idKey = akStealthOut.GetID();
+            auto insert = sea->mapStealthKeys.insert(std::pair<CKeyID, CEKAStealthKey>(idKey, akStealthOut));
+            sea->setLookAheadStealth.insert(&insert.first->second);
+        }
     } else
     if (0 != SaveStealthAddress(pwdb, sea, akStealthOut, fBech32)) {
         return werrorN(1, "SaveStealthAddress failed.");
@@ -7875,7 +7876,7 @@ int CHDWallet::SaveStealthAddress(CHDWalletDB *pwdb, CExtKeyAccount *sea, const 
 
 int CHDWallet::NewStealthKeyV2FromAccount(
     CHDWalletDB *pwdb, const CKeyID &idAccount, const std::string &sLabel,
-    CEKAStealthKey &akStealthOut, uint32_t nPrefixBits, const char *pPrefix, bool fBech32, uint32_t *pscankey_num, uint32_t *pspendkey_num)
+    CEKAStealthKey &akStealthOut, uint32_t nPrefixBits, const char *pPrefix, bool fBech32, uint32_t *pscankey_num, uint32_t *pspendkey_num, bool add_to_lookahead)
 {
     // Scan secrets must be stored uncrypted - always derive hardened keys
 
@@ -7963,9 +7964,11 @@ int CHDWallet::NewStealthKeyV2FromAccount(
     akStealthOut.sLabel = sLabel;
 
     if (pscankey_num) {
-        CKeyID idKey = akStealthOut.GetID();
-        auto insert = sea->mapStealthKeys.insert(std::pair<CKeyID, CEKAStealthKey>(idKey, akStealthOut));
-        sea->setLookAheadStealthV2.insert(&insert.first->second);
+        if (add_to_lookahead) {
+            CKeyID idKey = akStealthOut.GetID();
+            auto insert = sea->mapStealthKeys.insert(std::pair<CKeyID, CEKAStealthKey>(idKey, akStealthOut));
+            sea->setLookAheadStealthV2.insert(&insert.first->second);
+        }
     } else
     if (0 != SaveStealthAddress(pwdb, sea, akStealthOut, fBech32)) {
         return werrorN(1, "SaveStealthAddress failed.");
