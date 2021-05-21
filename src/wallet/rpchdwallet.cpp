@@ -2426,7 +2426,7 @@ static UniValue deriverangekeys(const JSONRPCRequest &request)
             }
             sea = mi->second;
 
-            CHDWalletDB wdb(pwallet->GetDatabase());  // May need to save keys or initialise the stealth v2 chains
+            CHDWalletDB wdb(pwallet->GetDBHandle(), "r+");  // May need to save keys or initialise the stealth v2 chains
             if (!wdb.TxnBegin()) {
                 throw JSONRPCError(RPC_WALLET_ERROR, "TxnBegin failed.");
             }
@@ -4948,9 +4948,9 @@ static UniValue SendToInner(const JSONRPCRequest &request, OutputTypes typeIn, O
                 }
 
                 r.scriptPubKey = CScript() << OP_ISCOINSTAKE << OP_IF;
-                r.scriptPubKey.append(scriptTrue);
+                r.scriptPubKey += scriptTrue;
                 r.scriptPubKey << OP_ELSE;
-                r.scriptPubKey.append(scriptFalse);
+                r.scriptPubKey += scriptFalse;
                 r.scriptPubKey << OP_ENDIF;
                 r.fScriptSet = true;
             } else

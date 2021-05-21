@@ -29,7 +29,11 @@
 - votehistory, new include_future parameter.
   - If current_only and include_future are true, future scheduled votes will be displayed.
 - Fixed bug in wallet stealth address lookahead when rescanning.
-
+- deriverangekeys
+  - Can derive and save stealth addresses.
+  - Added shortcut for internal chain.
+- liststealthaddresses: New verbose parameter displays key paths and count of received addresses.
+- sendtypeto: New stakeaddress parameter on output, avoids buildscript step when sending to coldstaking scripts.
 
 0.19.2.5
 ==============
