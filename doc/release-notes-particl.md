@@ -1,4 +1,4 @@
-0.19.x.x
+0.19.2.10
 ==============
 
 - Add show_anon_spends option to filtertransactions.
@@ -34,6 +34,8 @@
   - Added shortcut for internal chain.
 - liststealthaddresses: New verbose parameter displays key paths and count of received addresses.
 - sendtypeto: New stakeaddress parameter on output, avoids buildscript step when sending to coldstaking scripts.
+- trace_frozen_outputs traces blacklisted outputs.
+
 
 0.19.2.5
 ==============
