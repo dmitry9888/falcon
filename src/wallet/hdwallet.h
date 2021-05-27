@@ -46,6 +46,16 @@ public:
 
     bool ShouldRescan() override;
 
+    const uint256 &LastBlockProcessed() const EXCLUSIVE_LOCKS_REQUIRED(cs_wallet)
+    {
+        return m_last_block_processed;
+    };
+
+    void SetLastBlockProcessed(const uint256 &last_block) EXCLUSIVE_LOCKS_REQUIRED(cs_wallet)
+    {
+        m_last_block_processed = last_block;
+    };
+
     bool ProcessStakingSettings(std::string &sError);
     bool ProcessWalletSettings(std::string &sError);
 

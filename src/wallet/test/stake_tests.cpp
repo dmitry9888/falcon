@@ -168,7 +168,27 @@ BOOST_AUTO_TEST_CASE(stake_test)
     BOOST_REQUIRE(coin.IsSpent());
 
 
+    // Test that disconnecting a block abandons the coinstake
+    {
+    pwallet->BlockUntilSyncedToCurrentChain();
+    auto locked_chain = pwallet->chain().lock();
+    LOCK(pwallet->cs_wallet);
+    BOOST_REQUIRE(pwallet->IsSpent(*locked_chain, txin.prevout.hash, txin.prevout.n));
+    }
+
     DisconnectTip(block, pindexDelete, view, chainparams);
+    // Normally sent through GetMainSignals().BlockDisconnected
+    pwallet->BlockDisconnected(block);
+
+    {
+    pwallet->BlockUntilSyncedToCurrentChain();
+    auto locked_chain = pwallet->chain().lock();
+    LOCK(pwallet->cs_wallet);
+    BOOST_REQUIRE(!pwallet->IsSpent(*locked_chain, txin.prevout.hash, txin.prevout.n));
+    // m_last_block_processed isn't updated when a block is disconnected
+    uint256 last_block = ::ChainActive().Tip()->GetBlockHash();
+    pwallet->SetLastBlockProcessed(last_block);
+    }
 
     BOOST_REQUIRE(pindexDelete->pprev->GetBlockHash() == ::ChainActive().Tip()->GetBlockHash());
 
@@ -192,6 +212,13 @@ BOOST_AUTO_TEST_CASE(stake_test)
         const Coin &coin = view.AccessCoin(txin.prevout);
         BOOST_REQUIRE(coin.IsSpent());
         BOOST_REQUIRE(::ChainActive().Tip()->nMoneySupply == base_supply + stake_reward * 2);
+    }
+    BOOST_REQUIRE(block.GetHash() == ::ChainActive().Tip()->GetBlockHash());
+    {
+    pwallet->BlockUntilSyncedToCurrentChain();
+    auto locked_chain = pwallet->chain().lock();
+    LOCK(pwallet->cs_wallet);
+    BOOST_REQUIRE(pwallet->IsSpent(*locked_chain, txin.prevout.hash, txin.prevout.n));
     }
 
     CKey kRecv;
