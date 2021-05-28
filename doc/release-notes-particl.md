@@ -1,3 +1,9 @@
+0.19.2.11
+==============
+
+- Fix bug preventing syncing chain from genesis.
+
+
 0.19.2.10
 ==============
 
