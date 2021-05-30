@@ -1,3 +1,9 @@
+0.19.2.12
+==============
+
+- Add -lookuptorcontrolhost option, disabled by default.
+
+
 0.19.2.11
 ==============
 
