@@ -1359,6 +1359,7 @@ DBErrors CHDWallet::LoadWallet(bool& fFirstRunRet)
 
     m_rescan_stealth_v1_lookahead = gArgs.GetArg("-stealthv1lookaheadsize", DEFAULT_STEALTH_LOOKAHEAD_SIZE);
     m_rescan_stealth_v2_lookahead = gArgs.GetArg("-stealthv2lookaheadsize", DEFAULT_STEALTH_LOOKAHEAD_SIZE);
+    m_default_lookahead = gArgs.GetArg("-defaultlookaheadsize", DEFAULT_LOOKAHEAD_SIZE);
 
     std::string sError;
     ProcessStakingSettings(sError);
@@ -6900,8 +6901,7 @@ int CHDWallet::ExtKeyAddAccountToMaps(const CKeyID &idAccount, CExtKeyAccount *s
 
         if (sek->nFlags & EAF_ACTIVE
             && sek->nFlags & EAF_RECEIVE_ON) {
-            uint64_t nLookAhead = gArgs.GetArg("-defaultlookaheadsize", DEFAULT_LOOKAHEAD_SIZE);
-
+            uint64_t nLookAhead = m_default_lookahead;
             mapEKValue_t::iterator itV = sek->mapValue.find(EKVT_N_LOOKAHEAD);
             if (itV != sek->mapValue.end()) {
                 nLookAhead = GetCompressedInt64(itV->second, nLookAhead);
@@ -7105,12 +7105,13 @@ int CHDWallet::PrepareLookahead()
     ExtKeyAccountMap::const_iterator it;
     for (it = mapExtAccounts.begin(); it != mapExtAccounts.end(); ++it) {
         CExtKeyAccount *sea = it->second;
+        sea->ClearLookAhead();
         for (size_t i = 0; i < sea->vExtKeys.size(); ++i) {
             CStoredExtKey *sek = sea->vExtKeys[i];
 
             if (sek->nFlags & EAF_ACTIVE
                 && sek->nFlags & EAF_RECEIVE_ON) {
-                uint64_t nLookAhead = gArgs.GetArg("-defaultlookaheadsize", DEFAULT_LOOKAHEAD_SIZE);
+                uint64_t nLookAhead = m_default_lookahead;
                 mapEKValue_t::iterator itV = sek->mapValue.find(EKVT_N_LOOKAHEAD);
                 if (itV != sek->mapValue.end()) {
                     nLookAhead = GetCompressedInt64(itV->second, nLookAhead);
@@ -8119,7 +8120,7 @@ int CHDWallet::NewExtKeyFromAccount(CHDWalletDB *pwdb, const CKeyID &idAccount,
         return werrorN(1, "DB Write failed.");
     }
 
-    uint64_t nLookAhead = gArgs.GetArg("-defaultlookaheadsize", DEFAULT_LOOKAHEAD_SIZE);
+    uint64_t nLookAhead = m_default_lookahead;
     mvi = sekOut->mapValue.find(EKVT_N_LOOKAHEAD);
     if (mvi != sekOut->mapValue.end()) {
         nLookAhead = GetCompressedInt64(mvi->second, nLookAhead);
