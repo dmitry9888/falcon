@@ -5,6 +5,7 @@
 - extkeyimportmaster rpc command has new options parameter:
   - Can adjust default lookahead sizes and create extkeys before the initial scan.
 - Fixed bug where dust output converted to change was added to the fee before subfee was processed.
+- Added new PID for Ledger Nano X (4015).
 
 
 0.19.2.11
