@@ -3,6 +3,7 @@
 
 - Fixed RPC escaping in qt.
   - Solves issue with quotes in mnemonic passwords.
+- rpc: Include null votes in votehistory current/future results.
 
 
 0.19.2.12
