@@ -7,6 +7,8 @@ from test_framework.test_particl import ParticlTestFramework, connect_nodes_bi
 from test_framework.util import assert_raises_rpc_error
 from test_framework.messages import COIN
 
+import random
+
 
 class AnonTest(ParticlTestFramework):
     def set_test_params(self):
@@ -190,6 +192,19 @@ class AnonTest(ParticlTestFramework):
         keyimage = nodes[0].getkeyimage(anon_pubkey)['keyimage']
         spent = nodes[0].checkkeyimage(keyimage)
         assert(spent['spent'] is False)
+
+        self.log.info('Test sendtypeto coincontrol')
+        w1_inputs = w1_2.listunspentanon()
+        assert(len(w1_inputs) > 1)
+        use_input = w1_inputs[random.randint(0, len(w1_inputs) - 1)]
+
+        coincontrol = {'inputs': [{'tx': use_input['txid'], 'n': use_input['vout']}]}
+        txid = w1_2.sendtypeto('anon', 'anon', [{'address': sxAddrTo0_1, 'amount': 0.01}, ], '', '', 7, 1, False, coincontrol)
+
+        w1_inputs_after = w1_2.listunspentanon()
+        for txin in w1_inputs_after:
+            if txin['txid'] == use_input['txid'] and txin['vout'] == use_input['vout']:
+                raise ValueError('Output should be spent')
 
 
 if __name__ == '__main__':
