@@ -50,6 +50,8 @@
 #include <boost/algorithm/string/replace.hpp>
 
 
+extern const std::string MESSAGE_MAGIC;
+
 static bool ExtractStealthPrefix(const std::vector<uint8_t> &vData, uint32_t &prefix, size_t offset = 33)
 {
     prefix = 0;
@@ -1130,6 +1132,28 @@ bool CHDWallet::GetExtKey(const CKeyID &keyID, CStoredExtKey &extKeyOut) const
 bool CHDWallet::HaveTransaction(const uint256 &txhash) const
 {
     return mapWallet.count(txhash) || mapRecords.count(txhash);
+};
+
+bool CHDWallet::GetTransaction(const uint256 &txhash, CTransactionRef &tx) const
+{
+    const auto mi = mapWallet.find(txhash);
+    if (mi != mapWallet.end()) {
+        tx = mi->second.tx;
+        return true;
+    }
+    const auto mri = mapRecords.find(txhash);
+    if (mri != mapRecords.end()) {
+        CStoredTransaction stx;
+        if (!CHDWalletDB(*database).ReadStoredTx(txhash, stx)) {
+            WalletLogPrintf("%s: ReadStoredTx failed for %s.\n", __func__, txhash.ToString());
+            return false;
+        }
+        tx = stx.tx;  // CTransactionRef is a shared_ptr, should persist after stx is destroyed
+        return true;
+    }
+
+    // TODO: Check ::GetTransaction
+    return false;
 };
 
 int CHDWallet::GetKey(const CKeyID &address, CKey &keyOut, CExtKeyAccount *&pa, CEKAKey &ak, CKeyID &idStealth) const
@@ -2252,7 +2276,7 @@ CAmount CHDWallet::GetOutputValue(const COutPoint &op, bool fAllowTXIndex) const
 
     uint256 hashBlock;
     CTransactionRef txOut;
-    if (GetTransaction(op.hash, txOut, Params().GetConsensus(), hashBlock)) {
+    if (::GetTransaction(op.hash, txOut, Params().GetConsensus(), hashBlock)) {
         if (txOut->GetNumVOuts() > op.n) {
             return txOut->vpout[op.n]->GetValue();
         }
@@ -4079,9 +4103,24 @@ int CHDWallet::AddStandardInputs(interfaces::Chain::Lock& locked_chain, CWalletT
                     }
                 }
 
+                if (pDevice->RequirePrevTxns()) {
+                    for (const auto &coin : setCoins) {
+                        const auto &prevout = coin.outpoint;
+                        if (pDevice->HavePrevTxn(prevout.hash)) {
+                            continue;
+                        }
+                        CTransactionRef tx_prev;
+                        if (GetTransaction(prevout.hash, tx_prev)) {
+                            pDevice->AddPrevTxn(tx_prev);
+                        } else {
+                            WalletLogPrintf("%s: Could not find input txn %s\n", __func__, prevout.hash.ToString());
+                        }
+                    }
+                }
+
                 pDevice->PrepareTransaction(txNew, view, *this, SIGHASH_ALL, hw_change_pos, hw_change_path);
                 if (!pDevice->sError.empty()) {
-                    pDevice->Close();
+                    pDevice->Cleanup();
                     uiInterface.NotifyWaitingForDevice(true);
                     return wserrorN(1, sError, __func__, _("PrepareTransaction for device failed: %s").translated, pDevice->sError);
                 }
@@ -4103,7 +4142,7 @@ int CHDWallet::AddStandardInputs(interfaces::Chain::Lock& locked_chain, CWalletT
                     ProduceSignature(*this, usb_device::DeviceSignatureCreator(pDevice, &txNew, nIn, vchAmount, SIGHASH_ALL), scriptPubKey, sigdata);
 
                     if (!pDevice->sError.empty()) {
-                        pDevice->Close();
+                        pDevice->Cleanup();
                         uiInterface.NotifyWaitingForDevice(true);
                         return wserrorN(1, sError, __func__, _("ProduceSignature from device failed: %s").translated, pDevice->sError);
                     }
@@ -4124,7 +4163,7 @@ int CHDWallet::AddStandardInputs(interfaces::Chain::Lock& locked_chain, CWalletT
                     nIn++;
                 }
 
-                pDevice->Close();
+                pDevice->Cleanup();
 
                 uiInterface.NotifyWaitingForDevice(true);
             }
@@ -10451,7 +10490,7 @@ bool CHDWallet::AddToRecord(CTransactionRecord &rtxIn, const CTransaction &tx,
             uint256 hashBlock;
             CTransactionRef txPrev;
             // ::ChainstateActive().CoinsTip().GetCoin(prevout0, coin) requires cs_main
-            if (GetTransaction(prevout0.hash, txPrev, Params().GetConsensus(), hashBlock)) {
+            if (::GetTransaction(prevout0.hash, txPrev, Params().GetConsensus(), hashBlock)) {
                 if (txPrev->vpout.size() > prevout0.n
                     && txPrev->vpout[prevout0.n]->IsType(OUTPUT_CT)) {
                     rtx.nFlags |= ORF_BLIND_IN;
@@ -12375,7 +12414,7 @@ void CHDWallet::AvailableCoinsForStaking(std::vector<COutput> &vCoins, int64_t n
 
                 const CScript *pscriptPubKey = txout->GetPScriptPubKey();
                 CKeyID keyID;
-                if (!ExtractStakingKeyID(*pscriptPubKey, keyID)) {
+                if (!particl::ExtractStakingKeyID(*pscriptPubKey, keyID)) {
                     continue;
                 }
 
@@ -12427,7 +12466,7 @@ void CHDWallet::AvailableCoinsForStaking(std::vector<COutput> &vCoins, int64_t n
                 }
 
                 CKeyID keyID;
-                if (!ExtractStakingKeyID(r.scriptPubKey, keyID)) {
+                if (!particl::ExtractStakingKeyID(r.scriptPubKey, keyID)) {
                     continue;
                 }
 

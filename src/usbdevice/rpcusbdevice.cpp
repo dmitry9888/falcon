@@ -670,7 +670,7 @@ static UniValue devicesignrawtransaction(const JSONRPCRequest &request)
     }
 
     if (!pDevice->sError.empty()) {
-        pDevice->Close();
+        pDevice->Cleanup();
         UniValue entry(UniValue::VOBJ);
         entry.pushKV("error", pDevice->sError);
         vErrors.push_back(entry);
@@ -691,7 +691,7 @@ static UniValue devicesignrawtransaction(const JSONRPCRequest &request)
             continue;
         }
         if (coin.nType != OUTPUT_STANDARD && coin.nType != OUTPUT_CT) {
-            pDevice->Close();
+            pDevice->Cleanup();
             throw JSONRPCError(RPC_MISC_ERROR, strprintf("Bad input type: %d", coin.nType));
         }
 
@@ -727,7 +727,7 @@ static UniValue devicesignrawtransaction(const JSONRPCRequest &request)
         }
     }
 
-    pDevice->Close();
+    pDevice->Cleanup();
 
     bool fComplete = vErrors.empty();
 
@@ -992,7 +992,6 @@ static UniValue initaccountfromdevice(const JSONRPCRequest &request)
     return result;
 };
 
-
 static UniValue devicegetnewstealthaddress(const JSONRPCRequest &request)
 {
     std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
@@ -1025,7 +1024,6 @@ static UniValue devicegetnewstealthaddress(const JSONRPCRequest &request)
             }.Check(request);
 
     EnsureWalletIsUnlocked(pwallet);
-
 
     std::string sError, sLabel;
     if (request.params.size() > 0) {

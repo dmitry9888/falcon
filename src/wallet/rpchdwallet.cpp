@@ -4250,7 +4250,7 @@ static UniValue getcoldstakinginfo(const JSONRPCRequest &request)
         if (scriptPubKey->IsPayToPublicKeyHash256_CS() || scriptPubKey->IsPayToScriptHash256_CS() || scriptPubKey->IsPayToScriptHash_CS()) {
             // Show output on both the spending and staking wallets
             if (!out.fSpendable) {
-                if (!ExtractStakingKeyID(*scriptPubKey, keyID)
+                if (!particl::ExtractStakingKeyID(*scriptPubKey, keyID)
                     || !pwallet->HaveKey(keyID)) {
                     continue;
                 }
@@ -4264,7 +4264,7 @@ static UniValue getcoldstakinginfo(const JSONRPCRequest &request)
             continue;
         }
 
-        if (!ExtractStakingKeyID(*scriptPubKey, keyID)) {
+        if (!particl::ExtractStakingKeyID(*scriptPubKey, keyID)) {
             continue;
         }
         if (pwallet->HaveKey(keyID)) {
@@ -4281,7 +4281,7 @@ static UniValue getcoldstakinginfo(const JSONRPCRequest &request)
         try { sAddress = jsonSettings["coldstakingaddress"].get_str();
         } catch (std::exception &e) {
             return error("%s: Get coldstakingaddress failed %s.", __func__, e.what());
-        };
+        }
 
         addrColdStaking = CBitcoinAddress(sAddress);
         if (addrColdStaking.IsValid()) {

@@ -1723,7 +1723,6 @@ bool IsSpendScriptP2PKH(const CScript &script)
         if (!script.GetOp(pc, opcode, vchPushValue)) {
             break;
         }
-
         if (opcode == OP_ELSE) {
             size_t ofs = pc - script.begin();
             return script.MatchPayToPublicKeyHash(ofs);
@@ -1747,7 +1746,6 @@ bool GetCoinstakeScriptPath(const CScript &scriptIn, CScript &scriptOut)
         if (!scriptIn.GetOp(pc, opcode, vchPushValue)) {
             break;
         }
-
         if (!fFoundOp
             && opcode == OP_ISCOINSTAKE) {
             pc++; // skip over if
@@ -1756,7 +1754,6 @@ bool GetCoinstakeScriptPath(const CScript &scriptIn, CScript &scriptOut)
             fFoundOp = true;
             continue;
         }
-
         if (fFoundOp && opcode == OP_ELSE) {
             pc--;
             scriptOut = CScript(pcStart, pc);
@@ -1781,14 +1778,12 @@ bool GetNonCoinstakeScriptPath(const CScript &scriptIn, CScript &scriptOut)
         if (!scriptIn.GetOp(pc, opcode, vchPushValue)) {
             break;
         }
-
         if (!fFoundOp
             && opcode == OP_ELSE) {
             pcStart = pc;
             fFoundOp = true;
             continue;
         }
-
         if (fFoundOp && opcode == OP_ENDIF) {
             pc--;
             scriptOut = CScript(pcStart, pc);

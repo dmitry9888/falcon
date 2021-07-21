@@ -111,7 +111,6 @@ static bool SignStep(const SigningProvider& provider, const BaseSignatureCreator
         if (!GetColdStakeScriptPath(creator.IsCoinStake(), scriptPubKey, scriptPath)) {
             return false;
         }
-
         whichTypeRet = Solver(scriptPath, vSolutions);
     } else {
         whichTypeRet = Solver(scriptPubKey, vSolutions);
