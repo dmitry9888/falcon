@@ -1,9 +1,11 @@
+
 0.19.2.13
 ==============
 
 - Fixed RPC escaping in qt.
   - Solves issue with quotes in mnemonic passwords.
 - rpc: Include null votes in votehistory current/future results.
+- qt: Disable balance type combo boxes on the send dialog when wallet is linked to a hardware wallet.
 
 
 0.19.2.12
