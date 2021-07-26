@@ -4624,7 +4624,6 @@ int CHDWallet::AddBlindedInputs(interfaces::Chain::Lock& locked_chain, CWalletTx
             nIn++;
         }
 
-
         size_t nBlindedInputs = vpBlinds.size();
 
         uint8_t blind_plain[32] = {0};
