@@ -4191,7 +4191,6 @@ int CSMSG::FundMsg(SecureMessage &smsg, std::string &sError, bool fTestFee, CAmo
         if (!wtx.SubmitMemoryPoolAndRelay(err_string, true, *locked_chain, m_absurd_smsg_fee)) {
             return errorN(SMSG_GENERAL_ERROR, sError, __func__, "Transaction cannot be broadcast immediately: %s.", err_string);
         }
-        pactive_wallet->AddToWallet(wtx);
     }
     memcpy(smsg.pPayload+(smsg.nPayload-32), txfundId.begin(), 32);
 #else

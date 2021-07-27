@@ -8579,7 +8579,6 @@ bool CHDWallet::CommitTransaction(CTransactionRef tx, mapValue_t mapValue, std::
     return true;
 }
 
-
 bool CHDWallet::CommitTransaction(CWalletTx &wtxNew, CTransactionRecord &rtx, CValidationState &state)
 {
     {
@@ -8651,7 +8650,6 @@ bool CHDWallet::DummySignTx(CMutableTransaction &txNew, const std::vector<CTxOut
     }
     return true;
 };
-
 
 int CHDWallet::LoadStealthAddresses()
 {
@@ -9543,11 +9541,15 @@ int CHDWallet::CheckForStealthAndNarration(const CTxOutBase *pb, const CTxOutDat
         return 2;
     }
 
+    if (vData[0] == DO_FUND_MSG) {
+        return 0;
+    }
+
     WalletLogPrintf("%s: Unknown data output type %d.\n",  __func__, vData[0]);
     return -1;
 };
 
-bool CHDWallet::FindStealthTransactions(const CTransaction &tx, mapValue_t &mapNarr)
+void CHDWallet::FindStealthTransactions(const CTransaction &tx, mapValue_t &mapNarr)
 {
     if (LogAcceptCategory(BCLog::HDWALLET)) {
         WalletLogPrintf("%s: tx: %s.\n", __func__, tx.GetHash().GetHex());
@@ -9585,7 +9587,7 @@ bool CHDWallet::FindStealthTransactions(const CTransaction &tx, mapValue_t &mapN
         }
     }
 
-    return true;
+    return;
 };
 
 bool CHDWallet::ScanForOwnedOutputs(const CTransaction &tx, size_t &nCT, size_t &nRingCT, mapValue_t &mapNarr)
