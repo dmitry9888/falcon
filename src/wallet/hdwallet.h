@@ -311,8 +311,12 @@ public:
                            std::string& strFailReason, const CCoinControl& coin_control, bool sign = true) override;
     bool CreateTransaction(interfaces::Chain::Lock& locked_chain, std::vector<CTempRecipient>& vecSend, CTransactionRef& tx, CAmount& nFeeRet, int& nChangePosInOut,
                            std::string& strFailReason, const CCoinControl& coin_control, bool sign = true);
+    /** Test if mempool would accept tx */
+    bool TestMempoolAccept(const CTransactionRef &tx, std::string &sError, CAmount override_max_fee=-1) const;
     bool CommitTransaction(CTransactionRef tx, mapValue_t mapValue, std::vector<std::pair<std::string, std::string>> orderForm, CValidationState& state) override;
-    bool CommitTransaction(CWalletTx &wtxNew, CTransactionRecord &rtx, CValidationState &state);
+    bool CommitTransaction(CWalletTx &wtxNew, CTransactionRecord &rtx, CValidationState &state,
+                           mapValue_t mapValue, std::vector<std::pair<std::string, std::string>> orderForm,
+                           bool is_record=false, bool broadcast_tx=true, CAmount override_max_fee=-1);
 
     bool DummySignInput(CTxIn &tx_in, const CTxOut &txout, bool use_max_sig = false) const override;
 
@@ -343,6 +347,7 @@ public:
     void PostProcessUnloadSpent();
 
     using CWallet::AddToSpends;
+    bool HaveSpend(const COutPoint &outpoint, const uint256 &txid) EXCLUSIVE_LOCKS_REQUIRED(cs_wallet);
     void AddToSpends(const uint256& wtxid) override EXCLUSIVE_LOCKS_REQUIRED(cs_wallet);
     bool AddToWalletIfInvolvingMe(const CTransactionRef& ptx, CWalletTx::Status status, const uint256& block_hash, int posInBlock, bool fUpdate) override EXCLUSIVE_LOCKS_REQUIRED(cs_wallet);
 

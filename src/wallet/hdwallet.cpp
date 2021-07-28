@@ -8522,15 +8522,53 @@ bool CHDWallet::CreateTransaction(interfaces::Chain::Lock& locked_chain, std::ve
     return true;
 };
 
-/**
- * Call after CreateTransaction unless you want to abort
- */
+bool CHDWallet::TestMempoolAccept(const CTransactionRef &tx, std::string &sError, CAmount override_max_fee) const {
+    if (!GetBroadcastTransactions()) {
+        sError = "Wallet broadcast is disabled";
+        return false;
+    }
+    auto locked_chain = chain().lock();
+    LockAssertion lock(::cs_main);
+    LOCK(mempool.cs);
+    CValidationState state;
+    CAmount max_fee = override_max_fee >= 0 ? override_max_fee : m_default_max_tx_fee;
+    bool accept_result = AcceptToMemoryPool(mempool, state, tx, nullptr, nullptr,
+                                                   false /* bypass_limits */, max_fee, true /* test_accept */);
+    if (!accept_result) {
+        sError = state.GetRejectReason();
+        return false;
+    }
+    return true;
+}
+
 bool CHDWallet::CommitTransaction(CTransactionRef tx, mapValue_t mapValue, std::vector<std::pair<std::string, std::string>> orderForm, CValidationState& state)
 {
-    {
-        auto locked_chain = chain().lock();
-        LOCK(cs_wallet);
+    CTransactionRecord rtx_unused;
+    CWalletTx wtx_temp(this, tx);
 
+    return CommitTransaction(wtx_temp, rtx_unused, state, mapValue, orderForm, false);
+}
+
+bool CHDWallet::CommitTransaction(CWalletTx &wtxNew, CTransactionRecord &rtx, CValidationState &state,
+                                  mapValue_t mapValue, std::vector<std::pair<std::string, std::string>> orderForm,
+                                  bool is_record, bool broadcast_tx, CAmount override_max_fee)
+{
+    auto locked_chain = chain().lock();
+    LOCK(cs_wallet);
+
+    wtxNew.mapValue = std::move(mapValue);
+    wtxNew.vOrderForm = std::move(orderForm);
+    wtxNew.fTimeReceivedIsTxTime = true;
+    wtxNew.fFromMe = true;
+
+    CWalletTx *wtx_broadcast = nullptr;
+    if (is_record) {
+        uint256 null_hash;
+        assert(null_hash.IsNull());
+        AddToRecord(rtx, *wtxNew.tx, null_hash, -1);
+        wtx_broadcast = &wtxNew;
+    } else {
+        CTransactionRef tx = wtxNew.tx;
         mapValue_t mapNarr;
         FindStealthTransactions(*tx, mapNarr);
 
@@ -8540,65 +8578,32 @@ bool CHDWallet::CommitTransaction(CTransactionRef tx, mapValue_t mapValue, std::
             }
         }
 
-        CWalletTx wtxNew(this, std::move(tx));
-        wtxNew.mapValue = std::move(mapValue);
-        wtxNew.vOrderForm = std::move(orderForm);
-        wtxNew.fTimeReceivedIsTxTime = true;
-        wtxNew.fFromMe = true;
+        // Add tx to wallet, because if it has change it's also ours,
+        // otherwise just for transaction history.
+        AddToWallet(wtxNew);
 
-        WalletLogPrintf("CommitTransaction:\n%s", wtxNew.tx->ToString()); /* Continued */
-
-        {
-            // Add tx to wallet, because if it has change it's also ours,
-            // otherwise just for transaction history.
-
-            AddToWallet(wtxNew);
-
-            // Notify that old coins are spent
-            for (const auto &txin : wtxNew.tx->vin) {
-                const uint256 &txhash = txin.prevout.hash;
-                MapWallet_t::iterator it = mapWallet.find(txhash);
-                if (it != mapWallet.end()) {
-                    it->second.BindWallet(this);
-                }
-
-                NotifyTransactionChanged(this, txhash, CT_UPDATED);
+        // Notify that old coins are spent
+        for (const auto &txin : tx->vin) {
+            const uint256 &txhash = txin.prevout.hash;
+            auto it = mapWallet.find(txin.prevout.hash);
+            if (it != mapWallet.end()) {
+                it->second.MarkDirty();
             }
+            NotifyTransactionChanged(this, txhash, CT_UPDATED);
         }
 
-        if (fBroadcastTransactions) {
-            // Broadcast
-            wtxNew.BindWallet(this);
-            std::string err_string;
-            if (!wtxNew.SubmitMemoryPoolAndRelay(err_string, true, *locked_chain)) {
-                WalletLogPrintf("CommitTransaction(): Transaction cannot be broadcast immediately, %s\n", err_string);
-                // TODO: if we expect the failure to be long term or permanent, instead delete wtx from the wallet and return failure.
-            }
-        }
+        // Get the inserted-CWalletTx from mapWallet so that the
+        // fInMempool flag is cached properly
+        wtx_broadcast = &mapWallet.at(tx->GetHash());
     }
-    return true;
-}
 
-bool CHDWallet::CommitTransaction(CWalletTx &wtxNew, CTransactionRecord &rtx, CValidationState &state)
-{
-    {
-        auto locked_chain = chain().lock();
-        LOCK(cs_wallet);
-
-        WalletLogPrintf("CommitTransaction:\n%s", wtxNew.tx->ToString()); /* Continued */
-
-        uint256 null_hash;
-        assert(null_hash.IsNull());
-        AddToRecord(rtx, *wtxNew.tx, null_hash, -1);
-
-        if (fBroadcastTransactions) {
-            // Broadcast
-            wtxNew.BindWallet(this);
-            std::string err_string;
-            if (!wtxNew.SubmitMemoryPoolAndRelay(err_string, true, *locked_chain)) {
-                WalletLogPrintf("CommitTransaction(): Transaction cannot be broadcast immediately, %s\n", err_string);
-                // TODO: if we expect the failure to be long term or permanent, instead delete wtx from the wallet and return failure.
-            }
+    if (fBroadcastTransactions && broadcast_tx) {
+        std::string err_string;
+        assert(wtx_broadcast);
+        wtx_broadcast->BindWallet(this);
+        if (!wtx_broadcast->SubmitMemoryPoolAndRelay(err_string, true, *locked_chain, override_max_fee)) {
+            WalletLogPrintf("CommitTransaction(): Transaction cannot be broadcast immediately, %s\n", err_string);
+            // TODO: if we expect the failure to be long term or permanent, instead delete wtx from the wallet and return failure.
         }
     }
     return true;
@@ -9794,6 +9799,17 @@ void CHDWallet::PostProcessUnloadSpent()
     }
 };
 
+bool CHDWallet::HaveSpend(const COutPoint &outpoint, const uint256 &txid)
+{
+    std::pair<TxSpends::const_iterator, TxSpends::const_iterator> range = mapTxSpends.equal_range(outpoint);
+    for (TxSpends::const_iterator it = range.first; it != range.second; ++it) {
+        if (it->second == txid) {
+            return true;
+        }
+    }
+    return false;
+};
+
 void CHDWallet::AddToSpends(const uint256& wtxid)
 {
     auto it = mapWallet.find(wtxid);
@@ -9813,7 +9829,6 @@ void CHDWallet::AddToSpends(const uint256& wtxid)
 bool CHDWallet::AddToWalletIfInvolvingMe(const CTransactionRef& ptx, CWalletTx::Status status, const uint256& block_hash, int posInBlock, bool fUpdate)
 {
     const CTransaction& tx = *ptx;
-
     {
         AssertLockHeld(cs_wallet);
         if (!block_hash.IsNull()) {
@@ -10460,7 +10475,9 @@ bool CHDWallet::AddToRecord(CTransactionRecord &rtxIn, const CTransaction &tx,
                     continue;
                 }
                 new_vin.push_back(op);
-                AddToSpends(op, txhash);
+                if (!HaveSpend(op, txhash)) {
+                    AddToSpends(op, txhash);
+                }
             }
         }
         if (rtx.vin != new_vin) {
