@@ -1,4 +1,13 @@
 
+0.19.2.14
+==============
+
+- wallet: Add ability receive on loose extkey chains.
+  - receive_on must be active for chain.
+    - See feature_part_extkey test.
+  - New track-only mode, won't save keys or transactions, only updates child key counter.
+
+
 0.19.2.13
 ==============
 
