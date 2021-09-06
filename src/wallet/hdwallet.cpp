@@ -10783,7 +10783,7 @@ bool CHDWallet::AddToRecord(CTransactionRecord &rtxIn, const CTransaction &tx,
     CTransactionRecord &rtx = ret.first->second;
 
     bool fUpdated = false;
-    if (!block_hash.IsNull()) {
+    if (!rtx.IsAbandoned() || !block_hash.IsNull()) {
         if (rtx.blockHash != block_hash
             || rtx.nIndex != posInBlock) {
             fUpdated = true;
@@ -12351,6 +12351,9 @@ bool CHDWallet::AbandonTransaction(interfaces::Chain::Lock& locked_chain, const 
             if (!wtx.isAbandoned()
                 && currentconfirm == 0)
             {
+                // AbandonTransaction can happen before CWallet::transactionRemovedFromMempool is called
+                wtx.fInMempool = InMempool(wtx.GetHash());
+
                 // If the orig tx was not in block/mempool, none of its spends can be in mempool
                 assert(!wtx.InMempool());
                 wtx.setAbandoned();
