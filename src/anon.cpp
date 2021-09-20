@@ -169,13 +169,18 @@ bool VerifyMLSAG(const CTransaction &tx, CValidationState &state)
                 return state.Invalid(ValidationInvalidReason::CONSENSUS, false, REJECT_INVALID, "bad-anonin-dup-ki");
             }
 
-            if (pblocktree->ReadRCTKeyImage(ki, txhashKI)
-                && txhashKI != txhash) {
+            if (pblocktree->ReadRCTKeyImage(ki, txhashKI)) {
                 if (LogAcceptCategory(BCLog::RINGCT)) {
                     LogPrintf("%s: Duplicate keyimage detected %s, used in %s.\n", __func__,
                         HexStr(ki.begin(), ki.end()), txhashKI.ToString());
                 }
-                return state.Invalid(ValidationInvalidReason::CONSENSUS, false, REJECT_INVALID, "bad-anonin-dup-ki");
+                if (txhashKI == txhash) {
+                    if (state.m_time > gArgs.GetArg("-conflicttime", 1632177542)) {
+                        return state.Invalid(ValidationInvalidReason::TX_CONFLICT, false, REJECT_INVALID, "txn-already-in-chain");
+                    }
+                } else {
+                    return state.Invalid(ValidationInvalidReason::CONSENSUS, false, REJECT_INVALID, "bad-anonin-dup-ki");
+                }
             }
         }
         if (0 != (rv = secp256k1_prepare_mlsag(&vM[0], nullptr,
