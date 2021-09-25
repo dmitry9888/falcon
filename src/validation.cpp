@@ -719,8 +719,8 @@ bool MemPoolAccept::PreChecks(ATMPArgs& args, Workspace& ws)
         }
     }
 
-    if (state.fHasAnonInput
-         && (::ChainActive().Height() < GetNumBlocksOfPeers()-1)) {
+    if (state.fHasAnonInput &&
+        (::ChainActive().Height() < GetNumBlocksOfPeers() - 1)) {
         LogPrintf("%s: Ignoring anon transaction while chain syncs height %d - peers %d.\n",
             __func__, ::ChainActive().Height(), GetNumBlocksOfPeers());
         if (pfMissingInputs) {
@@ -2815,7 +2815,7 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
                         LogPrintf("%s: Duplicate anon-output %s, index %d, above last index %d.\n", __func__, HexStr(txout->pk.begin(), txout->pk.end()), nTestExists, pindex->pprev->nAnonOutputs);
                         LogPrintf("Attempting to repair anon index.\n");
                         std::set<CCmpPubKey> setKi; // unused
-                        RollBackRCTIndex(pindex->pprev->nAnonOutputs, nTestExists, setKi);
+                        RollBackRCTIndex(pindex->pprev->nAnonOutputs, nTestExists, pindex->pprev->nHeight, setKi);
                         return false;
                     }
 
@@ -3257,14 +3257,14 @@ bool FlushView(CCoinsViewCache *view, CValidationState& state, bool fDisconnecti
     view->spentIndex.clear();
 
     if (fDisconnecting) {
-        for (auto &it : view->keyImages) {
+        for (const auto &it : view->keyImages) {
             if (!pblocktree->EraseRCTKeyImage(it.first)) {
                 return error("%s: EraseRCTKeyImage failed, txn %s.", __func__, it.second.ToString());
             }
         }
 
         if (view->anonOutputLinks.size() > 0) {
-            for (auto &it : view->anonOutputLinks) {
+            for (const auto &it : view->anonOutputLinks) {
                 if (!pblocktree->EraseRCTOutput(it.second)) {
                     return error("%s: EraseRCTOutput failed.", __func__);
                 }
@@ -3277,15 +3277,16 @@ bool FlushView(CCoinsViewCache *view, CValidationState& state, bool fDisconnecti
     } else {
         CDBBatch batch(*pblocktree);
 
-        for (auto &it : view->keyImages) {
-            batch.Write(std::make_pair(DB_RCTKEYIMAGE, it.first), it.second);
+        for (const auto &it : view->keyImages) {
+            CAnonKeyImageInfo data(it.second, state.m_spend_height);
+            batch.Write(std::make_pair(DB_RCTKEYIMAGE, it.first), data);
         }
 
-        for (auto &it : view->anonOutputs) {
+        for (const auto &it : view->anonOutputs) {
             batch.Write(std::make_pair(DB_RCTOUTPUT, it.first), it.second);
         }
 
-        for (auto &it : view->anonOutputLinks) {
+        for (const auto &it : view->anonOutputLinks) {
             batch.Write(std::make_pair(DB_RCTOUTPUT_LINK, it.first), it.second);
         }
 

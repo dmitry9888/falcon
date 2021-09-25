@@ -205,6 +205,9 @@ class AnonTest(ParticlTestFramework):
             if txin['txid'] == use_input['txid'] and txin['vout'] == use_input['vout']:
                 raise ValueError('Output should be spent')
 
+        self.log.info('Test rollbackrctindex')
+        nodes[0].rollbackrctindex()
+
 
 if __name__ == '__main__':
     AnonTest().main()

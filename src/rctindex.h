@@ -1,4 +1,4 @@
-// Copyright (c) 2017 The Particl Core developers
+// Copyright (c) 2017-2021 The Particl Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -26,15 +26,33 @@ public:
     inline void SerializationOp(Stream& s, Operation ser_action)
     {
         READWRITE(pubkey);
-        if (ser_action.ForRead())
+        if (ser_action.ForRead()) {
             s.read((char*)&commitment.data[0], 33);
-        else
+        } else {
             s.write((char*)&commitment.data[0], 33);
+        }
 
         READWRITE(outpoint);
         READWRITE(nBlockHeight);
         READWRITE(nCompromised);
-    };
+    }
+};
+
+class CAnonKeyImageInfo
+{
+public:
+    CAnonKeyImageInfo() {};
+    CAnonKeyImageInfo(const uint256 &txid_, int height_) : txid(txid_), height(height_) {};
+    uint256 txid;
+    int height = 0;
+
+    ADD_SERIALIZE_METHODS;
+    template <typename Stream, typename Operation>
+    inline void SerializationOp(Stream& s, Operation ser_action)
+    {
+        READWRITE(txid);
+        READWRITE(height);
+    }
 };
 
 

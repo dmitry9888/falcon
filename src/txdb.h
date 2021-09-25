@@ -141,9 +141,9 @@ public:
     bool WriteRCTOutputLink(const CCmpPubKey &pk, int64_t i);
     bool EraseRCTOutputLink(const CCmpPubKey &pk);
 
-    bool ReadRCTKeyImage(const CCmpPubKey &ki, uint256 &txhash);
-    bool WriteRCTKeyImage(const CCmpPubKey &ki, const uint256 &txhash);
+    bool ReadRCTKeyImage(const CCmpPubKey &ki, CAnonKeyImageInfo &datA);
     bool EraseRCTKeyImage(const CCmpPubKey &ki);
+    bool EraseRCTKeyImagesAfterHeight(int height);
 
     //bool WriteRCTOutputBatch(std::vector<std::pair<int64_t, CAnonOutput> > &vao);
 };

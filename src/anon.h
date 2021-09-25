@@ -36,7 +36,7 @@ bool RemoveKeyImagesFromMempool(const uint256 &hash, const CTxIn &txin, CTxMemPo
 
 bool AllAnonOutputsUnknown(const CTransaction &tx, CValidationState &state);
 
-bool RollBackRCTIndex(int64_t nLastValidRCTOutput, int64_t nExpectErase, std::set<CCmpPubKey> &setKi);
+bool RollBackRCTIndex(int64_t nLastValidRCTOutput, int64_t nExpectErase, int chain_height, std::set<CCmpPubKey> &setKi);
 
 bool RewindToCheckpoint(int nCheckPointHeight, int &nBlocks, std::string &sError) EXCLUSIVE_LOCKS_REQUIRED(cs_main);
 
