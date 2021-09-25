@@ -1,4 +1,10 @@
 
+0.19.2.15
+==============
+
+- index: Fix issue when cs index best block is set and the index best block is not.
+
+
 0.19.2.14
 ==============
 
