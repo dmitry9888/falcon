@@ -139,6 +139,7 @@ size_t nCoinCacheUsage = 5000 * 300;
 uint64_t nPruneTarget = 0;
 int64_t nMaxTipAge = DEFAULT_MAX_TIP_AGE;
 static bool fVerifyingDB = false;
+static bool attempted_rct_index_repair = false;
 
 uint256 hashAssumeValid;
 arith_uint256 nMinimumChainWork;
@@ -2813,10 +2814,15 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
                     if (nTestExists > pindex->pprev->nAnonOutputs) {
                         // The anon index can diverge from the chain index if shutdown does not complete
                         LogPrintf("%s: Duplicate anon-output %s, index %d, above last index %d.\n", __func__, HexStr(txout->pk.begin(), txout->pk.end()), nTestExists, pindex->pprev->nAnonOutputs);
-                        LogPrintf("Attempting to repair anon index.\n");
-                        std::set<CCmpPubKey> setKi; // unused
-                        RollBackRCTIndex(pindex->pprev->nAnonOutputs, nTestExists, pindex->pprev->nHeight, setKi);
-                        return false;
+                        if (!attempted_rct_index_repair) {
+                            LogPrintf("Attempting to repair anon index.\n");
+                            std::set<CCmpPubKey> setKi; // unused
+                            RollBackRCTIndex(pindex->pprev->nAnonOutputs, nTestExists, pindex->pprev->nHeight, setKi);
+                            attempted_rct_index_repair = true;
+                            return false;
+                        } else {
+                            LogPrintf("Not attempting repair, already tried once.\n");
+                        }
                     }
 
                     return error("%s: Duplicate anon-output (db) %s, index %d.", __func__, HexStr(txout->pk.begin(), txout->pk.end()), nTestExists);

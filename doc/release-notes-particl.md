@@ -1,4 +1,9 @@
 
+0.19.2.16
+==============
+ - Limited automatic rollbackrctindex to one attempt.
+
+
 0.19.2.15
 ==============
 
