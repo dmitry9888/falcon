@@ -176,7 +176,8 @@ bool VerifyMLSAG(const CTransaction &tx, CValidationState &state)
                         HexStr(ki.begin(), ki.end()), txhashKI.ToString());
                 }
                 if (ki_data.txid == txhash) {
-                    if (state.m_time > 1632177542) {
+                    if (state.m_check_equal_rct_txid &&
+                        !(state.m_in_block && state.m_spend_height == ki_data.height)) {
                         return state.Invalid(ValidationInvalidReason::TX_CONFLICT, false, REJECT_DUPLICATE, "txn-already-in-chain");
                     }
                 } else {

@@ -138,7 +138,7 @@ bool fCheckpointsEnabled = DEFAULT_CHECKPOINTS_ENABLED;
 size_t nCoinCacheUsage = 5000 * 300;
 uint64_t nPruneTarget = 0;
 int64_t nMaxTipAge = DEFAULT_MAX_TIP_AGE;
-static bool fVerifyingDB = false;
+bool fVerifyingDB = false;
 static bool attempted_rct_index_repair = false;
 
 uint256 hashAssumeValid;
@@ -1222,7 +1222,6 @@ bool GetTransaction(const uint256& hash, CTransactionRef& txOut, const Consensus
 bool GetTransaction(const uint256 &hash, CTransactionRef &txOut, const Consensus::Params &consensusParams, CBlock &block, bool fAllowSlow, CBlockIndex* blockIndex)
 {
     CBlockIndex *pindexSlow = blockIndex;
-
     LOCK(cs_main);
 
     if (g_txindex) {
@@ -2456,7 +2455,7 @@ bool CChainState::ConnectBlock(const CBlock& block, CValidationState& state, CBl
     int64_t nTimeStart = GetTimeMicros();
 
     const Consensus::Params &consensus = Params().GetConsensus();
-    state.SetStateInfo(block.nTime, pindex->nHeight, consensus);
+    state.SetStateInfo(block.nTime, pindex->nHeight, consensus, true);
 
     // Check it again in case a previous version let a bad block in
     // NOTE: We don't currently (re-)invoke ContextualCheckBlock() or
@@ -4350,7 +4349,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, const Consensus::P
     if (!CheckBlockHeader(block, state, consensusParams, fCheckPOW))
         return false;
 
-    state.SetStateInfo(block.nTime, -1, consensusParams);
+    state.SetStateInfo(block.nTime, -1, consensusParams, true);
 
     // Check the merkle root.
     if (fCheckMerkleRoot) {
@@ -5910,6 +5909,8 @@ bool CVerifyDB::VerifyDB(const CChainParams& chainparams, CCoinsView *coinsview,
             CBlock block;
             if (!ReadBlockFromDisk(block, pindex, chainparams.GetConsensus()))
                 return error("VerifyDB(): *** ReadBlockFromDisk failed at %d, hash=%s", pindex->nHeight, pindex->GetBlockHash().ToString());
+            CValidationState state;
+            coins.ClearFlushed();
             if (!::ChainstateActive().ConnectBlock(block, state, pindex, coins, chainparams))
                 return error("VerifyDB(): *** found unconnectable block at %d, hash=%s (%s)", pindex->nHeight, pindex->GetBlockHash().ToString(), FormatStateMessage(state));
         }

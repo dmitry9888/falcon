@@ -1845,7 +1845,7 @@ bool AppInitMain(InitInterfaces& interfaces)
                         break;
                     }
 
-                    if (!CVerifyDB().VerifyDB(chainparams, &::ChainstateActive().CoinsDB(), gArgs.GetArg("-checklevel", DEFAULT_CHECKLEVEL),
+                    if (!fParticlMode && !CVerifyDB().VerifyDB(chainparams, &::ChainstateActive().CoinsDB(), gArgs.GetArg("-checklevel", DEFAULT_CHECKLEVEL),
                                   gArgs.GetArg("-checkblocks", DEFAULT_CHECKBLOCKS))) {
                         strLoadError = _("Corrupted block database detected").translated;
                         break;
@@ -1909,6 +1909,18 @@ bool AppInitMain(InitInterfaces& interfaces)
             }
         }
         g_txindex->Start();
+    }
+
+    if (fParticlMode) {
+        LOCK(cs_main);
+        bool is_coinsview_empty = fReindex || fReindexChainState ||
+            ::ChainstateActive().CoinsTip().GetBestBlock().IsNull();
+        if (!is_coinsview_empty) {
+            if (!CVerifyDB().VerifyDB(chainparams, &::ChainstateActive().CoinsDB(), gArgs.GetArg("-checklevel", DEFAULT_CHECKLEVEL),
+                          gArgs.GetArg("-checkblocks", DEFAULT_CHECKBLOCKS))) {
+                return InitError( _("Corrupted block database detected").translated);
+            }
+        }
     }
 
     for (const auto& filter_type : g_enabled_filter_types) {
