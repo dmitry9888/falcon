@@ -2,6 +2,8 @@
 0.19.2.16
 ==============
  - Limited automatic rollbackrctindex to one attempt.
+ - wallet: listunspentanon default minimum output value set to 1sat.
+   - Excludes 0 value change outputs.
 
 
 0.19.2.15
