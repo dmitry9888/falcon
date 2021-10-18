@@ -496,7 +496,7 @@ public:
         pchMessageStart[1] = 0x85;
         pchMessageStart[2] = 0xb6;
         pchMessageStart[3] = 0xba;
-        nDefaultPort = 51738;
+        nDefaultPort = 51838;
         nBIP44ID = 0x8000002C;
 
         nModifierInterval = 10 * 60;    // 10 minutes
@@ -677,7 +677,7 @@ public:
         pchMessageStart[1] = 0x9a;
         pchMessageStart[2] = 0x9c;
         pchMessageStart[3] = 0xae;
-        nDefaultPort = 51938;
+        nDefaultPort = 52038;
         nBIP44ID = 0x80000001;
 
         nModifierInterval = 10 * 60;    // 10 minutes
@@ -823,7 +823,7 @@ public:
         pchMessageStart[1] = 0x89;
         pchMessageStart[2] = 0x83;
         pchMessageStart[3] = 0x8d;
-        nDefaultPort = 11938;
+        nDefaultPort = 12038;
         nBIP44ID = 0x80000001;
 
 
