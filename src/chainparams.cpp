@@ -440,7 +440,7 @@ public:
     CMainParams() {
         strNetworkID = "main";
 
-        consensus.nSubsidyHalvingInterval = 210000;
+        consensus.nSubsidyHalvingInterval = 125000000;
         consensus.BIP34Height = 0;
         consensus.BIP65Height = 0;
         consensus.BIP66Height = 0;
@@ -492,10 +492,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xfb;
-        pchMessageStart[1] = 0xf2;
-        pchMessageStart[2] = 0xef;
-        pchMessageStart[3] = 0xb4;
+        pchMessageStart[0] = 0x80;
+        pchMessageStart[1] = 0x85;
+        pchMessageStart[2] = 0xb6;
+        pchMessageStart[3] = 0xba;
         nDefaultPort = 51738;
         nBIP44ID = 0x8000002C;
 
@@ -523,10 +523,10 @@ public:
         // This is fine at runtime as we'll fall back to using them as a oneshot if they don't support the
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
-        vSeeds.emplace_back("mainnet-seed.falcon.io");
+        /*vSeeds.emplace_back("mainnet-seed.falcon.io");
         vSeeds.emplace_back("dnsseed-mainnet.falcon.io");
         vSeeds.emplace_back("mainnet.falcon.io");
-        vSeeds.emplace_back("dnsseed.tecnovert.net");
+        vSeeds.emplace_back("dnsseed.tecnovert.net");*/
 
 
         vTreasuryFundSettings.emplace_back(0,
@@ -631,7 +631,7 @@ class CTestNetParams : public CChainParams {
 public:
     CTestNetParams() {
         strNetworkID = "test";
-        consensus.nSubsidyHalvingInterval = 210000;
+        consensus.nSubsidyHalvingInterval = 125000000;
         consensus.BIP34Height = 0;
         consensus.BIP65Height = 0;
         consensus.BIP66Height = 0;
@@ -673,10 +673,10 @@ public:
 
         consensus.nMinRCTOutputDepth = 12;
 
-        pchMessageStart[0] = 0x08;
-        pchMessageStart[1] = 0x11;
-        pchMessageStart[2] = 0x05;
-        pchMessageStart[3] = 0x0b;
+        pchMessageStart[0] = 0x0b;
+        pchMessageStart[1] = 0x9a;
+        pchMessageStart[2] = 0x9c;
+        pchMessageStart[3] = 0xae;
         nDefaultPort = 51938;
         nBIP44ID = 0x80000001;
 
@@ -819,10 +819,10 @@ public:
 
         consensus.nMinRCTOutputDepth = 2;
 
-        pchMessageStart[0] = 0x09;
-        pchMessageStart[1] = 0x12;
-        pchMessageStart[2] = 0x06;
-        pchMessageStart[3] = 0x0c;
+        pchMessageStart[0] = 0xb0;
+        pchMessageStart[1] = 0x89;
+        pchMessageStart[2] = 0x83;
+        pchMessageStart[3] = 0x8d;
         nDefaultPort = 11938;
         nBIP44ID = 0x80000001;
 
