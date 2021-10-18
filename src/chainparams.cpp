@@ -201,25 +201,15 @@ const std::pair<const char*, CAmount> genesisOutputs[] = {
     std::make_pair("711b5e1fd0b0f4cdf92cb53b00061ef742dda4fb",120499999),
     std::make_pair("20c17c53337d80408e0b488b5af7781320a0a311",18074999),
     std::make_pair("aba8c6f8dbcf4ecfb598e3c08e12321d884bfe0b",92637054909),
-    std::make_pair("1f3277a84a18f822171d720f0132f698bcc370ca",3100771006662),
-    std::make_pair("8fff14bea695ffa6c8754a3e7d518f8c53c3979a",465115650998),
-    std::make_pair("e54967b4067d91a777587c9f54ee36dd9f1947c4",669097504996),
-    std::make_pair("7744d2ac08f2e1d108b215935215a4e66d0262d2",802917005996),
-    std::make_pair("a55a17e86246ea21cb883c12c709476a09b4885c",267639001997),
 };
 const size_t nGenesisOutputs = sizeof(genesisOutputs) / sizeof(genesisOutputs[0]);
 
 const std::pair<const char*, CAmount> genesisOutputsTestnet[] = {
-    std::make_pair("46a064688dc7beb5f70ef83569a0f15c7abf4f28",7017084118),
-    std::make_pair("9c97b561ac186bd3758bf690036296d36b1fd019",221897417980),
-    std::make_pair("118a92e28242a73244fb03c96b7e1429c06f979f",120499999),
-    std::make_pair("cae4bf990ce39624e2f77c140c543d4b15428ce7",18074999),
-    std::make_pair("9d6b7b5874afc100eb82a4883441a73b99d9c306",92637054909),
-    std::make_pair("f989e2deedb1f09ed10310fc0d7da7ebfb573326",3100771006662),
-    std::make_pair("4688d6701fb4ae2893d3ec806e6af966faf67545",465115650998),
-    std::make_pair("40e07b038941fb2616a54a498f763abae6d4f280",669097504996),
-    std::make_pair("c43f7c57448805a068a440cc51f67379ca946264",802917005996),
-    std::make_pair("98b7269dbf0c2e3344fb41cd60e75db16d6743a6",267639001997),
+    std::make_pair("70d94d581a54e0088c8e3362b086620c98b7934d",16446744000 * COIN),   // fQPzYDbdidiXHVjidMR38Umee14NJsVuWY
+    std::make_pair("dc3fa7f16a01880ae358f55df75fb4de09dbf646",16446744000 * COIN),   // faBsTRBC8EtEjhfGoNsXXmcn7zsmu8mMke
+    std::make_pair("fcd037db173ee906ef45a288dba0636d0bfbc3cb",16446744000 * COIN),   // fdA4FuoK8jK15L4xU2xnm7Eoq8iWhZpFVU
+    std::make_pair("ad6f2550ff921cca192ffced1e7b6a1312acbd2c",16446744000 * COIN),   // fVvLb3evqpH684WVBFYeBu6jzNiEFBpZVs
+    std::make_pair("8f30a9b7126072f6bcfa6cc9b4622a25bf4dd6e3",16446744000 * COIN),   // fTARTuhTDaXxgLKd1YEkcBZ7kJGfShidVZ
 };
 const size_t nGenesisOutputsTestnet = sizeof(genesisOutputsTestnet) / sizeof(genesisOutputsTestnet[0]);
 
@@ -404,7 +394,7 @@ public:
         m_assumed_blockchain_size = 1;
         m_assumed_chain_state_size = 1;
 
-        genesis = CreateGenesisBlockMainNet(1634551200, 31429, 0x1f00ffff); // 2017-07-17 13:00:00
+        genesis = CreateGenesisBlockMainNet(1634551200, 31429, 0x1f00ffff); // 2021-10-18 13:00:00
         consensus.hashGenesisBlock = genesis.GetHash();
 
         /*assert(consensus.hashGenesisBlock == uint256S("0x0000ee0784c195317ac95623e22fddb8c7b8825dc3998e0bb924d66866eccf4c"));
@@ -534,7 +524,7 @@ public:
         consensus.smsg_min_difficulty = 0x1effffff;
         consensus.smsg_difficulty_max_delta = 0xffff;
 
-        consensus.powLimit = uint256S("000000000005ffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.powLimit = uint256S("0000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 10 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -547,7 +537,7 @@ public:
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
-        consensus.defaultAssumeValid = uint256S("0x0000594ada5310b367443ee0afd4fa3d0bbd5850ea4e33cdc7d6a904a7ec7c90"); // 0
+        consensus.defaultAssumeValid = uint256S("0x0000f785d5cff2b9f036aff64b77f5a20f003b96515f45b01228fb9eb653adcb"); // 0
 
         consensus.nMinRCTOutputDepth = 12;
 
@@ -571,12 +561,12 @@ public:
         m_assumed_blockchain_size = 1;
         m_assumed_chain_state_size = 1;
 
-        genesis = CreateGenesisBlockTestNet(1634551200, 5924, 0x1f00ffff);
+        genesis = CreateGenesisBlockTestNet(1634551200, 22432, 0x1f00ffff);
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0x0000594ada5310b367443ee0afd4fa3d0bbd5850ea4e33cdc7d6a904a7ec7c90"));
-        assert(genesis.hashMerkleRoot == uint256S("0x2c7f4d88345994e3849502061f6303d9666172e4dff3641d3472a72908eec002"));
-        assert(genesis.hashWitnessMerkleRoot == uint256S("0xf9e2235c9531d5a19263ece36e82c4d5b71910d73cd0b677b81c5e50d17b6cda"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000f785d5cff2b9f036aff64b77f5a20f003b96515f45b01228fb9eb653adcb"));
+        assert(genesis.hashMerkleRoot == uint256S("0xad48157fc7a3f0dac2f9cca4d90fc3baad8e3b4eff25e1cdb3d19dcc5d812505"));
+        assert(genesis.hashWitnessMerkleRoot == uint256S("0xa10c93fa5b2bc40be0308b87bb2b1a2ccc1fcff786be6380fd65b21adce192b6"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -622,7 +612,7 @@ public:
 
         checkpointData = {
             {
-                {0, uint256S("0x0000594ada5310b367443ee0afd4fa3d0bbd5850ea4e33cdc7d6a904a7ec7c90")},
+                {0, uint256S("0x0000f785d5cff2b9f036aff64b77f5a20f003b96515f45b01228fb9eb653adcb")},
             }
         };
 
