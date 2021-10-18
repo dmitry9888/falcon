@@ -415,7 +415,7 @@ void CTxMemPool::addAddressIndex(const CTxMemPoolEntry &entry, const CCoinsViewC
     LOCK(cs);
     const CTransaction& tx = entry.GetTx();
 
-    if (!tx.IsParticlVersion())
+    if (!tx.IsFalconVersion())
         return;
 
     std::vector<CMempoolAddressDeltaKey> inserted;
@@ -514,7 +514,7 @@ void CTxMemPool::addSpentIndex(const CTxMemPoolEntry &entry, const CCoinsViewCac
 
     const CTransaction& tx = entry.GetTx();
 
-    if (!tx.IsParticlVersion())
+    if (!tx.IsFalconVersion())
         return;
 
     std::vector<CSpentIndexKey> inserted;
@@ -861,7 +861,7 @@ void CTxMemPool::check(const CCoinsViewCache *pcoins) const
             if (it2 != mapTx.end()) {
                 const CTransaction& tx2 = it2->GetTx();
 
-                if (fParticlMode)
+                if (fFalconMode)
                     assert(tx2.vpout.size() > txin.prevout.n && tx2.vpout[txin.prevout.n] != nullptr
                         && (tx2.vpout[txin.prevout.n]->IsStandardOutput() || tx2.vpout[txin.prevout.n]->IsType(OUTPUT_CT)));
                 else
@@ -1149,7 +1149,7 @@ bool CCoinsViewMemPool::GetCoin(const COutPoint &outpoint, Coin &coin) const {
     CTransactionRef ptx = mempool.get(outpoint.hash);
     if (ptx) {
 
-        if (ptx->IsParticlVersion())
+        if (ptx->IsFalconVersion())
         {
             if (outpoint.n < ptx->vpout.size())
             {

@@ -167,7 +167,7 @@
 <context>
     <name>Intro</name>
     <message>
-        <source>Particl</source>
+        <source>Falcon</source>
         <translation>Биткоин</translation>
     </message>
     <message>

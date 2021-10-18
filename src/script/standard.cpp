@@ -457,7 +457,7 @@ bool IsValidDestination(const CTxDestination& dest) {
     return dest.which() != 0;
 }
 
-namespace particl {
+namespace falcon {
 bool ExtractStakingKeyID(const CScript &scriptPubKey, CKeyID &keyID)
 {
     if (scriptPubKey.IsPayToPublicKeyHash()) {
@@ -477,4 +477,4 @@ bool ExtractStakingKeyID(const CScript &scriptPubKey, CKeyID &keyID)
     return false;
 }
 
-} // namespace particl
+} // namespace falcon

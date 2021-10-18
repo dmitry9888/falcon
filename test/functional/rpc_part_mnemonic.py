@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-# Copyright (c) 2017 The Particl Core developers
+# Copyright (c) 2017 The Falcon Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-from test_framework.test_particl import ParticlTestFramework
+from test_framework.test_falcon import FalconTestFramework
 from test_framework.authproxy import JSONRPCException
 
 
-class MnemonicTest(ParticlTestFramework):
+class MnemonicTest(FalconTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 1

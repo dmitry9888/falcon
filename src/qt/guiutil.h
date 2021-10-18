@@ -266,7 +266,7 @@ namespace GUIUtil
      */
     int TextWidth(const QFontMetrics& fm, const QString& text);
 
-namespace particl
+namespace falcon
 {
     QString escapeQString(const QString& si);
 }

@@ -57,7 +57,7 @@ SetupDummyInputs(FillableSigningProvider& keystoreRet, CCoinsViewCache& coinsRet
 // (https://github.com/bitcoin/bitcoin/issues/7883#issuecomment-224807484)
 static void CCoinsCaching(benchmark::State& state)
 {
-    fParticlMode = false;
+    fFalconMode = false;
 
     FillableSigningProvider keystore;
     CCoinsView coinsDummy;

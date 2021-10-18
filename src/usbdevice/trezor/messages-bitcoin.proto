@@ -205,7 +205,7 @@ message TxAck {
         optional uint32 version_group_id = 12;  // only for Zcash, nVersionGroupId
         optional uint32 timestamp = 13;         // only for Peercoin
         optional uint32 branch_id = 14;         // only for Zcash, BRANCH_ID
-        optional bool particl_tx = 15;          // only for Particl
+        optional bool falcon_tx = 15;          // only for Falcon
         /**
         * Structure representing transaction input
         */
@@ -228,8 +228,8 @@ message TxAck {
             optional bytes orig_hash = 16;                                      // tx_hash of the original transaction where this input was spent (used when creating a replacement transaction)
             optional uint32 orig_index = 17;                                    // index of the input in the original transaction (used when creating a replacement transaction)
             optional DecredStakingSpendType decred_staking_spend = 18;          // if not None this holds the type of stake spend: revocation or stake generation
-            optional bytes particl_shared_secret = 19;                          // only for Particl
-            optional bytes particl_extra = 20;                                  // only for Particl
+            optional bytes falcon_shared_secret = 19;                          // only for Falcon
+            optional bytes falcon_extra = 20;                                  // only for Falcon
         }
         /**
         * Structure representing compiled transaction output
@@ -238,7 +238,7 @@ message TxAck {
             required uint64 amount = 1;
             required bytes script_pubkey = 2;
             optional uint32 decred_script_version = 3;
-            optional uint32 particl_output_type = 4;        // only for Particl
+            optional uint32 falcon_output_type = 4;        // only for Falcon
         }
         /**
         * Structure representing transaction output
@@ -262,7 +262,7 @@ message TxAck {
                 PAYTOOPRETURN = 3;      // op_return
                 PAYTOWITNESS = 4;       // only for change output
                 PAYTOP2SHWITNESS = 5;   // only for change output
-                PAYTOPARTICLDATA = 6;   // only for Particl
+                PAYTOFALCONDATA = 6;   // only for Falcon
             }
         }
     }

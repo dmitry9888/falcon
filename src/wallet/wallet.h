@@ -635,7 +635,7 @@ public:
     // Get the marginal bytes if spending the specified output from this transaction
     int GetSpendSize(unsigned int out, bool use_max_sig = false) const
     {
-        if (tx->IsParticlVersion()) {
+        if (tx->IsFalconVersion()) {
             assert(tx->vpout[out]->IsStandardOutput());
             CTxOut txout;
             txout.nValue = tx->vpout[out]->GetValue();
@@ -982,7 +982,7 @@ public:
           m_location(location),
           database(std::move(database))
     {
-        if (!fParticlMode) {
+        if (!fFalconMode) {
             m_min_fee = CFeeRate(DEFAULT_TRANSACTION_MINFEE_BTC);
             m_default_max_tx_fee = DEFAULT_TRANSACTION_MAXFEE_BTC;
         }
@@ -1145,7 +1145,7 @@ public:
     int64_t IncOrderPosNext(WalletBatch *batch = nullptr) EXCLUSIVE_LOCKS_REQUIRED(cs_wallet);
     DBErrors ReorderTransactions();
 
-    //! For ParticlWallet, clear cached balances from wallet called at new block and adding new transaction
+    //! For FalconWallet, clear cached balances from wallet called at new block and adding new transaction
     virtual void ClearCachedBalances() {};
     void MarkDirty();
     bool AddToWallet(const CWalletTx& wtxIn, bool fFlushOnClose=true);

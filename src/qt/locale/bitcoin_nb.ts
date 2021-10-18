@@ -66,12 +66,12 @@
         <translation>Mottager adresser</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Dette er dine Particl adresser for å sende  å sende betalinger. Husk å sjekke beløp og mottager adresser før du sender mynter.</translation>
+        <source>These are your Falcon addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Dette er dine Falcon adresser for å sende  å sende betalinger. Husk å sjekke beløp og mottager adresser før du sender mynter.</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
-        <translation>Dette er dine Particl adresse for å betalinger. Det er anbefalt å bruke en my mottager adresse for hver transakjon.</translation>
+        <source>These are your Falcon addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
+        <translation>Dette er dine Falcon adresse for å betalinger. Det er anbefalt å bruke en my mottager adresse for hver transakjon.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -168,8 +168,8 @@
         <translation>Bekreft kryptering av lommeboken</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PARTICL&lt;/b&gt;!</source>
-        <translation>Advarsel: Dersom du krypterer lommeboken og mister passordsetningen vil du &lt;b&gt;MISTE ALLE DINE PARTICL&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FALCON&lt;/b&gt;!</source>
+        <translation>Advarsel: Dersom du krypterer lommeboken og mister passordsetningen vil du &lt;b&gt;MISTE ALLE DINE FALCON&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -188,8 +188,8 @@
         <translation>Svriv inn den gamle passfrasen og den nye passordfrasen for lommeboken.</translation>
     </message>
     <message>
-        <source>Remember that encrypting your wallet cannot fully protect your particl from being stolen by malware infecting your computer.</source>
-        <translation>Husk at å kryptere lommeboken ikke vil beskytte dine particl fullstendig fra å bli stjålet av skadevare som infiserer datamaskinen din.</translation>
+        <source>Remember that encrypting your wallet cannot fully protect your falcon from being stolen by malware infecting your computer.</source>
+        <translation>Husk at å kryptere lommeboken ikke vil beskytte dine falcon fullstendig fra å bli stjålet av skadevare som infiserer datamaskinen din.</translation>
     </message>
     <message>
         <source>Wallet to be encrypted</source>
@@ -362,8 +362,8 @@
         <translation>Proxy er &lt;b&gt;slått på&lt;/b&gt;: %1</translation>
     </message>
     <message>
-        <source>Send coins to a Particl address</source>
-        <translation>Send mynter til en Particl adresse</translation>
+        <source>Send coins to a Falcon address</source>
+        <translation>Send mynter til en Falcon adresse</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -406,12 +406,12 @@
         <translation>Krypter de private nøklene som tilhører lommeboken din</translation>
     </message>
     <message>
-        <source>Sign messages with your Particl addresses to prove you own them</source>
-        <translation>Signer meldingene med Particl adresse for å bevise at diu eier dem</translation>
+        <source>Sign messages with your Falcon addresses to prove you own them</source>
+        <translation>Signer meldingene med Falcon adresse for å bevise at diu eier dem</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Particl addresses</source>
-        <translation>Verifiser meldinger for å sikre at de ble signert med en angitt Particl adresse</translation>
+        <source>Verify messages to ensure they were signed with specified Falcon addresses</source>
+        <translation>Verifiser meldinger for å sikre at de ble signert med en angitt Falcon adresse</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -430,8 +430,8 @@
         <translation>Hjelpelinje for fliker</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and particl: URIs)</source>
-        <translation>Be om betalinger (genererer QR-koder og particl-URIer)</translation>
+        <source>Request payments (generates QR codes and falcon: URIs)</source>
+        <translation>Be om betalinger (genererer QR-koder og falcon-URIer)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -442,16 +442,16 @@
         <translation>Vis lista over brukte mottakeradresser og merkelapper</translation>
     </message>
     <message>
-        <source>Open a particl: URI or payment request</source>
-        <translation>Åpne en particl: URI eller betalingsforespørsel</translation>
+        <source>Open a falcon: URI or payment request</source>
+        <translation>Åpne en falcon: URI eller betalingsforespørsel</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Kommandolinjealternativer</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Particl network</source>
-        <translation><numerusform>%n aktiv tilkobling til Particl nettverket</numerusform><numerusform>%n aktive tilkoblinger til Particl nettverket</numerusform></translation>
+        <source>%n active connection(s) to Falcon network</source>
+        <translation><numerusform>%n aktiv tilkobling til Falcon nettverket</numerusform><numerusform>%n aktive tilkoblinger til Falcon nettverket</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -518,8 +518,8 @@
         <translation>Lukk lommebok</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Particl command-line options</source>
-        <translation>Vis %1-hjelpemeldingen for å få en liste over mulige Particl-kommandolinjealternativer</translation>
+        <source>Show the %1 help message to get a list with possible Falcon command-line options</source>
+        <translation>Vis %1-hjelpemeldingen for å få en liste over mulige Falcon-kommandolinjealternativer</translation>
     </message>
     <message>
         <source>default wallet</source>
@@ -630,8 +630,8 @@
         <translation>Lommeboken er &lt;b&gt;kryptert&lt;/b&gt; og for tiden &lt;b&gt;låst&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Particl can no longer continue safely and will quit.</source>
-        <translation>En fatal feil har inntruffet. Particl kan ikke lenger trygt fortsette, og må derfor avslutte.</translation>
+        <source>A fatal error occurred. Falcon can no longer continue safely and will quit.</source>
+        <translation>En fatal feil har inntruffet. Falcon kan ikke lenger trygt fortsette, og må derfor avslutte.</translation>
     </message>
 </context>
 <context>
@@ -874,8 +874,8 @@
         <translation>Rediger utsendingsadresse</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Particl address.</source>
-        <translation>Den angitte adressen "%1" er ikke en gyldig Particl-adresse.</translation>
+        <source>The entered address "%1" is not a valid Falcon address.</source>
+        <translation>Den angitte adressen "%1" er ikke en gyldig Falcon-adresse.</translation>
     </message>
     <message>
         <source>Address "%1" already exists as a receiving address with label "%2" and so cannot be added as a sending address.</source>
@@ -975,8 +975,8 @@
         <translation>Bruk en egendefinert datamappe:</translation>
     </message>
     <message>
-        <source>Particl</source>
-        <translation>Particl</translation>
+        <source>Falcon</source>
+        <translation>Falcon</translation>
     </message>
     <message>
         <source>Discard blocks after verification, except most recent %1 GB (prune)</source>
@@ -991,8 +991,8 @@
         <translation>Omtrent %1GB data vil bli lagret i denne mappen.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the Particl block chain.</source>
-        <translation>%1 vil laste ned og lagre en kopi av Particl blokkjeden.</translation>
+        <source>%1 will download and store a copy of the Falcon block chain.</source>
+        <translation>%1 vil laste ned og lagre en kopi av Falcon blokkjeden.</translation>
     </message>
     <message>
         <source>The wallet will also be stored in this directory.</source>
@@ -1022,12 +1022,12 @@
         <translation>Skjema</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the particl network, as detailed below.</source>
-        <translation>Det kan hende nylige transaksjoner ikke vises enda, og at lommeboksaldoen dermed blir uriktig. Denne informasjonen vil rette seg når synkronisering av lommeboka mot particl-nettverket er fullført, som anvist nedenfor.</translation>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the falcon network, as detailed below.</source>
+        <translation>Det kan hende nylige transaksjoner ikke vises enda, og at lommeboksaldoen dermed blir uriktig. Denne informasjonen vil rette seg når synkronisering av lommeboka mot falcon-nettverket er fullført, som anvist nedenfor.</translation>
     </message>
     <message>
-        <source>Attempting to spend particl that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>Forsøk på å bruke particl som er påvirket av transaksjoner som ikke er vist enda godtas ikke av nettverket.</translation>
+        <source>Attempting to spend falcon that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>Forsøk på å bruke falcon som er påvirket av transaksjoner som ikke er vist enda godtas ikke av nettverket.</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1227,8 +1227,8 @@
         <translation>&amp;Bruk ubekreftet veksel</translation>
     </message>
     <message>
-        <source>Automatically open the Particl client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Åpne automatisk Particl klientporten på ruteren. Dette virker kun om din ruter støtter UPnP og dette er påslått.</translation>
+        <source>Automatically open the Falcon client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Åpne automatisk Falcon klientporten på ruteren. Dette virker kun om din ruter støtter UPnP og dette er påslått.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1243,8 +1243,8 @@
         <translation>Tillatt innkommend&amp;e tilkoblinger</translation>
     </message>
     <message>
-        <source>Connect to the Particl network through a SOCKS5 proxy.</source>
-        <translation>Koble til Particl-nettverket gjennom en SOCKS5 proxy.</translation>
+        <source>Connect to the Falcon network through a SOCKS5 proxy.</source>
+        <translation>Koble til Falcon-nettverket gjennom en SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1279,8 +1279,8 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the Particl network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Koble til Particl-nettverket gjennom en separat SOCKS5 mellomtjener for Tor skjulte tjenester.</translation>
+        <source>Connect to the Falcon network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Koble til Falcon-nettverket gjennom en separat SOCKS5 mellomtjener for Tor skjulte tjenester.</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -1316,7 +1316,7 @@
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
-        <translation>Velg standard delt enhet for visning i grensesnittet og for sending av particl.</translation>
+        <translation>Velg standard delt enhet for visning i grensesnittet og for sending av falcon.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1390,8 +1390,8 @@
         <translation>Skjema</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Particl network after a connection is established, but this process has not completed yet.</source>
-        <translation>Informasjonen som vises kan være foreldet. Din lommebok synkroniseres automatisk med Particl-nettverket etter at tilkobling er opprettet, men denne prosessen er ikke ferdig enda.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Falcon network after a connection is established, but this process has not completed yet.</source>
+        <translation>Informasjonen som vises kan være foreldet. Din lommebok synkroniseres automatisk med Falcon-nettverket etter at tilkobling er opprettet, men denne prosessen er ikke ferdig enda.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1465,16 +1465,16 @@
         <translation>Feil ved betalingsforespørsel</translation>
     </message>
     <message>
-        <source>Cannot start particl: click-to-pay handler</source>
-        <translation>Kan ikke starte particl: Klikk-og-betal håndterer</translation>
+        <source>Cannot start falcon: click-to-pay handler</source>
+        <translation>Kan ikke starte falcon: Klikk-og-betal håndterer</translation>
     </message>
     <message>
         <source>URI handling</source>
         <translation>URI-håndtering</translation>
     </message>
     <message>
-        <source>'particl://' is not a valid URI. Use 'particl:' instead.</source>
-        <translation>'particl: //' er ikke en gyldig URI. Bruk 'particl:' i stedet.</translation>
+        <source>'falcon://' is not a valid URI. Use 'falcon:' instead.</source>
+        <translation>'falcon: //' er ikke en gyldig URI. Bruk 'falcon:' i stedet.</translation>
     </message>
     <message>
         <source>You are using a BIP70 URL which will be unsupported in the future.</source>
@@ -1501,8 +1501,8 @@
         <translation>Ugyldig betalingsadresse %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Particl address or malformed URI parameters.</source>
-        <translation>URI kan ikke fortolkes! Dette kan være forårsaket av en ugyldig particl-adresse eller feilformede URI-parametre.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Falcon address or malformed URI parameters.</source>
+        <translation>URI kan ikke fortolkes! Dette kan være forårsaket av en ugyldig falcon-adresse eller feilformede URI-parametre.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1603,8 +1603,8 @@
         <translation>Beløp</translation>
     </message>
     <message>
-        <source>Enter a Particl address (e.g. %1)</source>
-        <translation>Oppgi en Particl-adresse (f.eks. %1)</translation>
+        <source>Enter a Falcon address (e.g. %1)</source>
+        <translation>Oppgi en Falcon-adresse (f.eks. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2052,8 +2052,8 @@
         <translation>&amp;Melding:</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Particl network.</source>
-        <translation>En valgfri melding å tilknytte betalingsetterspørringen, som vil bli vist når forespørselen er åpnet. Meldingen vil ikke bli sendt med betalingen over Particl-nettverket.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Falcon network.</source>
+        <translation>En valgfri melding å tilknytte betalingsetterspørringen, som vil bli vist når forespørselen er åpnet. Meldingen vil ikke bli sendt med betalingen over Falcon-nettverket.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -2210,7 +2210,7 @@
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>Send Particl</translation>
+        <translation>Send Falcon</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -2326,8 +2326,8 @@ Merk: Siden avgiften er beregnet per byte-basis, vil et gebyr på "100 satoshis 
         <translation>Støv:</translation>
     </message>
     <message>
-        <source>When there is less transaction volume than space in the blocks, miners as well as relaying nodes may enforce a minimum fee. Paying only this minimum fee is just fine, but be aware that this can result in a never confirming transaction once there is more demand for particl transactions than the network can process.</source>
-        <translation>Når det er mindre transaksjonsvolum enn plass i blokkene, kan gruvearbeidere så vel som videresende noder håndheve et minimumsgebyr. Å betale bare denne minsteavgiften er helt greit, men vær klar over at dette kan resultere i en aldri bekreftende transaksjon når det er større etterspørsel etter particl-transaksjoner enn nettverket kan behandle.</translation>
+        <source>When there is less transaction volume than space in the blocks, miners as well as relaying nodes may enforce a minimum fee. Paying only this minimum fee is just fine, but be aware that this can result in a never confirming transaction once there is more demand for falcon transactions than the network can process.</source>
+        <translation>Når det er mindre transaksjonsvolum enn plass i blokkene, kan gruvearbeidere så vel som videresende noder håndheve et minimumsgebyr. Å betale bare denne minsteavgiften er helt greit, men vær klar over at dette kan resultere i en aldri bekreftende transaksjon når det er større etterspørsel etter falcon-transaksjoner enn nettverket kan behandle.</translation>
     </message>
     <message>
         <source>A too low fee might result in a never confirming transaction (read the tooltip)</source>
@@ -2474,8 +2474,8 @@ Merk: Siden avgiften er beregnet per byte-basis, vil et gebyr på "100 satoshis 
         <translation><numerusform>Antatt bekreftelsesbegynnelse innen %n blokk.</numerusform><numerusform>Antatt bekreftelsesbegynnelse innen %n blokker.</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Invalid Particl address</source>
-        <translation>Advarsel Ugyldig particl-adresse</translation>
+        <source>Warning: Invalid Falcon address</source>
+        <translation>Advarsel Ugyldig falcon-adresse</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2517,8 +2517,8 @@ Merk: Siden avgiften er beregnet per byte-basis, vil et gebyr på "100 satoshis 
         <translation>Dette er en normal betaling.</translation>
     </message>
     <message>
-        <source>The Particl address to send the payment to</source>
-        <translation>Particl-adressen betalingen skal sendes til</translation>
+        <source>The Falcon address to send the payment to</source>
+        <translation>Falcon-adressen betalingen skal sendes til</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2537,8 +2537,8 @@ Merk: Siden avgiften er beregnet per byte-basis, vil et gebyr på "100 satoshis 
         <translation>Fjern denne oppføringen</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less particl than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>Gebyret vil bli trukket fra beløpet som blir sendt. Mottakeren vil motta mindre particl enn det du skriver inn i beløpsfeltet. Hvis det er valgt flere mottakere, deles gebyret likt.</translation>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less falcon than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>Gebyret vil bli trukket fra beløpet som blir sendt. Mottakeren vil motta mindre falcon enn det du skriver inn i beløpsfeltet. Hvis det er valgt flere mottakere, deles gebyret likt.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2565,8 +2565,8 @@ Merk: Siden avgiften er beregnet per byte-basis, vil et gebyr på "100 satoshis 
         <translation>Skriv inn en merkelapp for denne adressen for å legge den til listen av brukte adresser</translation>
     </message>
     <message>
-        <source>A message that was attached to the particl: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Particl network.</source>
-        <translation>En melding som var tilknyttet particlen: URI vil bli lagret med transaksjonen for din oversikt. Denne meldingen vil ikke bli sendt over Particl-nettverket.</translation>
+        <source>A message that was attached to the falcon: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Falcon network.</source>
+        <translation>En melding som var tilknyttet falconen: URI vil bli lagret med transaksjonen for din oversikt. Denne meldingen vil ikke bli sendt over Falcon-nettverket.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2610,12 +2610,12 @@ Merk: Siden avgiften er beregnet per byte-basis, vil et gebyr på "100 satoshis 
         <translation>&amp;Signer Melding</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive particl sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Du kan signere meldinger/avtaler med adresser for å bevise at du kan motta particl sendt til dem. Vær forsiktig med å signere noe vagt eller tilfeldig, siden phishing-angrep kan prøve å lure deg til å signere din identitet over til dem. Bare signer fullt detaljerte utsagn som du er enig i.</translation>
+        <source>You can sign messages/agreements with your addresses to prove you can receive falcon sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation>Du kan signere meldinger/avtaler med adresser for å bevise at du kan motta falcon sendt til dem. Vær forsiktig med å signere noe vagt eller tilfeldig, siden phishing-angrep kan prøve å lure deg til å signere din identitet over til dem. Bare signer fullt detaljerte utsagn som du er enig i.</translation>
     </message>
     <message>
-        <source>The Particl address to sign the message with</source>
-        <translation>Particl-adressen meldingen skal signeres med</translation>
+        <source>The Falcon address to sign the message with</source>
+        <translation>Falcon-adressen meldingen skal signeres med</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2646,8 +2646,8 @@ Merk: Siden avgiften er beregnet per byte-basis, vil et gebyr på "100 satoshis 
         <translation>Kopier valgt signatur til utklippstavle</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Particl address</source>
-        <translation>Signer meldingen for å bevise at du eier denne Particl-adressen</translation>
+        <source>Sign the message to prove you own this Falcon address</source>
+        <translation>Signer meldingen for å bevise at du eier denne Falcon-adressen</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2670,12 +2670,12 @@ Merk: Siden avgiften er beregnet per byte-basis, vil et gebyr på "100 satoshis 
         <translation>Skriv inn mottakerens adresse, melding (forsikre deg om at du kopier linjeskift, mellomrom, faner osv. nøyaktig) og underskrift nedenfor for å bekrefte meldingen. Vær forsiktig så du ikke leser mer ut av signaturen enn hva som er i den signerte meldingen i seg selv, for å unngå å bli lurt av et man-in-the-middle-angrep. Merk at dette bare beviser at den som signerer kan motta med adressen, dette beviser ikke hvem som har sendt transaksjoner!</translation>
     </message>
     <message>
-        <source>The Particl address the message was signed with</source>
-        <translation>Particl-adressen meldingen ble signert med</translation>
+        <source>The Falcon address the message was signed with</source>
+        <translation>Falcon-adressen meldingen ble signert med</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Particl address</source>
-        <translation>Verifiser meldingen for å være sikker på at den ble signert av den angitte Particl-adressen</translation>
+        <source>Verify the message to ensure it was signed with the specified Falcon address</source>
+        <translation>Verifiser meldingen for å være sikker på at den ble signert av den angitte Falcon-adressen</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2889,7 +2889,7 @@ Merk: Siden avgiften er beregnet per byte-basis, vil et gebyr på "100 satoshis 
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Genererte particl må modne %1 blokker før de kan brukes. Da du genererte denne blokken ble den kringkastet på nettverket for å bli lagt til i kjeden av blokker. Hvis den ikke kommer med i kjeden vil den endre seg til "ikke akseptert", og vil ikke kunne brukes. Dette vil noen ganger skje hvis en annen node genererer en blokk innen noen sekunder av din.</translation>
+        <translation>Genererte falcon må modne %1 blokker før de kan brukes. Da du genererte denne blokken ble den kringkastet på nettverket for å bli lagt til i kjeden av blokker. Hvis den ikke kommer med i kjeden vil den endre seg til "ikke akseptert", og vil ikke kunne brukes. Dette vil noen ganger skje hvis en annen node genererer en blokk innen noen sekunder av din.</translation>
     </message>
     <message>
         <source>Debug information</source>

@@ -267,7 +267,7 @@ static CBlock CreateGenesisBlockRegTest(uint32_t nTime, uint32_t nNonce, uint32_
     const char *pszTimestamp = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
 
     CMutableTransaction txNew;
-    txNew.nVersion = PARTICL_TXN_VERSION;
+    txNew.nVersion = FALCON_TXN_VERSION;
     txNew.SetType(TXN_COINBASE);
     txNew.vin.resize(1);
     uint32_t nHeight = 0;  // bip34
@@ -285,7 +285,7 @@ static CBlock CreateGenesisBlockRegTest(uint32_t nTime, uint32_t nNonce, uint32_
     genesis.nTime    = nTime;
     genesis.nBits    = nBits;
     genesis.nNonce   = nNonce;
-    genesis.nVersion = PARTICL_BLOCK_VERSION;
+    genesis.nVersion = FALCON_BLOCK_VERSION;
     genesis.vtx.push_back(MakeTransactionRef(std::move(txNew)));
 
     genesis.hashPrevBlock.SetNull();
@@ -300,7 +300,7 @@ static CBlock CreateGenesisBlockTestNet(uint32_t nTime, uint32_t nNonce, uint32_
     const char *pszTimestamp = "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks";
 
     CMutableTransaction txNew;
-    txNew.nVersion = PARTICL_TXN_VERSION;
+    txNew.nVersion = FALCON_TXN_VERSION;
     txNew.SetType(TXN_COINBASE);
     txNew.vin.resize(1);
     uint32_t nHeight = 0;  // bip34
@@ -341,7 +341,7 @@ static CBlock CreateGenesisBlockTestNet(uint32_t nTime, uint32_t nNonce, uint32_
     out->scriptPubKey = CScript() << OP_HASH160 << ParseHex("89ca93e03119d53fd9ad1e65ce22b6f8791f8a49") << OP_EQUAL;
     txNew.vpout.push_back(out);
 
-    // Reserved Particl for primary round
+    // Reserved Falcon for primary round
     // rLWLm1Hp7im3mq44Y1DgyirYgwvrmRASib 9c8c6c8c698f074180ecfdb38e8265c11f2a62cf
     out = MAKE_OUTPUT<CTxOutStandard>();
     out->nValue = 996000 * COIN;
@@ -353,7 +353,7 @@ static CBlock CreateGenesisBlockTestNet(uint32_t nTime, uint32_t nNonce, uint32_
     genesis.nTime    = nTime;
     genesis.nBits    = nBits;
     genesis.nNonce   = nNonce;
-    genesis.nVersion = PARTICL_BLOCK_VERSION;
+    genesis.nVersion = FALCON_BLOCK_VERSION;
     genesis.vtx.push_back(MakeTransactionRef(std::move(txNew)));
 
     genesis.hashPrevBlock.SetNull();
@@ -368,7 +368,7 @@ static CBlock CreateGenesisBlockMainNet(uint32_t nTime, uint32_t nNonce, uint32_
     const char *pszTimestamp = "BTC 000000000000000000c679bc2209676d05129834627c7b1c02d1018b224c6f37";
 
     CMutableTransaction txNew;
-    txNew.nVersion = PARTICL_TXN_VERSION;
+    txNew.nVersion = FALCON_TXN_VERSION;
     txNew.SetType(TXN_COINBASE);
 
     txNew.vin.resize(1);
@@ -409,7 +409,7 @@ static CBlock CreateGenesisBlockMainNet(uint32_t nTime, uint32_t nNonce, uint32_
     out->scriptPubKey = CScript() << OP_HASH160 << ParseHex("727e5e75929bbf26912dd7833971d77e7450a33e") << OP_EQUAL;
     txNew.vpout.push_back(out);
 
-    // Reserved Particl for primary round
+    // Reserved Falcon for primary round
     // RNnoeeqBTkpPQH8d29Gf45dszVj9RtbmCu
     out = MAKE_OUTPUT<CTxOutStandard>();
     out->nValue = 996000 * COIN;
@@ -421,7 +421,7 @@ static CBlock CreateGenesisBlockMainNet(uint32_t nTime, uint32_t nNonce, uint32_
     genesis.nTime    = nTime;
     genesis.nBits    = nBits;
     genesis.nNonce   = nNonce;
-    genesis.nVersion = PARTICL_BLOCK_VERSION;
+    genesis.nVersion = FALCON_BLOCK_VERSION;
     genesis.vtx.push_back(MakeTransactionRef(std::move(txNew)));
 
     genesis.hashPrevBlock.SetNull();
@@ -523,9 +523,9 @@ public:
         // This is fine at runtime as we'll fall back to using them as a oneshot if they don't support the
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
-        vSeeds.emplace_back("mainnet-seed.particl.io");
-        vSeeds.emplace_back("dnsseed-mainnet.particl.io");
-        vSeeds.emplace_back("mainnet.particl.io");
+        vSeeds.emplace_back("mainnet-seed.falcon.io");
+        vSeeds.emplace_back("dnsseed-mainnet.falcon.io");
+        vSeeds.emplace_back("mainnet.falcon.io");
         vSeeds.emplace_back("dnsseed.tecnovert.net");
 
 
@@ -703,8 +703,8 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("testnet-seed.particl.io");
-        vSeeds.emplace_back("dnsseed-testnet.particl.io");
+        vSeeds.emplace_back("testnet-seed.falcon.io");
+        vSeeds.emplace_back("dnsseed-testnet.falcon.io");
         vSeeds.emplace_back("dnsseed-testnet.tecnovert.net");
 
         vTreasuryFundSettings.push_back(std::make_pair(0, TreasuryFundSettings("rTvv9vsbu269mjYYEecPYinDG8Bt7D86qD", 10, 60)));
@@ -1009,11 +1009,11 @@ void SetOldParams(std::unique_ptr<CChainParams> &params)
     }
 };
 
-void ResetParams(std::string sNetworkId, bool fParticlModeIn)
+void ResetParams(std::string sNetworkId, bool fFalconModeIn)
 {
     // Hack to pass old unit tests
     globalChainParams = CreateChainParams(sNetworkId);
-    if (!fParticlModeIn) {
+    if (!fFalconModeIn) {
         SetOldParams(globalChainParams);
     }
 };

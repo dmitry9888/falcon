@@ -321,7 +321,7 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
                 strErr = "Error reading wallet database: LoadKey failed";
                 return false;
             }
-        } else if (strType == DBKeys::MASTER_KEY && !fParticlMode) {
+        } else if (strType == DBKeys::MASTER_KEY && !fFalconMode) {
             unsigned int nID;
             ssKey >> nID;
             CMasterKey kMasterKey;
@@ -441,7 +441,7 @@ bool WalletBatch::IsKeyType(const std::string& strType)
 {
     return (strType == DBKeys::KEY ||
             strType == DBKeys::MASTER_KEY || strType == DBKeys::CRYPTED_KEY)
-            || (fParticlMode &&
+            || (fFalconMode &&
                 (strType == DBKeys::PART_EXTACC || strType == DBKeys::PART_EXTKEY
                 || strType == DBKeys::PART_EXTKEYNAMED || strType == DBKeys::PART_SXADDR || strType == DBKeys::PART_SXADDRKEYPACK));
 }
@@ -728,7 +728,7 @@ bool WalletBatch::RecoverKeysOnlyFilter(void *callbackData, CDataStream &ssKey, 
     std::string strType, strErr;
 
     bool fReadOK;
-    if (fParticlMode) {
+    if (fFalconMode) {
         try {
             ssKey >> strType;
         } catch (...) {

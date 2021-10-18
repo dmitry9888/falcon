@@ -1,4 +1,4 @@
-// Copyright (c) 2018-2021 The Particl Core developers
+// Copyright (c) 2018-2021 The Falcon Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -689,9 +689,9 @@ int CTrezorDevice::CompleteTransaction(int change_pos, const std::vector<uint32_
                     std::vector<uint8_t> extra_data(1);
                     extra_data[0] = OUTPUT_RINGCT;
                     std::string s(extra_data.begin(), extra_data.end());
-                    msg_input->set_particl_extra(s);
+                    msg_input->set_falcon_extra(s);
 
-                    // Send scriptData through script_sig as it's larger than particl_extra can be
+                    // Send scriptData through script_sig as it's larger than falcon_extra can be
                     CDataStream stream(SER_NETWORK, PROTOCOL_VERSION);
                     stream << txin.scriptData.stack;
                     std::string s_scriptData(stream.begin(), stream.end());
@@ -725,24 +725,24 @@ int CTrezorDevice::CompleteTransaction(int change_pos, const std::vector<uint32_
                     std::vector<uint8_t> script_data(1);
                     script_data[0] = 1;
                     std::string s(script_data.begin(), script_data.end());
-                    msg_input->set_particl_extra(s);
+                    msg_input->set_falcon_extra(s);
                 } else
                 if (cached_data.m_scriptCode.IsPayToPublicKeyHash256_CS()) {
                     std::vector<uint8_t> script_data(21);
                     script_data[0] = 2;
                     CKeyID pkh_stake;
-                    if (!particl::ExtractStakingKeyID(cached_data.m_scriptCode, pkh_stake)) {
+                    if (!falcon::ExtractStakingKeyID(cached_data.m_scriptCode, pkh_stake)) {
                         return errorN(1, sError, __func__, "ExtractStakingKeyID failed for output %d.", i);
                     }
                     memcpy(script_data.data() + 1, pkh_stake.begin(), 20);
                     std::string s(script_data.begin(), script_data.end());
-                    msg_input->set_particl_extra(s);
+                    msg_input->set_falcon_extra(s);
                 }
 
                 if (cached_data.m_shared_secret.size() == 32) {
                     const std::vector<uint8_t> &shared_secret = cached_data.m_shared_secret;
                     std::string s(shared_secret.begin(), shared_secret.end());
-                    msg_input->set_particl_shared_secret(s);
+                    msg_input->set_falcon_shared_secret(s);
                 }
 
                 // Set hash reversed
@@ -790,21 +790,21 @@ int CTrezorDevice::CompleteTransaction(int change_pos, const std::vector<uint32_
 
                 const auto &send_output = prev_tx.vpout[prevout.n];
                 if (send_output->IsType(OUTPUT_STANDARD)) {
-                    msg_output->set_particl_output_type(OUTPUT_STANDARD);
+                    msg_output->set_falcon_output_type(OUTPUT_STANDARD);
                     msg_output->set_amount(send_output->GetValue());
                     const auto &pscript = send_output->GetPScriptPubKey();
                     std::string str_script(pscript->begin(), pscript->end());
                     msg_output->set_script_pubkey(str_script);
                 } else
                 if (send_output->IsType(OUTPUT_DATA)) {
-                    msg_output->set_particl_output_type(OUTPUT_DATA); // tzr_proto::TxAck::TransactionType::TxOutputType::PAYTOPARTICLDATA
+                    msg_output->set_falcon_output_type(OUTPUT_DATA); // tzr_proto::TxAck::TransactionType::TxOutputType::PAYTOFALCONDATA
                     CTxOutData *txd = (CTxOutData*)send_output.get();
                     std::string s(txd->vData.begin(), txd->vData.end());
                     msg_output->set_script_pubkey(s);
                     msg_output->set_amount(0);
                 } else
                 if (send_output->IsType(OUTPUT_CT)) {
-                    msg_output->set_particl_output_type(OUTPUT_CT);
+                    msg_output->set_falcon_output_type(OUTPUT_CT);
                     CDataStream stream(SER_NETWORK, PROTOCOL_VERSION | SERIALIZE_TRANSACTION_NO_WITNESS);
                     stream << *((CTxOutCT*)send_output.get());
                     std::string s(stream.begin(), stream.end());
@@ -812,7 +812,7 @@ int CTrezorDevice::CompleteTransaction(int change_pos, const std::vector<uint32_
                     msg_output->set_amount(0);
                 } else
                 if (send_output->IsType(OUTPUT_RINGCT)) {
-                    msg_output->set_particl_output_type(OUTPUT_RINGCT);
+                    msg_output->set_falcon_output_type(OUTPUT_RINGCT);
                     CDataStream stream(SER_NETWORK, PROTOCOL_VERSION | SERIALIZE_TRANSACTION_NO_WITNESS);
                     stream << *((CTxOutRingCT*)send_output.get());
                     std::string s(stream.begin(), stream.end());
@@ -859,7 +859,7 @@ int CTrezorDevice::CompleteTransaction(int change_pos, const std::vector<uint32_
                     std::string s(txd->vData.begin(), txd->vData.end());
                     msg_output->set_op_return_data(s);
                     msg_output->set_amount(0);
-                    msg_output->set_script_type(tzr_proto::TxAck::TransactionType::TxOutputType::PAYTOPARTICLDATA);
+                    msg_output->set_script_type(tzr_proto::TxAck::TransactionType::TxOutputType::PAYTOFALCONDATA);
                 } else {
                     return errorN(1, sError, __func__, "Unknown type of output %d.", i);
                 }
@@ -886,7 +886,7 @@ int CTrezorDevice::CompleteTransaction(int change_pos, const std::vector<uint32_
             msg_tx->set_lock_time(prev_tx.nLockTime);
             msg_tx->set_inputs_cnt(prev_tx.vin.size());
             msg_tx->set_outputs_cnt(prev_tx.vpout.size());
-            msg_tx->set_particl_tx(true);
+            msg_tx->set_falcon_tx(true);
         } else if (req.request_type() == tzr_proto::TxRequest::TXFINISHED) {
             if (LogAcceptCategory(BCLog::HDWALLET)) {
                 LogPrintf("%s: Debug, serialised_tx %s.\n", __func__, HexStr(serialised_tx));
@@ -912,7 +912,7 @@ int CTrezorDevice::CompleteTransaction(int change_pos, const std::vector<uint32_
 
 std::string CTrezorDevice::GetCoinName()
 {
-    return Params().NetworkIDString() == "main" ? "Particl" : "Particl Testnet";
+    return Params().NetworkIDString() == "main" ? "Falcon" : "Falcon Testnet";
 };
 
 int CTrezorDevice::LoadMnemonic(uint32_t wordcount, bool pinprotection, std::string& sError)

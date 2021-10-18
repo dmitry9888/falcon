@@ -66,11 +66,11 @@
         <translation>Адресе за примање</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Falcon addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>Ово су ваше Биткоин адресе за слање уплата. Увек добро проверите износ и адресу на коју шаљете пре него што пошаљете уплату.</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
+        <source>These are your Falcon addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
         <translation>Ово су твоје Биткоин адресе за приманје уплата. Користи дугме „Направи нову адресу за примање” у картици за примање за креирање нових адреса.</translation>
     </message>
     <message>
@@ -168,7 +168,7 @@
         <translation>Потврди шифрирање новчаника</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PARTICL&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FALCON&lt;/b&gt;!</source>
         <translation>Упозорење: Уколико шифрирате новчаник и изгубите своју лозинку, &lt;b&gt;ИЗГУБИЋЕТЕ СВЕ СВОЈЕ БИТКОИНЕ&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -188,7 +188,7 @@
         <translation>Унеси стару лозунку и нову лозинку новчаника.</translation>
     </message>
     <message>
-        <source>Remember that encrypting your wallet cannot fully protect your particl from being stolen by malware infecting your computer.</source>
+        <source>Remember that encrypting your wallet cannot fully protect your falcon from being stolen by malware infecting your computer.</source>
         <translation>Упамти, шифрирање новчаника не може у потуности заштити твоје биткоине од крађе од стране малвера инфицира твој рачунар.</translation>
     </message>
     <message>
@@ -362,7 +362,7 @@
         <translation>Прокси је &lt;b&gt;омогућен&lt;/b&gt;: %1</translation>
     </message>
     <message>
-        <source>Send coins to a Particl address</source>
+        <source>Send coins to a Falcon address</source>
         <translation>Пошаљите новац на Биткоин адресу</translation>
     </message>
     <message>
@@ -406,11 +406,11 @@
         <translation>Шифрирај приватни клуљ који припада новчанику.</translation>
     </message>
     <message>
-        <source>Sign messages with your Particl addresses to prove you own them</source>
+        <source>Sign messages with your Falcon addresses to prove you own them</source>
         <translation>Потписуј поруку са своје Биткоин адресе као доказ да си њихов власник</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Particl addresses</source>
+        <source>Verify messages to ensure they were signed with specified Falcon addresses</source>
         <translation>Верификуј поруке и утврди да ли су потписане од стране спецификованих Биткоин адреса</translation>
     </message>
     <message>
@@ -430,7 +430,7 @@
         <translation>Трака са картицама</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and particl: URIs)</source>
+        <source>Request payments (generates QR codes and falcon: URIs)</source>
         <translation>Затражи плаћање (генерише QR кодове и биткоин: URI-е)</translation>
     </message>
     <message>
@@ -442,7 +442,7 @@
         <translation>Прегледајте листу коришћених адреса и етикета за пријем уплата</translation>
     </message>
     <message>
-        <source>Open a particl: URI or payment request</source>
+        <source>Open a falcon: URI or payment request</source>
         <translation>Отворите биткоин: URI или захтев за плаћање</translation>
     </message>
     <message>
@@ -450,7 +450,7 @@
         <translation>&amp;Опције командне линије</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Particl network</source>
+        <source>%n active connection(s) to Falcon network</source>
         <translation><numerusform>%n aктивна веза са Биткоин мрежом</numerusform><numerusform>%n aктивних веза са Биткоин мрежом</numerusform><numerusform>%n aктивних веза са Биткоин мрежом</numerusform></translation>
     </message>
     <message>
@@ -518,7 +518,7 @@
         <translation>Затвори новчаник</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Particl command-line options</source>
+        <source>Show the %1 help message to get a list with possible Falcon command-line options</source>
         <translation>Прикажи  поруку помоћи %1 за листу са могућим опцијама Биткоин командне линије</translation>
     </message>
     <message>
@@ -626,7 +626,7 @@
         <translation>Новчаник јс &lt;b&gt;шифрован&lt;/b&gt; и тренутно &lt;b&gt;закључан&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Particl can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. Falcon can no longer continue safely and will quit.</source>
         <translation>Дошло је до критичне грешке. Биткоин не може безбедно да настави са радом и искључиће се.</translation>
     </message>
 </context>
@@ -871,7 +871,7 @@
         <translation>Измени адресу за слање</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Particl address.</source>
+        <source>The entered address "%1" is not a valid Falcon address.</source>
         <translation>Унета адреса "%1" није важећа Биткоин адреса.</translation>
     </message>
     <message>
@@ -972,7 +972,7 @@
         <translation>Користите прилагођени директоријум података:</translation>
     </message>
     <message>
-        <source>Particl</source>
+        <source>Falcon</source>
         <translation>Биткоин</translation>
     </message>
     <message>
@@ -988,7 +988,7 @@
         <translation>Најмање %1 GB подататака биће складиштен у овај директорјиум.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the Particl block chain.</source>
+        <source>%1 will download and store a copy of the Falcon block chain.</source>
         <translation>%1 биће преузеће и складиштити копију Биткоин ланца блокова (блокчејна).</translation>
     </message>
     <message>
@@ -1011,11 +1011,11 @@
         <translation>Форма</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the particl network, as detailed below.</source>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the falcon network, as detailed below.</source>
         <translation>Недавне трансакције можда не буду видљиве, зато салдо твог новчаника можда буде нетачан. </translation>
     </message>
     <message>
-        <source>Attempting to spend particl that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <source>Attempting to spend falcon that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
         <translation>Покушај слања биткоина који су под утицајем још не приказаних трансакција неће бити прихваћен од стране мреже.</translation>
     </message>
     <message>
@@ -1212,7 +1212,7 @@
         <translation>&amp;Троши непотврђени кусур</translation>
     </message>
     <message>
-        <source>Automatically open the Particl client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Falcon client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation>Аутоматски отвори Биткоин клијент порт на рутеру. Ова опција ради само уколико твој рутер подржава и има омогућен UPnP.</translation>
     </message>
     <message>
@@ -1228,7 +1228,7 @@
         <translation>Дозволи долазеће конекције.</translation>
     </message>
     <message>
-        <source>Connect to the Particl network through a SOCKS5 proxy.</source>
+        <source>Connect to the Falcon network through a SOCKS5 proxy.</source>
         <translation>Конектуј се на Биткоин мрежу кроз SOCKS5 проксијем.</translation>
     </message>
     <message>
@@ -1264,7 +1264,7 @@
         <translation>Тор</translation>
     </message>
     <message>
-        <source>Connect to the Particl network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <source>Connect to the Falcon network through a separate SOCKS5 proxy for Tor hidden services.</source>
         <translation>Конектуј се на Биткоин мрежу кроз SOCK5 прокси за Тор скривене сервисе.</translation>
     </message>
     <message>
@@ -1371,7 +1371,7 @@
         <translation>Форма</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Particl network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Falcon network after a connection is established, but this process has not completed yet.</source>
         <translation>Приказана информација може бити застарела. Ваш новчаник се аутоматски синхронизује са Биткоин мрежом након успостављања конекције, али овај процес је још увек у току.</translation>
     </message>
     <message>
@@ -1446,7 +1446,7 @@
         <translation>Грешка у захтеву за плаћање</translation>
     </message>
     <message>
-        <source>Cannot start particl: click-to-pay handler</source>
+        <source>Cannot start falcon: click-to-pay handler</source>
         <translation>Не могу покренути биткоин: кликни-да-платиш механизам</translation>
     </message>
     <message>
@@ -1454,8 +1454,8 @@
         <translation>URI манипулација</translation>
     </message>
     <message>
-        <source>'particl://' is not a valid URI. Use 'particl:' instead.</source>
-        <translation>'particl://' није важећи URI. Уместо тога користити  'particl:'.</translation>
+        <source>'falcon://' is not a valid URI. Use 'falcon:' instead.</source>
+        <translation>'falcon://' није важећи URI. Уместо тога користити  'falcon:'.</translation>
     </message>
     <message>
         <source>You are using a BIP70 URL which will be unsupported in the future.</source>
@@ -1482,7 +1482,7 @@
         <translation>Неважећа адреса за плаћање %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Particl address or malformed URI parameters.</source>
+        <source>URI cannot be parsed! This can be caused by an invalid Falcon address or malformed URI parameters.</source>
         <translation>URI се не може рашчланити! Ово може бити проузроковано неважећом Биткоин адресом или погрешно форматираним URI параметрима.</translation>
     </message>
     <message>
@@ -1584,7 +1584,7 @@
         <translation>iznos</translation>
     </message>
     <message>
-        <source>Enter a Particl address (e.g. %1)</source>
+        <source>Enter a Falcon address (e.g. %1)</source>
         <translation>Унеси Биткоин адресу, (нпр %1)</translation>
     </message>
     <message>
@@ -2017,7 +2017,7 @@
         <translation>Poruka:</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Particl network.</source>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Falcon network.</source>
         <translation>Опционална порука коју можеш прикачити уз захтев за плаћање, која ће бити приказана када захтев буде отворен. Напомена: Порука неће бити послата са уплатом на Биткоин мрежи.</translation>
     </message>
     <message>
@@ -2291,7 +2291,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Прашина:</translation>
     </message>
     <message>
-        <source>When there is less transaction volume than space in the blocks, miners as well as relaying nodes may enforce a minimum fee. Paying only this minimum fee is just fine, but be aware that this can result in a never confirming transaction once there is more demand for particl transactions than the network can process.</source>
+        <source>When there is less transaction volume than space in the blocks, miners as well as relaying nodes may enforce a minimum fee. Paying only this minimum fee is just fine, but be aware that this can result in a never confirming transaction once there is more demand for falcon transactions than the network can process.</source>
         <translation>Када је мањи обим трансакција од простора у блоку, рудари, као и повезани чворови могу применити минималну провизију. Плаћање само минималне провизије је добро, али треба бити свестан да ово може резултовати у трансакцији која неће никада бити потврђена, у случају када је број захтева за биткоин трансакцијама већи од могућности мреже да обради.</translation>
     </message>
     <message>
@@ -2443,7 +2443,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Захтев за плаћање је истекао.</translation>
     </message>
     <message>
-        <source>Warning: Invalid Particl address</source>
+        <source>Warning: Invalid Falcon address</source>
         <translation>Упозорење: Неважећа Биткоин адреса</translation>
     </message>
     <message>
@@ -2486,7 +2486,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Ово је нормално плаћање.</translation>
     </message>
     <message>
-        <source>The Particl address to send the payment to</source>
+        <source>The Falcon address to send the payment to</source>
         <translation>Биткоин адреса на коју се шаље уплата</translation>
     </message>
     <message>
@@ -2506,7 +2506,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Уклоните овај унос</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less particl than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less falcon than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
         <translation>Провизија ће бити одузета од износа који је послат. Примаоц ће добити мање биткоина него што је унесено у поље за износ. Уколико је одабрано више примаоца, провизија се дели равномерно.</translation>
     </message>
     <message>
@@ -2534,7 +2534,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Унесите ознаку за ову адресу да бисте је додали на листу коришћених адреса</translation>
     </message>
     <message>
-        <source>A message that was attached to the particl: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Particl network.</source>
+        <source>A message that was attached to the falcon: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Falcon network.</source>
         <translation>Порука која је приложена биткоину: URI која ће бити сачувана уз трансакцију ради референце. Напомена: Ова порука се шаље преко Биткоин мреже.</translation>
     </message>
     <message>
@@ -2575,11 +2575,11 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Потписи - Потпиши / Потврди поруку</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive particl sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <source>You can sign messages/agreements with your addresses to prove you can receive falcon sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>Можете потписати поруку/споразум са вашом адресом да би сте доказали да можете примити биткоин послат ка њима. Будите опрезни да не потписујете ништа нејасно или случајно, јер се може десити напад крађе идентитета, да потпишете ваш идентитет нападачу. Потпишите само потпуно детаљне изјаве са којима се слажете.</translation>
     </message>
     <message>
-        <source>The Particl address to sign the message with</source>
+        <source>The Falcon address to sign the message with</source>
         <translation>Биткоин адреса са којом ћете потписати поруку</translation>
     </message>
     <message>
@@ -2611,7 +2611,7 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Копирајте тренутни потпис у системску базу за копирање</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Particl address</source>
+        <source>Sign the message to prove you own this Falcon address</source>
         <translation>Потпишите поруку да докажете да сте власник ове Биткоин адресе</translation>
     </message>
     <message>
@@ -2635,11 +2635,11 @@ Note:  Since the fee is calculated on a per-byte basis, a fee of "100 satoshis p
         <translation>Унесите адресу примаоца, поруку (осигурајте да тачно копирате прекиде линија, размаке, картице итд) и потпишите испод да потврдите поруку. Будите опрезни да не убаците више у потпис од онога што је у потписаној поруци, да би сте избегли напад посредника. Имајте на уму да потпис само доказује да потписник прима са потписаном адресом, а не може да докаже слање било које трансакције!</translation>
     </message>
     <message>
-        <source>The Particl address the message was signed with</source>
+        <source>The Falcon address the message was signed with</source>
         <translation>Биткоин адреса са којом је потписана порука</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Particl address</source>
+        <source>Verify the message to ensure it was signed with the specified Falcon address</source>
         <translation>Потврдите поруку да осигурате да је потписана са одговарајућом Биткоин адресом</translation>
     </message>
     <message>

@@ -174,7 +174,7 @@ bool BerkeleyEnvironment::Open(bool retry)
     fs::path pathIn = strPath;
     TryCreateDirectories(pathIn);
     if (!LockDirectory(pathIn, ".walletlock")) {
-        LogPrintf("Cannot obtain a lock on wallet directory %s. Another instance of particl may be using it.\n", strPath);
+        LogPrintf("Cannot obtain a lock on wallet directory %s. Another instance of falcon may be using it.\n", strPath);
         return false;
     }
 
@@ -390,7 +390,7 @@ bool BerkeleyBatch::Recover(const fs::path& file_path, void *callbackDataIn, boo
             if (!(*recoverKVcallback)(callbackDataIn, ssKey, ssValue))
                 continue;
 
-            if (fParticlMode)
+            if (fFalconMode)
             {
                 Dbt datKey(&row.first[0], row.first.size());
                 Dbt datValue(ssValue.data(), ssValue.size());

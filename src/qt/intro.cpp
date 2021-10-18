@@ -126,7 +126,7 @@ Intro::Intro(QWidget *parent, uint64_t blockchain_size, uint64_t chain_state_siz
         .arg(PACKAGE_NAME)
         .arg(m_blockchain_size)
         .arg(2009)
-        .arg(tr("Particl"))
+        .arg(tr("Falcon"))
     );
     ui->lblExplanation2->setText(ui->lblExplanation2->text().arg(PACKAGE_NAME));
 
@@ -136,7 +136,7 @@ Intro::Intro(QWidget *parent, uint64_t blockchain_size, uint64_t chain_state_siz
         ui->prune->setEnabled(false);
     }
 
-    if (fParticlMode) {
+    if (fFalconMode) {
         ui->prune->setChecked(false);
         ui->prune->setEnabled(false);
     }
@@ -156,7 +156,7 @@ Intro::Intro(QWidget *parent, uint64_t blockchain_size, uint64_t chain_state_siz
     }
     requiredSpace += m_chain_state_size;
     ui->sizeWarningLabel->setText(
-        tr("%1 will download and store a copy of the Particl block chain.").arg(PACKAGE_NAME) + " " +
+        tr("%1 will download and store a copy of the Falcon block chain.").arg(PACKAGE_NAME) + " " +
         storageRequiresMsg.arg(requiredSpace) + " " +
         tr("The wallet will also be stored in this directory.")
     );

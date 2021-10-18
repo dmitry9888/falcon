@@ -1,4 +1,4 @@
-// Copyright (c) 2018-2019 The Particl Core developers
+// Copyright (c) 2018-2019 The Falcon Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -371,7 +371,7 @@ static UniValue getdevicexpub(const JSONRPCRequest &request)
                     {"accountpath", RPCArg::Type::STR, /* default */ GetDefaultAccountPath(), "Account path, set to empty string to ignore."},
                 },
                 RPCResult{
-            "\"address\"              (string) The particl extended public key\n"
+            "\"address\"              (string) The falcon extended public key\n"
                 },
                 RPCExamples{
             HelpExampleCli("getdevicexpub", "\"0\"") +
@@ -439,7 +439,7 @@ static UniValue devicesignrawtransaction(const JSONRPCRequest &request)
 {
     #ifdef ENABLE_WALLET
     std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
-    CHDWallet *const pwallet = GetParticlWallet(wallet.get());
+    CHDWallet *const pwallet = GetFalconWallet(wallet.get());
     if (!EnsureWalletIsAvailable(pwallet, request.fHelp)) {
         return NullUniValue;
     }
@@ -745,7 +745,7 @@ static UniValue devicesignrawtransaction(const JSONRPCRequest &request)
 static UniValue initaccountfromdevice(const JSONRPCRequest &request)
 {
     std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
-    CHDWallet *const pwallet = GetParticlWallet(wallet.get());
+    CHDWallet *const pwallet = GetFalconWallet(wallet.get());
     if (!EnsureWalletIsAvailable(pwallet, request.fHelp))
         return NullUniValue;
 
@@ -995,13 +995,13 @@ static UniValue initaccountfromdevice(const JSONRPCRequest &request)
 static UniValue devicegetnewstealthaddress(const JSONRPCRequest &request)
 {
     std::shared_ptr<CWallet> const wallet = GetWalletForJSONRPCRequest(request);
-    CHDWallet *const pwallet = GetParticlWallet(wallet.get());
+    CHDWallet *const pwallet = GetFalconWallet(wallet.get());
     if (!EnsureWalletIsAvailable(pwallet, request.fHelp)) {
         return NullUniValue;
     }
 
             RPCHelpMan{"devicegetnewstealthaddress",
-                "\nReturns a new Particl stealth address for receiving payments." +
+                "\nReturns a new Falcon stealth address for receiving payments." +
                     HelpRequiringPassphrase(pwallet) + "\n",
                 {
                     {"label", RPCArg::Type::STR, /* default */ "", "If \"label\" is specified the new address will be added to the address book."},
@@ -1014,7 +1014,7 @@ static UniValue devicegetnewstealthaddress(const JSONRPCRequest &request)
                     {"bech32", RPCArg::Type::BOOL, /* default */ "true", "Use Bech32 encoding."},
                 },
                 RPCResult{
-            "\"address\"              (string) The new particl stealth address\n"
+            "\"address\"              (string) The new falcon stealth address\n"
                 },
                 RPCExamples{
              HelpExampleCli("devicegetnewstealthaddress", "\"lblTestSxAddrPrefix\" 3 \"0b101\"") +

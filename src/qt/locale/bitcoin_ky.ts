@@ -103,8 +103,8 @@
 <context>
     <name>Intro</name>
     <message>
-        <source>Particl</source>
-        <translation>Particl</translation>
+        <source>Falcon</source>
+        <translation>Falcon</translation>
     </message>
     <message>
         <source>Error</source>

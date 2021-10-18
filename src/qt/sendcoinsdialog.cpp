@@ -347,7 +347,7 @@ void SendCoinsDialog::on_sendButton_clicked()
             sCommand += ",\"subfee\":true";
 
         if (!rcp.narration.isEmpty())
-            sCommand += ",\"narr\":\"" + GUIUtil::particl::escapeQString(GUIUtil::particl::escapeQString(rcp.narration)) + "\"";
+            sCommand += ",\"narr\":\"" + GUIUtil::falcon::escapeQString(GUIUtil::falcon::escapeQString(rcp.narration)) + "\"";
         sCommand += "}";
 
         nRecipient++;
@@ -1049,7 +1049,7 @@ void SendCoinsDialog::coinControlChangeEdited(const QString& text)
         }
         else if (!IsValidDestination(dest)) // Invalid address
         {
-            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid Particl address"));
+            ui->labelCoinControlChangeLabel->setText(tr("Warning: Invalid Falcon address"));
         }
         else // Valid address
         {

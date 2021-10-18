@@ -1,9 +1,9 @@
-// Copyright (c) 2018 The Particl Core developers
+// Copyright (c) 2018 The Falcon Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PARTICL_INSIGHT_CSINDEX_H
-#define PARTICL_INSIGHT_CSINDEX_H
+#ifndef FALCON_INSIGHT_CSINDEX_H
+#define FALCON_INSIGHT_CSINDEX_H
 
 #include <script/standard.h>
 
@@ -98,4 +98,4 @@ public:
     }
 };
 
-#endif // PARTICL_INSIGHT_CSINDEX_H
+#endif // FALCON_INSIGHT_CSINDEX_H

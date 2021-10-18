@@ -1,4 +1,4 @@
-// Copyright (c) 2017-2021 The Particl Core developers
+// Copyright (c) 2017-2021 The Falcon Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -728,7 +728,7 @@ BOOST_AUTO_TEST_CASE(ringct_test_set_have)
 
 BOOST_AUTO_TEST_CASE(ringct_test_deterministic)
 {
-    // See github.com/tecnovert/particl_debug_scripts/mlsag_deterministic.py
+    // See github.com/tecnovert/falcon_debug_scripts/mlsag_deterministic.py
     secp256k1_context *ctx = secp256k1_context_create(SECP256K1_CONTEXT_SIGN | SECP256K1_CONTEXT_VERIFY);
 
     UniValue tests_vectors = read_json(

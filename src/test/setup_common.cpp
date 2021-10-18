@@ -28,7 +28,7 @@
 #include <validation.h>
 #include <validationinterface.h>
 
-// Particl
+// Falcon
 #include <insight/insight.h>
 
 #include <functional>
@@ -37,7 +37,7 @@ const std::function<std::string(const char*)> G_TRANSLATION_FUN = nullptr;
 
 FastRandomContext g_insecure_rand_ctx;
 
-extern bool fParticlMode;
+extern bool fFalconMode;
 
 std::ostream& operator<<(std::ostream& os, const uint256& num)
 {
@@ -45,16 +45,16 @@ std::ostream& operator<<(std::ostream& os, const uint256& num)
     return os;
 }
 
-BasicTestingSetup::BasicTestingSetup(const std::string& chainName, bool fParticlModeIn, bool with_balance_index)
+BasicTestingSetup::BasicTestingSetup(const std::string& chainName, bool fFalconModeIn, bool with_balance_index)
     : m_path_root(fs::temp_directory_path() / "test_common_" PACKAGE_NAME / strprintf("%lu_%i", (unsigned long)GetTime(), (int)(InsecureRandRange(1 << 30))))
 {
-    fParticlMode = fParticlModeIn;
+    fFalconMode = fFalconModeIn;
     fBalancesIndex = with_balance_index;
     fs::create_directories(m_path_root);
     gArgs.ForceSetArg("-datadir", m_path_root.string());
     ClearDatadirCache();
     SelectParams(chainName);
-    ResetParams(chainName, fParticlMode);
+    ResetParams(chainName, fFalconMode);
     gArgs.ForceSetArg("-printtoconsole", "0");
     InitLogging();
     LogInstance().StartLogging();
@@ -80,7 +80,7 @@ BasicTestingSetup::~BasicTestingSetup()
     ECC_Stop();
 }
 
-TestingSetup::TestingSetup(const std::string& chainName, bool fParticlModeIn, bool with_balance_index) : BasicTestingSetup(chainName, fParticlModeIn, with_balance_index)
+TestingSetup::TestingSetup(const std::string& chainName, bool fFalconModeIn, bool with_balance_index) : BasicTestingSetup(chainName, fFalconModeIn, with_balance_index)
 {
     const CChainParams& chainparams = Params();
     // Ideally we'd move all the RPC tests to the functional testing framework
@@ -136,7 +136,7 @@ TestChain100Setup::TestChain100Setup() : TestingSetup(CBaseChainParams::REGTEST)
     // TODO: fix the code to support SegWit blocks.
     gArgs.ForceSetArg("-segwitheight", "432");
     SelectParams(CBaseChainParams::REGTEST);
-    ResetParams(CBaseChainParams::REGTEST, fParticlMode);
+    ResetParams(CBaseChainParams::REGTEST, fFalconMode);
 
     // Generate a 100-block chain:
     coinbaseKey.MakeNewKey(true);

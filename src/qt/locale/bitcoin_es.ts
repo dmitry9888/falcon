@@ -62,12 +62,12 @@
         <translation>Direcciones de recepción</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Estas son sus direcciones Particl para enviar pagos. Compruebe siempre la cantidad y la dirección de recibo antes de transferir monedas.</translation>
+        <source>These are your Falcon addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Estas son sus direcciones Falcon para enviar pagos. Compruebe siempre la cantidad y la dirección de recibo antes de transferir monedas.</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
-        <translation>Estas son sus direcciones Particl para la recepción de pagos. Use el botón 'Crear una nueva dirección para recepción' en la pestaña Recibir para crear nuevas direcciones</translation>
+        <source>These are your Falcon addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
+        <translation>Estas son sus direcciones Falcon para la recepción de pagos. Use el botón 'Crear una nueva dirección para recepción' en la pestaña Recibir para crear nuevas direcciones</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -164,8 +164,8 @@
         <translation>Confirmar el cifrado del monedero</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PARTICL&lt;/b&gt;!</source>
-        <translation>Atención: Si cifra su monedero y pierde la contraseña, perderá ¡&lt;b&gt;TODOS SUS PARTICL&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FALCON&lt;/b&gt;!</source>
+        <translation>Atención: Si cifra su monedero y pierde la contraseña, perderá ¡&lt;b&gt;TODOS SUS FALCON&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -184,8 +184,8 @@
         <translation>Introduzca la contraseña antigua y la nueva para el monedero.</translation>
     </message>
     <message>
-        <source>Remember that encrypting your wallet cannot fully protect your particl from being stolen by malware infecting your computer.</source>
-        <translation>Recuerde que cifrar su monedero no garantiza mantener a salvo sus particl en caso de tener virus en el computador.</translation>
+        <source>Remember that encrypting your wallet cannot fully protect your falcon from being stolen by malware infecting your computer.</source>
+        <translation>Recuerde que cifrar su monedero no garantiza mantener a salvo sus falcon en caso de tener virus en el computador.</translation>
     </message>
     <message>
         <source>Wallet to be encrypted</source>
@@ -354,8 +354,8 @@
         <translation>El proxy está &lt;b&gt;habilitado&lt;/b&gt;: %1</translation>
     </message>
     <message>
-        <source>Send coins to a Particl address</source>
-        <translation>Enviar monedas a una dirección Particl</translation>
+        <source>Send coins to a Falcon address</source>
+        <translation>Enviar monedas a una dirección Falcon</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -398,12 +398,12 @@
         <translation>Cifrar las claves privadas de su monedero</translation>
     </message>
     <message>
-        <source>Sign messages with your Particl addresses to prove you own them</source>
-        <translation>Firmar mensajes con sus direcciones Particl para demostrar la propiedad</translation>
+        <source>Sign messages with your Falcon addresses to prove you own them</source>
+        <translation>Firmar mensajes con sus direcciones Falcon para demostrar la propiedad</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Particl addresses</source>
-        <translation>Verificar mensajes comprobando que están firmados con direcciones Particl concretas</translation>
+        <source>Verify messages to ensure they were signed with specified Falcon addresses</source>
+        <translation>Verificar mensajes comprobando que están firmados con direcciones Falcon concretas</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -422,8 +422,8 @@
         <translation>Barra de pestañas</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and particl: URIs)</source>
-        <translation>Solicitar pagos (genera código QR y URL's de Particl)</translation>
+        <source>Request payments (generates QR codes and falcon: URIs)</source>
+        <translation>Solicitar pagos (genera código QR y URL's de Falcon)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -434,16 +434,16 @@
         <translation>Muestra la lista de direcciones de recepción y etiquetas</translation>
     </message>
     <message>
-        <source>Open a particl: URI or payment request</source>
-        <translation>Abrir un identificador URI de particl o una solicitud de pago</translation>
+        <source>Open a falcon: URI or payment request</source>
+        <translation>Abrir un identificador URI de falcon o una solicitud de pago</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
         <translation>&amp;Opciones de línea de comandos</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to Particl network</source>
-        <translation><numerusform>%n conexión activa hacia la red Particl</numerusform><numerusform>%n conexiones activas hacia la red Particl</numerusform></translation>
+        <source>%n active connection(s) to Falcon network</source>
+        <translation><numerusform>%n conexión activa hacia la red Falcon</numerusform><numerusform>%n conexiones activas hacia la red Falcon</numerusform></translation>
     </message>
     <message>
         <source>Indexing blocks on disk...</source>
@@ -510,8 +510,8 @@
         <translation>Cerrar monedero</translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Particl command-line options</source>
-        <translation>Muestre el mensaje de ayuda %1 para obtener una lista con posibles opciones de línea de comandos de Particl</translation>
+        <source>Show the %1 help message to get a list with possible Falcon command-line options</source>
+        <translation>Muestre el mensaje de ayuda %1 para obtener una lista con posibles opciones de línea de comandos de Falcon</translation>
     </message>
     <message>
         <source>default wallet</source>
@@ -622,8 +622,8 @@
         <translation>El monedero está &lt;b&gt;cifrado&lt;/b&gt; y actualmente &lt;b&gt;bloqueado&lt;/b&gt;</translation>
     </message>
     <message>
-        <source>A fatal error occurred. Particl can no longer continue safely and will quit.</source>
-        <translation>Se produjo un error fatal. Particl ya no puede continuar de manera segura y se cerrará</translation>
+        <source>A fatal error occurred. Falcon can no longer continue safely and will quit.</source>
+        <translation>Se produjo un error fatal. Falcon ya no puede continuar de manera segura y se cerrará</translation>
     </message>
 </context>
 <context>
@@ -866,8 +866,8 @@
         <translation>Editar dirección de envío</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Particl address.</source>
-        <translation>La dirección ingresada "%1" no es una dirección válida de Particl.</translation>
+        <source>The entered address "%1" is not a valid Falcon address.</source>
+        <translation>La dirección ingresada "%1" no es una dirección válida de Falcon.</translation>
     </message>
     <message>
         <source>Address "%1" already exists as a receiving address with label "%2" and so cannot be added as a sending address.</source>
@@ -967,8 +967,8 @@
         <translation>Utilice un directorio de datos personalizado:</translation>
     </message>
     <message>
-        <source>Particl</source>
-        <translation>Particl</translation>
+        <source>Falcon</source>
+        <translation>Falcon</translation>
     </message>
     <message>
         <source>Discard blocks after verification, except most recent %1 GB (prune)</source>
@@ -983,8 +983,8 @@
         <translation>Aproximadamente %1 GB de datos se almacenarán en este directorio.</translation>
     </message>
     <message>
-        <source>%1 will download and store a copy of the Particl block chain.</source>
-        <translation>%1 descargará y almacenará una copia de la cadena de bloques de Particl.</translation>
+        <source>%1 will download and store a copy of the Falcon block chain.</source>
+        <translation>%1 descargará y almacenará una copia de la cadena de bloques de Falcon.</translation>
     </message>
     <message>
         <source>The wallet will also be stored in this directory.</source>
@@ -1018,12 +1018,12 @@
         <translation>Formulario</translation>
     </message>
     <message>
-        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the particl network, as detailed below.</source>
-        <translation>Es posible que las transacciones recientes aún no estén visibles y, por lo tanto, el saldo de su monedero podría ser incorrecto. Esta información será correcta una vez que su monedero haya terminado de sincronizarse con la red particl, como se detalla a continuación.</translation>
+        <source>Recent transactions may not yet be visible, and therefore your wallet's balance might be incorrect. This information will be correct once your wallet has finished synchronizing with the falcon network, as detailed below.</source>
+        <translation>Es posible que las transacciones recientes aún no estén visibles y, por lo tanto, el saldo de su monedero podría ser incorrecto. Esta información será correcta una vez que su monedero haya terminado de sincronizarse con la red falcon, como se detalla a continuación.</translation>
     </message>
     <message>
-        <source>Attempting to spend particl that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
-        <translation>La red no aceptará intentar gastar particl que se vean afectados por transacciones aún no mostradas.</translation>
+        <source>Attempting to spend falcon that are affected by not-yet-displayed transactions will not be accepted by the network.</source>
+        <translation>La red no aceptará intentar gastar falcon que se vean afectados por transacciones aún no mostradas.</translation>
     </message>
     <message>
         <source>Number of blocks left</source>
@@ -1219,8 +1219,8 @@
         <translation>&amp; Gastar cambio no confirmado</translation>
     </message>
     <message>
-        <source>Automatically open the Particl client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Abrir automáticamente el puerto del cliente Particl en el router. Esta opción solo funciona si el router admite UPnP y está activado.</translation>
+        <source>Automatically open the Falcon client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Abrir automáticamente el puerto del cliente Falcon en el router. Esta opción solo funciona si el router admite UPnP y está activado.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -1235,8 +1235,8 @@
         <translation>Permitir conexiones entrantes</translation>
     </message>
     <message>
-        <source>Connect to the Particl network through a SOCKS5 proxy.</source>
-        <translation>Conéctese a la red de Particl a través de un proxy SOCKS5.</translation>
+        <source>Connect to the Falcon network through a SOCKS5 proxy.</source>
+        <translation>Conéctese a la red de Falcon a través de un proxy SOCKS5.</translation>
     </message>
     <message>
         <source>&amp;Connect through SOCKS5 proxy (default proxy):</source>
@@ -1271,8 +1271,8 @@
         <translation>Tor</translation>
     </message>
     <message>
-        <source>Connect to the Particl network through a separate SOCKS5 proxy for Tor hidden services.</source>
-        <translation>Conéctese a la red de Particl a través de un proxy SOCKS5 separado para los servicios Tor ocultos.</translation>
+        <source>Connect to the Falcon network through a separate SOCKS5 proxy for Tor hidden services.</source>
+        <translation>Conéctese a la red de Falcon a través de un proxy SOCKS5 separado para los servicios Tor ocultos.</translation>
     </message>
     <message>
         <source>&amp;Window</source>
@@ -1382,8 +1382,8 @@
         <translation>Desde</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Particl network after a connection is established, but this process has not completed yet.</source>
-        <translation>La información mostrada puede estar desactualizada. Su monedero se sincroniza automáticamente con la red Particl después de que se haya establecido una conexión, pero este proceso aún no se ha completado.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Falcon network after a connection is established, but this process has not completed yet.</source>
+        <translation>La información mostrada puede estar desactualizada. Su monedero se sincroniza automáticamente con la red Falcon después de que se haya establecido una conexión, pero este proceso aún no se ha completado.</translation>
     </message>
     <message>
         <source>Watch-only:</source>
@@ -1457,16 +1457,16 @@
         <translation>Error de solicitud de pago</translation>
     </message>
     <message>
-        <source>Cannot start particl: click-to-pay handler</source>
-        <translation>No se puede iniciar Particl: controlador de clic para pagar</translation>
+        <source>Cannot start falcon: click-to-pay handler</source>
+        <translation>No se puede iniciar Falcon: controlador de clic para pagar</translation>
     </message>
     <message>
         <source>URI handling</source>
         <translation>Manejo de URI</translation>
     </message>
     <message>
-        <source>'particl://' is not a valid URI. Use 'particl:' instead.</source>
-        <translation>'particl: //' no es un URI válido. Use 'particl:' en su lugar.</translation>
+        <source>'falcon://' is not a valid URI. Use 'falcon:' instead.</source>
+        <translation>'falcon: //' no es un URI válido. Use 'falcon:' en su lugar.</translation>
     </message>
     <message>
         <source>You are using a BIP70 URL which will be unsupported in the future.</source>
@@ -1493,8 +1493,8 @@
         <translation>Dirección de pago inválida %1</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Particl address or malformed URI parameters.</source>
-        <translation>¡No se puede interpretar la URI! Esto puede deberse a una dirección Particl inválida o a parámetros de URI mal formados.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Falcon address or malformed URI parameters.</source>
+        <translation>¡No se puede interpretar la URI! Esto puede deberse a una dirección Falcon inválida o a parámetros de URI mal formados.</translation>
     </message>
     <message>
         <source>Payment request file handling</source>
@@ -1595,8 +1595,8 @@
         <translation>Cantidad</translation>
     </message>
     <message>
-        <source>Enter a Particl address (e.g. %1)</source>
-        <translation>Ingrese una dirección de Particl (por ejemplo, %1)</translation>
+        <source>Enter a Falcon address (e.g. %1)</source>
+        <translation>Ingrese una dirección de Falcon (por ejemplo, %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2056,8 +2056,8 @@
         <translation>Mensaje:</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Particl network.</source>
-        <translation>Mensaje opcional para agregar a la solicitud de pago, el cual será mostrado cuando la solicitud esté abierta. Nota: El mensaje no se enviará con el pago a través de la red de Particl.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Falcon network.</source>
+        <translation>Mensaje opcional para agregar a la solicitud de pago, el cual será mostrado cuando la solicitud esté abierta. Nota: El mensaje no se enviará con el pago a través de la red de Falcon.</translation>
     </message>
     <message>
         <source>An optional label to associate with the new receiving address.</source>
@@ -2329,8 +2329,8 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>Polvo:</translation>
     </message>
     <message>
-        <source>When there is less transaction volume than space in the blocks, miners as well as relaying nodes may enforce a minimum fee. Paying only this minimum fee is just fine, but be aware that this can result in a never confirming transaction once there is more demand for particl transactions than the network can process.</source>
-        <translation>Cuando hay menos volumen de transacciones que espacio en los bloques, los mineros y los nodos de retransmisión pueden imponer una comisión mínima. Pagar solo esta comisión mínima está bien, pero tenga en cuenta que esto puede resultar en una transacción nunca confirmada una vez que haya más demanda de transacciones de Particl de la que la red puede procesar.</translation>
+        <source>When there is less transaction volume than space in the blocks, miners as well as relaying nodes may enforce a minimum fee. Paying only this minimum fee is just fine, but be aware that this can result in a never confirming transaction once there is more demand for falcon transactions than the network can process.</source>
+        <translation>Cuando hay menos volumen de transacciones que espacio en los bloques, los mineros y los nodos de retransmisión pueden imponer una comisión mínima. Pagar solo esta comisión mínima está bien, pero tenga en cuenta que esto puede resultar en una transacción nunca confirmada una vez que haya más demanda de transacciones de Falcon de la que la red puede procesar.</translation>
     </message>
     <message>
         <source>A too low fee might result in a never confirming transaction (read the tooltip)</source>
@@ -2485,8 +2485,8 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation><numerusform>Estimado para empezar la confirmación dentro de %n bloque.</numerusform><numerusform>Estimado para empezar la confirmación dentro de %n bloques.</numerusform></translation>
     </message>
     <message>
-        <source>Warning: Invalid Particl address</source>
-        <translation>Peligro: Dirección de Particl inválida</translation>
+        <source>Warning: Invalid Falcon address</source>
+        <translation>Peligro: Dirección de Falcon inválida</translation>
     </message>
     <message>
         <source>Warning: Unknown change address</source>
@@ -2528,8 +2528,8 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>Esto es un pago ordinario.</translation>
     </message>
     <message>
-        <source>The Particl address to send the payment to</source>
-        <translation>Dirección Particl a la que se enviará el pago</translation>
+        <source>The Falcon address to send the payment to</source>
+        <translation>Dirección Falcon a la que se enviará el pago</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -2548,8 +2548,8 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>Eliminar esta entrada.</translation>
     </message>
     <message>
-        <source>The fee will be deducted from the amount being sent. The recipient will receive less particl than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
-        <translation>La comisión será deducida de la cantidad que sea enviada. El destinatario recibirá menos particl que la cantidad introducida en el campo Cantidad. Si hay varios destinatarios seleccionados, la comisión será distribuida a partes iguales.</translation>
+        <source>The fee will be deducted from the amount being sent. The recipient will receive less falcon than you enter in the amount field. If multiple recipients are selected, the fee is split equally.</source>
+        <translation>La comisión será deducida de la cantidad que sea enviada. El destinatario recibirá menos falcon que la cantidad introducida en el campo Cantidad. Si hay varios destinatarios seleccionados, la comisión será distribuida a partes iguales.</translation>
     </message>
     <message>
         <source>S&amp;ubtract fee from amount</source>
@@ -2576,8 +2576,8 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>Introduzca una etiqueta para esta dirección para añadirla a la lista de direcciones utilizadas</translation>
     </message>
     <message>
-        <source>A message that was attached to the particl: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Particl network.</source>
-        <translation>Un mensaje que se adjuntó a la particl: URL que será almacenada con la transacción para su referencia. Nota: Este mensaje no se envía a través de la red Particl.</translation>
+        <source>A message that was attached to the falcon: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Falcon network.</source>
+        <translation>Un mensaje que se adjuntó a la falcon: URL que será almacenada con la transacción para su referencia. Nota: Este mensaje no se envía a través de la red Falcon.</translation>
     </message>
     <message>
         <source>Pay To:</source>
@@ -2621,12 +2621,12 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>&amp;Firmar mensaje</translation>
     </message>
     <message>
-        <source>You can sign messages/agreements with your addresses to prove you can receive particl sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <source>You can sign messages/agreements with your addresses to prove you can receive falcon sent to them. Be careful not to sign anything vague or random, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>Puede firmar los mensajes con sus direcciones para demostrar que las posee. Tenga cuidado de no firmar cualquier cosa de manera vaga o aleatoria, pues los ataques de phishing pueden tratar de engañarle firmando su identidad a través de ellos. Sólo firme declaraciones totalmente detalladas con las que usted esté de acuerdo.</translation>
     </message>
     <message>
-        <source>The Particl address to sign the message with</source>
-        <translation>Dirección Particl con la que firmar el mensaje</translation>
+        <source>The Falcon address to sign the message with</source>
+        <translation>Dirección Falcon con la que firmar el mensaje</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2657,8 +2657,8 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>Copiar la firma actual al portapapeles del sistema</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Particl address</source>
-        <translation>Firmar el mensaje para demostrar que se posee esta dirección Particl</translation>
+        <source>Sign the message to prove you own this Falcon address</source>
+        <translation>Firmar el mensaje para demostrar que se posee esta dirección Falcon</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2681,12 +2681,12 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
         <translation>Introduzca la dirección para la firma, el mensaje (asegurándose de copiar tal cual los saltos de línea, espacios, tabulaciones, etc.) y la firma a continuación para verificar el mensaje. Tenga cuidado de no asumir más información de lo que dice el propio mensaje firmado para evitar fraudes basados en ataques de tipo man-in-the-middle.</translation>
     </message>
     <message>
-        <source>The Particl address the message was signed with</source>
-        <translation>La dirección Particl con la que se firmó el mensaje</translation>
+        <source>The Falcon address the message was signed with</source>
+        <translation>La dirección Falcon con la que se firmó el mensaje</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Particl address</source>
-        <translation>Verificar el mensaje para comprobar que fue firmado con la dirección Particl indicada</translation>
+        <source>Verify the message to ensure it was signed with the specified Falcon address</source>
+        <translation>Verificar el mensaje para comprobar que fue firmado con la dirección Falcon indicada</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>
@@ -2900,7 +2900,7 @@ Nota: Dado que la comisión se calcula por byte, una comisión de "100 satoshis 
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Los particl generados deben madurar %1 bloques antes de que puedan gastarse. Cuando generó este bloque, se transmitió a la red para que se añadiera a la cadena de bloques. Si no consigue entrar en la cadena, su estado cambiará a "no aceptado" y ya no se podrá gastar. Esto puede ocurrir ocasionalmente si otro nodo genera un bloque a pocos segundos del suyo.</translation>
+        <translation>Los falcon generados deben madurar %1 bloques antes de que puedan gastarse. Cuando generó este bloque, se transmitió a la red para que se añadiera a la cadena de bloques. Si no consigue entrar en la cadena, su estado cambiará a "no aceptado" y ya no se podrá gastar. Esto puede ocurrir ocasionalmente si otro nodo genera un bloque a pocos segundos del suyo.</translation>
     </message>
     <message>
         <source>Debug information</source>

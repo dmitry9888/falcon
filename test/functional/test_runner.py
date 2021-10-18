@@ -219,14 +219,14 @@ BASE_SCRIPTS = [
     # Put them in a random line within the section that fits their approximate run-time
 ]
 
-PARTICL_SCRIPTS = [
+FALCON_SCRIPTS = [
     'p2p_part_fork.py',
     'feature_part_pos.py',
     'feature_part_extkey.py',
     'feature_part_stealth.py',
     'feature_part_blind.py',
     'feature_part_anon.py',
-    'wallet_part_particl.py',
+    'wallet_part_falcon.py',
     'rpc_part_mnemonic.py',
     'feature_part_smsg.py',
     'feature_part_smsgpaid.py',
@@ -247,7 +247,7 @@ PARTICL_SCRIPTS = [
     'p2p_part_disable_types.py',
 ]
 
-PARTICL_SCRIPTS_EXT = [
+FALCON_SCRIPTS_EXT = [
     'feature_part_smsg_multiwallet.py',
     'feature_part_treasury_fund.py',
     'rpc_part_tracefrozenoutputs.py',
@@ -264,7 +264,7 @@ INSIGHT_SCRIPTS = [
 ]
 
 # Place EXTENDED_SCRIPTS first since it has the 3 longest running tests
-ALL_SCRIPTS = EXTENDED_SCRIPTS + BASE_SCRIPTS + PARTICL_SCRIPTS + INSIGHT_SCRIPTS + PARTICL_SCRIPTS_EXT
+ALL_SCRIPTS = EXTENDED_SCRIPTS + BASE_SCRIPTS + FALCON_SCRIPTS + INSIGHT_SCRIPTS + FALCON_SCRIPTS_EXT
 
 NON_SCRIPTS = [
     # These are python files that live in the functional tests directory, but are not test scripts.
@@ -290,8 +290,8 @@ def main():
     parser.add_argument('--exclude', '-x', help='specify a comma-separated-list of scripts to exclude.')
     parser.add_argument('--extended', action='store_true', help='run the extended test suite in addition to the basic tests')
     parser.add_argument('--bitcoin', action='store_true', help='run Bitcoin specific tests')
-    parser.add_argument('--particl', action='store_true', help='run Particl specific tests')
-    parser.add_argument('--particlext', action='store_true', help='run Particl extended tests')
+    parser.add_argument('--falcon', action='store_true', help='run Falcon specific tests')
+    parser.add_argument('--falconext', action='store_true', help='run Falcon extended tests')
     parser.add_argument('--insight', action='store_true', help='run Insight specific tests')
     parser.add_argument('--withstdout', action='store_true', help='print stdout when test passed also')
     parser.add_argument('--help', '-h', '-?', action='store_true', help='print help text and exit')
@@ -327,7 +327,7 @@ def main():
     logging.basicConfig(format='%(message)s', level=logging_level)
 
     # Create base test directory
-    tmpdir = "%s/particl_test_runner_P_🏃_%s" % (args.tmpdirprefix, datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
+    tmpdir = "%s/falcon_test_runner_P_🏃_%s" % (args.tmpdirprefix, datetime.datetime.now().strftime("%Y%m%d_%H%M%S"))
 
     os.makedirs(tmpdir)
 
@@ -371,14 +371,14 @@ def main():
         test_list = []
         if args.extended:
             test_list += EXTENDED_SCRIPTS
-        if args.particl:
-            test_list += PARTICL_SCRIPTS
+        if args.falcon:
+            test_list += FALCON_SCRIPTS
         if args.insight:
             test_list += INSIGHT_SCRIPTS
         if args.bitcoin:
             test_list += BASE_SCRIPTS
-        if args.particlext:
-            test_list += PARTICL_SCRIPTS_EXT
+        if args.falconext:
+            test_list += FALCON_SCRIPTS_EXT
 
     # Remove the test cases that the user has explicitly asked to exclude.
     if args.exclude:
@@ -423,7 +423,7 @@ def main():
         failfast=args.failfast,
         runs_ci=args.ci,
         use_term_control=args.ansi,
-        create_cache=(True if args.bitcoin or (not args.particl and not args.insight) else False)
+        create_cache=(True if args.bitcoin or (not args.falcon and not args.insight) else False)
     )
 
 def run_tests(*, test_list, src_dir, build_dir, tmpdir, jobs=1, enable_coverage=False, args=None, combined_logs_len=0, failfast=False, runs_ci, use_term_control, create_cache=True):

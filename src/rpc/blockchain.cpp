@@ -807,7 +807,7 @@ static UniValue getblockheader(const JSONRPCRequest& request)
             "  \"difficulty\" : x.xxx,  (numeric) The difficulty\n"
             "  \"chainwork\" : \"0000...1f3\"     (string) Expected number of hashes required to produce the current chain (in hex)\n"
             "  \"nTx\" : n,             (numeric) The number of transactions in the block.\n"
-            "  \"moneysupply\": xxxxxxx,        (numeric) the total amount of particl in the chain at this block\n"
+            "  \"moneysupply\": xxxxxxx,        (numeric) the total amount of falcon in the chain at this block\n"
             "  \"anonoutputs\": xxxxxxx,        (numeric) the total amount of RCT outputs in the chain at this block\n"
             "  \"previousblockhash\" : \"hash\",  (string) The hash of the previous block\n"
             "  \"nextblockhash\" : \"hash\",      (string) The hash of the next block\n"
@@ -1073,7 +1073,7 @@ static UniValue gettxoutsetinfo(const JSONRPCRequest& request)
         ret.pushKV("bestblock", stats.hashBlock.GetHex());
         ret.pushKV("transactions", (int64_t)stats.nTransactions);
         ret.pushKV("txouts", (int64_t)stats.nTransactionOutputs);
-        if (fParticlMode) {
+        if (fFalconMode) {
             ret.pushKV("txouts_blinded", (int64_t)stats.nBlindTransactionOutputs);
         }
         ret.pushKV("bogosize", (int64_t)stats.nBogoSize);
@@ -1105,8 +1105,8 @@ UniValue gettxout(const JSONRPCRequest& request)
             "     \"hex\" : \"hex\",        (string) \n"
             "     \"reqSigs\" : n,          (numeric) Number of required signatures\n"
             "     \"type\" : \"pubkeyhash\", (string) The type, eg pubkeyhash\n"
-            "     \"addresses\" : [          (array of string) array of particl addresses\n"
-            "        \"address\"           (string) particl address\n"
+            "     \"addresses\" : [          (array of string) array of falcon addresses\n"
+            "        \"address\"           (string) falcon address\n"
             "        ,...\n"
             "     ]\n"
             "  },\n"
@@ -1323,7 +1323,7 @@ UniValue getblockchaininfo(const JSONRPCRequest& request)
     obj.pushKV("blocks",                (int)::ChainActive().Height());
     obj.pushKV("headers",               pindexBestHeader ? pindexBestHeader->nHeight : -1);
     obj.pushKV("bestblockhash",         tip->GetBlockHash().GetHex());
-    if (fParticlMode) {
+    if (fFalconMode) {
         obj.pushKV("moneysupply",           ValueFromAmount(tip->nMoneySupply));
         obj.pushKV("blockindexsize",        (int)::BlockIndex().size());
         obj.pushKV("delayedblocks",         (int)CountDelayedBlocks());
@@ -1352,7 +1352,7 @@ UniValue getblockchaininfo(const JSONRPCRequest& request)
         }
     }
 
-    if (fParticlMode)
+    if (fFalconMode)
         return obj;
     const Consensus::Params& consensusParams = Params().GetConsensus();
     UniValue softforks(UniValue::VOBJ);
@@ -1955,7 +1955,7 @@ static UniValue getblockstats(const JSONRPCRequest& request)
 
         if (loop_inputs) {
             CAmount tx_total_in = 0;
-            const auto& txundo = blockUndo.vtxundo.at(fParticlMode ? i : i - 1); // Particl includes coinbase/coinstake in undo data
+            const auto& txundo = blockUndo.vtxundo.at(fFalconMode ? i : i - 1); // Falcon includes coinbase/coinstake in undo data
             for (const Coin& coin: txundo.vprevout) {
                 const CTxOut& prevoutput = coin.out;
 

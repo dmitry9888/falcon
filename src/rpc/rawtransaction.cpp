@@ -251,7 +251,7 @@ static UniValue getrawtransaction(const JSONRPCRequest& request)
             "         \"reqSigs\" : n,            (numeric) The required sigs\n"
             "         \"type\" : \"pubkeyhash\",  (string) The type, eg 'pubkeyhash'\n"
             "         \"addresses\" : [           (json array of string)\n"
-            "           \"address\"               (string) particl address\n"
+            "           \"address\"               (string) falcon address\n"
             "           ,...\n"
             "         ]\n"
             "       }\n"
@@ -278,7 +278,7 @@ static UniValue getrawtransaction(const JSONRPCRequest& request)
     uint256 hash = ParseHashV(request.params[0], "parameter 1");
     CBlockIndex* blockindex = nullptr;
 
-    if (!fParticlMode && hash == Params().GenesisBlock().hashMerkleRoot) {
+    if (!fFalconMode && hash == Params().GenesisBlock().hashMerkleRoot) {
         // Special exception for the genesis block coinbase transaction
         throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "The genesis block coinbase is not considered an ordinary transaction and cannot be retrieved");
     }
@@ -354,7 +354,7 @@ static UniValue getrawtransaction(const JSONRPCRequest& request)
     if (blockindex) result.pushKV("in_active_chain", in_active_chain);
     result.pushKV("hex", strHex);
 
-    if (fParticlMode) {
+    if (fFalconMode) {
         TxToJSONExpanded(*tx, hash_block, result, nHeight, nConfirmations, nBlockTime);
     } else {
         TxToJSON(*tx, hash_block, result);
@@ -524,7 +524,7 @@ static UniValue createrawtransaction(const JSONRPCRequest& request)
                         {
                             {"", RPCArg::Type::OBJ, RPCArg::Optional::OMITTED, "",
                                 {
-                                    {"address", RPCArg::Type::AMOUNT, RPCArg::Optional::NO, "A key-value pair. The key (string) is the particl address, the value (float or string) is the amount in " + CURRENCY_UNIT},
+                                    {"address", RPCArg::Type::AMOUNT, RPCArg::Optional::NO, "A key-value pair. The key (string) is the falcon address, the value (float or string) is the amount in " + CURRENCY_UNIT},
                                 },
                                 },
                             {"", RPCArg::Type::OBJ, RPCArg::Optional::OMITTED, "",
@@ -612,7 +612,7 @@ static UniValue decoderawtransaction(const JSONRPCRequest& request)
             "         \"reqSigs\" : n,            (numeric) The required sigs\n"
             "         \"type\" : \"pubkeyhash\",  (string) The type, eg 'pubkeyhash'\n"
             "         \"addresses\" : [           (json array of string)\n"
-            "           \"PfqK97PXYfqRFtdYcZw82x3dzPrZbEAcYa\"   (string) particl address\n"
+            "           \"PfqK97PXYfqRFtdYcZw82x3dzPrZbEAcYa\"   (string) falcon address\n"
             "           ,...\n"
             "         ]\n"
             "       }\n"
@@ -668,7 +668,7 @@ static UniValue decodescript(const JSONRPCRequest& request)
             "  \"type\":\"type\",        (string) The output type (e.g. "+GetAllOutputTypes()+")\n"
             "  \"reqSigs\": n,    (numeric) The required signatures\n"
             "  \"addresses\": [   (json array of string)\n"
-            "     \"address\"     (string) particl address\n"
+            "     \"address\"     (string) falcon address\n"
             "     ,...\n"
             "  ],\n"
             "  \"p2sh\":\"str\"          (string) address of P2SH script wrapping this redeem script (not returned if the script is already a P2SH).\n"
@@ -960,7 +960,7 @@ static UniValue sendrawtransaction(const JSONRPCRequest& request)
     }
     CTransactionRef tx(MakeTransactionRef(std::move(mtx)));
 
-    CFeeRate max_raw_tx_fee_rate = fParticlMode ? DEFAULT_MAX_RAW_TX_FEE_RATE : DEFAULT_MAX_RAW_TX_FEE_RATE_BTC;
+    CFeeRate max_raw_tx_fee_rate = fFalconMode ? DEFAULT_MAX_RAW_TX_FEE_RATE : DEFAULT_MAX_RAW_TX_FEE_RATE_BTC;
     // TODO: temporary migration code for old clients. Remove in v0.20
     if (request.params[1].isBool()) {
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Second argument must be numeric (maxfeerate) and no longer supports a boolean. To allow a transaction with high fees, set maxfeerate to 0.");
@@ -1035,7 +1035,7 @@ static UniValue testmempoolaccept(const JSONRPCRequest& request)
     CTransactionRef tx(MakeTransactionRef(std::move(mtx)));
     const uint256& tx_hash = tx->GetHash();
 
-    CFeeRate max_raw_tx_fee_rate = fParticlMode ? DEFAULT_MAX_RAW_TX_FEE_RATE : DEFAULT_MAX_RAW_TX_FEE_RATE_BTC;
+    CFeeRate max_raw_tx_fee_rate = fFalconMode ? DEFAULT_MAX_RAW_TX_FEE_RATE : DEFAULT_MAX_RAW_TX_FEE_RATE_BTC;
     // TODO: temporary migration code for old clients. Remove in v0.20
     if (request.params[1].isBool()) {
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Second argument must be numeric (maxfeerate) and no longer supports a boolean. To allow a transaction with high fees, set maxfeerate to 0.");
@@ -1512,7 +1512,7 @@ UniValue createpsbt(const JSONRPCRequest& request)
                         {
                             {"", RPCArg::Type::OBJ, RPCArg::Optional::OMITTED, "",
                                 {
-                                    {"address", RPCArg::Type::AMOUNT, RPCArg::Optional::NO, "A key-value pair. The key (string) is the particl address, the value (float or string) is the amount in " + CURRENCY_UNIT},
+                                    {"address", RPCArg::Type::AMOUNT, RPCArg::Optional::NO, "A key-value pair. The key (string) is the falcon address, the value (float or string) is the amount in " + CURRENCY_UNIT},
                                 },
                                 },
                             {"", RPCArg::Type::OBJ, RPCArg::Optional::OMITTED, "",

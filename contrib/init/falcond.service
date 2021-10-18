@@ -1,0 +1,25 @@
+[Unit]
+Description=Falcon daemon
+After=network.target
+
+[Service]
+User=falcon
+Group=falcon
+
+Type=forking
+PIDFile=/home/falcon/.falcon/falcond.pid
+ExecStart=/home/falcon/Falcon/falcond -daemon -pid=/home/falcon/.falcon/falcond.pid \
+-conf=/home/falcon/.falcon/falcon.conf -datadir=/home/falcon/.falcon
+
+ExecStop=/home/falcon/Falcon/falcon-cli -conf=/home/falcon/.falcon/falcon.conf stop
+ExecStop=/usr/bin/sleep 25
+
+Restart=no
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

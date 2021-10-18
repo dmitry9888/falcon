@@ -509,7 +509,7 @@ void WalletModel::subscribeToCoreSignals()
     m_handler_watch_only_changed = m_wallet->handleWatchOnlyChanged(std::bind(NotifyWatchonlyChanged, this, std::placeholders::_1));
     m_handler_can_get_addrs_changed = m_wallet->handleCanGetAddressesChanged(std::bind(NotifyCanGetAddressesChanged, this));
 
-    if (m_wallet->IsParticlWallet()) {
+    if (m_wallet->IsFalconWallet()) {
         m_handler_reserved_balance_changed = m_wallet->handleReservedBalanceChanged(std::bind(NotifyReservedBalanceChanged, this, std::placeholders::_1));
     }
 }
@@ -525,7 +525,7 @@ void WalletModel::unsubscribeFromCoreSignals()
     m_handler_watch_only_changed->disconnect();
     m_handler_can_get_addrs_changed->disconnect();
 
-    if (m_wallet->IsParticlWallet()) {
+    if (m_wallet->IsFalconWallet()) {
         m_handler_reserved_balance_changed->disconnect();
     }
 }

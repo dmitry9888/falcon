@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PARTICL_INSIGHT_BALANCEINDEX_H
-#define PARTICL_INSIGHT_BALANCEINDEX_H
+#ifndef FALCON_INSIGHT_BALANCEINDEX_H
+#define FALCON_INSIGHT_BALANCEINDEX_H
 
 enum BalanceIndexType {
     BAL_IND_PLAIN_ADDED                 = 0,
@@ -42,4 +42,4 @@ public:
     }
 };
 
-#endif // PARTICL_INSIGHT_BALANCEINDEX_H
+#endif // FALCON_INSIGHT_BALANCEINDEX_H

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-# Copyright (c) 2017-2019 The Particl Core developers
+# Copyright (c) 2017-2019 The Falcon Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 import struct
 import copy
 
-from test_framework.test_particl import ParticlTestFramework
+from test_framework.test_falcon import FalconTestFramework
 from test_framework.util import connect_nodes, assert_raises_rpc_error
 
 
@@ -33,7 +33,7 @@ def putvarint(i):
     return bb
 
 
-class SmsgPaidFeeTest(ParticlTestFramework):
+class SmsgPaidFeeTest(FalconTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 3

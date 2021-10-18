@@ -67,12 +67,12 @@
         <translation>អាសយដ្ឋានទទួួល</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>ទាំងនេះ​គឺជាអាសយដ្ឋាន Particl  របស់អ្នកសម្រាប់ធ្វើការផ្ញើការបង់ប្រាក់។ តែងតែពិនិត្យមើលចំនួនប្រាក់ និងអាសយដ្ឋានដែលទទួល មុនពេលផ្ញើប្រាក់។</translation>
+        <source>These are your Falcon addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>ទាំងនេះ​គឺជាអាសយដ្ឋាន Falcon  របស់អ្នកសម្រាប់ធ្វើការផ្ញើការបង់ប្រាក់។ តែងតែពិនិត្យមើលចំនួនប្រាក់ និងអាសយដ្ឋានដែលទទួល មុនពេលផ្ញើប្រាក់។</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
-        <translation>ទាំងនេះ​គឺជាអាសយដ្ឋាន Particl របស់អ្នកសម្រាប់ធ្វើការទទួលបង់ប្រាក់។ ប្រើប៊ូតុង "បង្កើតអាសយដ្ឋានទទួលថ្មី" ស្ថិតក្នុងផ្ទាំងទទួល ដើម្បីបង្កើតអាសយដ្ឋានថ្មីមួយ។</translation>
+        <source>These are your Falcon addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
+        <translation>ទាំងនេះ​គឺជាអាសយដ្ឋាន Falcon របស់អ្នកសម្រាប់ធ្វើការទទួលបង់ប្រាក់។ ប្រើប៊ូតុង "បង្កើតអាសយដ្ឋានទទួលថ្មី" ស្ថិតក្នុងផ្ទាំងទទួល ដើម្បីបង្កើតអាសយដ្ឋានថ្មីមួយ។</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -169,8 +169,8 @@
         <translation>បញ្ជាក់ការសំរេចចិត្ត​​កាបូប​​ការ​អែនក្រីព</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PARTICL&lt;/b&gt;!</source>
-        <translation>ការព្រមាន៖ ប្រសិនបើអ្នកអ៊ិនគ្រីបកាបូបចល័តរបស់អ្នក ហើយអ្នកភ្លេចបាត់ឃ្លាសម្ងាត់ នោះអ្នកនិង &lt;b&gt;បាត់បង់ PARTICL របស់អ្នកទាំងអស់&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FALCON&lt;/b&gt;!</source>
+        <translation>ការព្រមាន៖ ប្រសិនបើអ្នកអ៊ិនគ្រីបកាបូបចល័តរបស់អ្នក ហើយអ្នកភ្លេចបាត់ឃ្លាសម្ងាត់ នោះអ្នកនិង &lt;b&gt;បាត់បង់ FALCON របស់អ្នកទាំងអស់&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
@@ -355,8 +355,8 @@
         <translation>ប្រូកស៊ី ត្រូវបាន &lt;b&gt;អនុញ្ញាត&lt;/b&gt;៖ %1</translation>
     </message>
     <message>
-        <source>Send coins to a Particl address</source>
-        <translation>ផ្ញើកាក់ទៅកាន់ អាសយដ្ឋាន Particl មួយ</translation>
+        <source>Send coins to a Falcon address</source>
+        <translation>ផ្ញើកាក់ទៅកាន់ អាសយដ្ឋាន Falcon មួយ</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -436,8 +436,8 @@
         <translation>សូមស្វាគមន៍</translation>
     </message>
     <message>
-        <source>Particl</source>
-        <translation>Particl</translation>
+        <source>Falcon</source>
+        <translation>Falcon</translation>
     </message>
     <message>
         <source>Error</source>

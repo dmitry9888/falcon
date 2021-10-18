@@ -1,11 +1,11 @@
 // Copyright (c) 2012-2013 The PPCoin developers
 // Copyright (c) 2014 The BlackCoin developers
-// Copyright (c) 2017-2019 The Particl Core developers
+// Copyright (c) 2017-2019 The Falcon Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PARTICL_POS_KERNEL_H
-#define PARTICL_POS_KERNEL_H
+#ifndef FALCON_POS_KERNEL_H
+#define FALCON_POS_KERNEL_H
 
 #include <validation.h>
 
@@ -46,4 +46,4 @@ bool CheckCoinStakeTimestamp(int nHeight, int64_t nTimeBlock);
  */
 bool CheckKernel(const CBlockIndex *pindexPrev, unsigned int nBits, int64_t nTime, const COutPoint &prevout, int64_t* pBlockTime = nullptr);
 
-#endif // PARTICL_POS_KERNEL_H
+#endif // FALCON_POS_KERNEL_H

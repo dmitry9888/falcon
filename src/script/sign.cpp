@@ -12,7 +12,7 @@
 #include <script/standard.h>
 #include <uint256.h>
 
-extern bool fParticlMode;
+extern bool fFalconMode;
 typedef std::vector<unsigned char> valtype;
 
 MutableTransactionSignatureCreator::MutableTransactionSignatureCreator(const CMutableTransaction* txToIn, unsigned int nInIn, const std::vector<uint8_t>& amountIn, int nHashTypeIn) : txTo(txToIn), nIn(nInIn), nHashType(nHashTypeIn), amount(amountIn), checker(txTo, nIn, amountIn) {}
@@ -222,7 +222,7 @@ bool ProduceSignature(const SigningProvider& provider, const BaseSignatureCreato
     CScript subscript;
     sigdata.scriptWitness.stack.clear();
 
-    bool fIsP2SH = creator.IsParticlVersion()
+    bool fIsP2SH = creator.IsFalconVersion()
         ? (whichType == TX_SCRIPTHASH || whichType == TX_SCRIPTHASH256 || whichType == TX_TIMELOCKED_SCRIPTHASH)
         : whichType == TX_SCRIPTHASH;
     if (solved && fIsP2SH)
@@ -265,7 +265,7 @@ bool ProduceSignature(const SigningProvider& provider, const BaseSignatureCreato
         result.push_back(std::vector<unsigned char>(subscript.begin(), subscript.end()));
     }
 
-    if (creator.IsParticlVersion()) {
+    if (creator.IsFalconVersion()) {
         if (!sigdata.witness) {
             sigdata.scriptWitness.stack = result;
         }
@@ -297,8 +297,8 @@ public:
         return false;
     }
 
-    bool is_particl_tx = false;
-    bool IsParticlVersion() const override { return is_particl_tx; }
+    bool is_falcon_tx = false;
+    bool IsFalconVersion() const override { return is_falcon_tx; }
 };
 
 struct Stacks
@@ -332,7 +332,7 @@ SignatureData DataFromTransaction(const CMutableTransaction& tx, unsigned int nI
     // Get signatures
     MutableTransactionSignatureChecker tx_checker(&tx, nIn, amount);
     SignatureExtractorChecker extractor_checker(data, tx_checker);
-    extractor_checker.is_particl_tx = tx.IsParticlVersion();
+    extractor_checker.is_falcon_tx = tx.IsFalconVersion();
     if (VerifyScript(data.scriptSig, scriptPubKey, &data.scriptWitness, STANDARD_SCRIPT_VERIFY_FLAGS, extractor_checker)) {
         data.complete = true;
         return data;
@@ -350,7 +350,7 @@ SignatureData DataFromTransaction(const CMutableTransaction& tx, unsigned int nI
     SigVersion sigversion = SigVersion::BASE;
     CScript next_script = scriptPubKey;
 
-    if (tx.IsParticlVersion()) {
+    if (tx.IsFalconVersion()) {
         if (script_type == TX_PUBKEY || script_type == TX_PUBKEYHASH || script_type == TX_PUBKEYHASH256 || script_type == TX_TIMELOCKED_PUBKEYHASH)
             script_type = TX_WITNESS_V0_KEYHASH;
         else
@@ -447,7 +447,7 @@ bool SignSignature(const SigningProvider &provider, const CTransaction& txFrom, 
     assert(nIn < txTo.vin.size());
     CTxIn& txin = txTo.vin[nIn];
 
-    if (txTo.IsParticlVersion()) {
+    if (txTo.IsFalconVersion()) {
         assert(txin.prevout.n < txFrom.vpout.size());
         CScript scriptPubKey;
         std::vector<uint8_t> vamount;
@@ -497,20 +497,20 @@ public:
     }
 };
 
-class DummySignatureCheckerParticl : public DummySignatureChecker
+class DummySignatureCheckerFalcon : public DummySignatureChecker
 {
-// IsParticlVersion() must return true to skip stack evaluation
+// IsFalconVersion() must return true to skip stack evaluation
 public:
-    DummySignatureCheckerParticl() : DummySignatureChecker() {}
-    bool IsParticlVersion() const override { return true; }
+    DummySignatureCheckerFalcon() : DummySignatureChecker() {}
+    bool IsFalconVersion() const override { return true; }
 };
-const DummySignatureCheckerParticl DUMMY_CHECKER_PARTICL;
+const DummySignatureCheckerFalcon DUMMY_CHECKER_FALCON;
 
-class DummySignatureCreatorParticl : public DummySignatureCreator {
+class DummySignatureCreatorFalcon : public DummySignatureCreator {
 public:
-    DummySignatureCreatorParticl() : DummySignatureCreator(33, 32) {}
-    const BaseSignatureChecker& Checker() const override { return DUMMY_CHECKER_PARTICL; }
-    bool IsParticlVersion() const override { return true; }
+    DummySignatureCreatorFalcon() : DummySignatureCreator(33, 32) {}
+    const BaseSignatureChecker& Checker() const override { return DUMMY_CHECKER_FALCON; }
+    bool IsFalconVersion() const override { return true; }
 };
 
 template<typename M, typename K, typename V>
@@ -528,7 +528,7 @@ bool LookupHelper(const M& map, const K& key, V& value)
 
 const BaseSignatureCreator& DUMMY_SIGNATURE_CREATOR = DummySignatureCreator(32, 32);
 const BaseSignatureCreator& DUMMY_MAXIMUM_SIGNATURE_CREATOR = DummySignatureCreator(33, 32);
-const BaseSignatureCreator& DUMMY_SIGNATURE_CREATOR_PARTICL = DummySignatureCreatorParticl();
+const BaseSignatureCreator& DUMMY_SIGNATURE_CREATOR_FALCON = DummySignatureCreatorFalcon();
 
 bool IsSolvable(const SigningProvider& provider, const CScript& script)
 {
@@ -540,9 +540,9 @@ bool IsSolvable(const SigningProvider& provider, const CScript& script)
     // Make sure that STANDARD_SCRIPT_VERIFY_FLAGS includes SCRIPT_VERIFY_WITNESS_PUBKEYTYPE, the most
     // important property this function is designed to test for.
     static_assert(STANDARD_SCRIPT_VERIFY_FLAGS & SCRIPT_VERIFY_WITNESS_PUBKEYTYPE, "IsSolvable requires standard script flags to include WITNESS_PUBKEYTYPE");
-    if (ProduceSignature(provider, fParticlMode ? DUMMY_SIGNATURE_CREATOR_PARTICL : DUMMY_SIGNATURE_CREATOR, script, sigs)) {
+    if (ProduceSignature(provider, fFalconMode ? DUMMY_SIGNATURE_CREATOR_FALCON : DUMMY_SIGNATURE_CREATOR, script, sigs)) {
         // VerifyScript check is just defensive, and should never fail.
-        bool verified = VerifyScript(sigs.scriptSig, script, &sigs.scriptWitness, STANDARD_SCRIPT_VERIFY_FLAGS, fParticlMode ? DUMMY_CHECKER_PARTICL : DUMMY_CHECKER);
+        bool verified = VerifyScript(sigs.scriptSig, script, &sigs.scriptWitness, STANDARD_SCRIPT_VERIFY_FLAGS, fFalconMode ? DUMMY_CHECKER_FALCON : DUMMY_CHECKER);
         assert(verified);
         return true;
     }

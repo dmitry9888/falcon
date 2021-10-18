@@ -42,11 +42,11 @@ static const int TOOLTIP_WRAP_THRESHOLD = 80;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 36
 
-#define QAPP_ORG_NAME "Particl"
-#define QAPP_ORG_DOMAIN "particl.io"
-#define QAPP_APP_NAME_DEFAULT "Particl-Qt"
-#define QAPP_APP_NAME_TESTNET "Particl-Qt-testnet"
-#define QAPP_APP_NAME_REGTEST "Particl-Qt-regtest"
+#define QAPP_ORG_NAME "Falcon"
+#define QAPP_ORG_DOMAIN "falcon.io"
+#define QAPP_APP_NAME_DEFAULT "Falcon-Qt"
+#define QAPP_APP_NAME_TESTNET "Falcon-Qt-testnet"
+#define QAPP_APP_NAME_REGTEST "Falcon-Qt-regtest"
 
 /* One gigabyte (GB) in bytes */
 static constexpr uint64_t GB_BYTES{1000000000};

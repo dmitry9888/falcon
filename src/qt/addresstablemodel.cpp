@@ -380,7 +380,7 @@ QString AddressTableModel::addRow(const QString &type, const QString &label, con
     }
     else if(type == Receive)
     {
-        QString label_escaped = GUIUtil::particl::escapeQString(label);
+        QString label_escaped = GUIUtil::falcon::escapeQString(label);
         // Generate a new address to associate with given label
         QString sCommand;
         switch (addrType) {

@@ -1,4 +1,4 @@
-// Copyright (c) 2017-2021 The Particl Core developers
+// Copyright (c) 2017-2021 The Falcon Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -91,7 +91,7 @@ void MnemonicDialog::on_btnImport_clicked()
         ? "extkeyimportmaster" : "extkeygenesisimport";
     sCommand += " \"" + ui->tbxMnemonic->toPlainText() + "\"";
 
-    QString sPassword = GUIUtil::particl::escapeQString(ui->edtPassword->text());
+    QString sPassword = GUIUtil::falcon::escapeQString(ui->edtPassword->text());
     sCommand += " \"" + sPassword + "\" false \"Master Key\" \"Default Account\" -1";
 
     UniValue rv;
@@ -139,7 +139,7 @@ void MnemonicDialog::on_btnImportFromHwd_clicked()
 
     m_thread = new RPCThread(sCommand, walletModel->getWalletName(), &m_rv);
     connect(m_thread, &RPCThread::complete, this, &MnemonicDialog::hwImportComplete);
-    m_thread->setObjectName("particl-hwImport");
+    m_thread->setObjectName("falcon-hwImport");
     m_thread->start();
 
     return;
@@ -169,7 +169,7 @@ void MnemonicDialog::hwImportComplete(bool passed)
             ui->tbxHwdOut->appendPlainText("Have you added a udev rule for your device?");
 #endif
 #endif
-            ui->tbxHwdOut->appendPlainText("The Particl app on your device must be open before importing.");
+            ui->tbxHwdOut->appendPlainText("The Falcon app on your device must be open before importing.");
         }
     } else {
         UniValue rv;

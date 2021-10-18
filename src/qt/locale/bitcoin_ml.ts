@@ -67,11 +67,11 @@
         <translation>സ്വീകരിക്കുന്ന വിലാസങ്ങൾ</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Falcon addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>പേയ്മെന്റുകൾ അയയ്ക്കുന്നതിനുള്ള നിങ്ങളുടെ ബിറ്റ്കോയിൻ വിലാസങ്ങളാണ് ഇവ. നാണയങ്ങൾ അയയ്ക്കുന്നതിനുമുമ്പ് എല്ലായ്പ്പോഴും തുകയും സ്വീകരിക്കുന്ന വിലാസവും പരിശോധിക്കുക.</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
+        <source>These are your Falcon addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
         <translation>പണം / പെയ്മെന്റുകൾ  സ്വീകരിക്കുന്നതിനുള്ള താങ്കളുടെ വിലാസങ്ങൾ ഇവയൊക്കെ ആണ്. 
  വിലാസങ്ങൾ കൂട്ടിച്ചേർക്കുന്നതിനായി ' പുതിയ വിലാസം സൃഷ്ടിയ്ക്കുക ' എന്ന ബട്ടൺ അമർത്തുക.</translation>
     </message>
@@ -170,7 +170,7 @@
         <translation>വാലറ്റ് എൻക്രിപ്ഷൻ സ്ഥിരീകരിക്കുക</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PARTICL&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FALCON&lt;/b&gt;!</source>
         <translation>മുന്നറിയിപ്പ്: നിങ്ങളുടെ വാലറ്റ് എൻക്രിപ്റ്റ് ചെയ്ത് പാസ്ഫ്രെയ്സ് നഷ്ടപ്പെടുകയാണെങ്കിൽ, നിങ്ങളുടെ എല്ലാ ബിറ്റ്കൊയിനുകളും നഷ്ടപ്പെടും!</translation>
     </message>
     <message>
@@ -190,7 +190,7 @@
         <translation>വാലെറ്റിന്റെ പഴയ രഹസ്യപദവും പുതിയ രഹസ്യപദവും നൽകുക.</translation>
     </message>
     <message>
-        <source>Remember that encrypting your wallet cannot fully protect your particl from being stolen by malware infecting your computer.</source>
+        <source>Remember that encrypting your wallet cannot fully protect your falcon from being stolen by malware infecting your computer.</source>
         <translation>നിങ്ങളുടെ വാലറ്റ് എൻ‌ക്രിപ്റ്റ് ചെയ്യുന്നതിലൂടെ നിങ്ങളുടെ കമ്പ്യൂട്ടറിനെ ബാധിക്കുന്ന ക്ഷുദ്രവെയർ‌ മോഷ്ടിക്കുന്നതിൽ‌ നിന്നും നിങ്ങളുടെ ബിറ്റ്കോയിനുകളെ പൂർണ്ണമായി സംരക്ഷിക്കാൻ‌ കഴിയില്ല.</translation>
     </message>
     <message>
@@ -364,7 +364,7 @@
         <translation>പ്രോക്സി ആണ്&lt;b&gt;പ്രവർത്തനക്ഷമമാക്കി&lt;/b&gt;:%1</translation>
     </message>
     <message>
-        <source>Send coins to a Particl address</source>
+        <source>Send coins to a Falcon address</source>
         <translation>ഒരു ബിറ്റ്കോയിൻ വിലാസത്തിലേക്ക് നാണയങ്ങൾ അയയ്ക്കുക</translation>
     </message>
     <message>
@@ -400,11 +400,11 @@
         <translation>നിങ്ങളുടെ വാലറ്റിന്റെ സ്വകാര്യ കീകൾ എൻ‌ക്രിപ്റ്റ് ചെയ്യുക</translation>
     </message>
     <message>
-        <source>Sign messages with your Particl addresses to prove you own them</source>
+        <source>Sign messages with your Falcon addresses to prove you own them</source>
         <translation>നിങ്ങളുടെ ബിറ്റ്കോയിൻ വിലാസങ്ങൾ സ്വന്തമാണെന്ന് തെളിയിക്കാൻ സന്ദേശങ്ങൾ ഒപ്പിടുക</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Particl addresses</source>
+        <source>Verify messages to ensure they were signed with specified Falcon addresses</source>
         <translation>നിർദ്ദിഷ്ട ബിറ്റ്കോയിൻ വിലാസങ്ങളിൽ സന്ദേശങ്ങൾ ഒപ്പിട്ടിട്ടുണ്ടെന്ന് ഉറപ്പാക്കാൻ സ്ഥിരീകരിക്കുക</translation>
     </message>
     <message>
@@ -424,7 +424,7 @@
         <translation>ടാബുകളുടെ ടൂൾബാർ</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and particl: URIs)</source>
+        <source>Request payments (generates QR codes and falcon: URIs)</source>
         <translation>പേയ്‌മെന്റുകൾ അഭ്യർത്ഥിക്കുക (QR കോഡുകളും ബിറ്റ്കോയിനും സൃഷ്ടിക്കുന്നു: URI- കൾ)</translation>
     </message>
     <message>
@@ -496,7 +496,7 @@
         <translation>വാലറ്റ് പൂട്ടുക </translation>
     </message>
     <message>
-        <source>Show the %1 help message to get a list with possible Particl command-line options</source>
+        <source>Show the %1 help message to get a list with possible Falcon command-line options</source>
         <translation>സാധ്യമായ ബിറ്റ്കോയിൻ കമാൻഡ്-ലൈൻ ഓപ്ഷനുകളുള്ള ഒരു ലിസ്റ്റ് ലഭിക്കുന്നതിന് %1 സഹായ സന്ദേശം കാണിക്കുക</translation>
     </message>
     <message>

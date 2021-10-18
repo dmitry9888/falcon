@@ -68,7 +68,7 @@ class TestNode():
 
         self.index = i
         self.datadir = datadir
-        self.bitcoinconf = os.path.join(self.datadir, "particl.conf")
+        self.bitcoinconf = os.path.join(self.datadir, "falcon.conf")
         self.stdout_dir = os.path.join(self.datadir, "stdout")
         self.stderr_dir = os.path.join(self.datadir, "stderr")
         self.chain = chain
@@ -211,7 +211,7 @@ class TestNode():
         self.process = subprocess.Popen(self.args + extra_args, env=subp_env, stdout=stdout, stderr=stderr, cwd=cwd, **kwargs)
 
         self.running = True
-        self.log.debug("particld started, waiting for RPC to come up")
+        self.log.debug("falcond started, waiting for RPC to come up")
 
         if self.start_perf:
             self._start_perf()

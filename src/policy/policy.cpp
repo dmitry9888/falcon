@@ -131,8 +131,8 @@ bool IsStandard(const CScript& scriptPubKey, txnouttype& whichType, int64_t time
 
 bool IsStandardTx(const CTransaction& tx, bool permit_bare_multisig, const CFeeRate& dust_relay_fee, std::string& reason, int64_t time)
 {
-    if (tx.IsParticlVersion()) {
-        if (tx.GetParticlVersion() > PARTICL_TXN_VERSION) {
+    if (tx.IsFalconVersion()) {
+        if (tx.GetFalconVersion() > FALCON_TXN_VERSION) {
             reason = "version";
             return false;
         }
@@ -244,7 +244,7 @@ bool AreInputsStandard(const CTransaction& tx, const CCoinsViewCache& mapInputs,
     if (tx.IsCoinBase())
         return true; // Coinbases don't use vin normally
 
-    if (fParticlMode) {
+    if (fFalconMode) {
         for (unsigned int i = 0; i < tx.vin.size(); i++) {
             if (tx.vin[i].IsAnonInput()) {
                 continue;
@@ -355,7 +355,7 @@ bool IsWitnessStandard(const CTransaction& tx, const CCoinsViewCache& mapInputs)
             // into a stack. We do not check IsPushOnly nor compare the hash as these will be done later anyway.
             // If the check fails at this stage, we know that this txid must be a bad one.
 
-            if (!tx.IsParticlVersion()) {
+            if (!tx.IsFalconVersion()) {
                 if (!EvalScript(stack, tx.vin[i].scriptSig, SCRIPT_VERIFY_NONE, BaseSignatureChecker(), SigVersion::BASE))
                     return false;
             } else {
@@ -371,7 +371,7 @@ bool IsWitnessStandard(const CTransaction& tx, const CCoinsViewCache& mapInputs)
         std::vector<unsigned char> witnessprogram;
 
         // Non-witness program must not be associated with any witness
-        if (!tx.IsParticlVersion()
+        if (!tx.IsFalconVersion()
             && !prevScript.IsWitnessProgram(witnessversion, witnessprogram))
             return false;
 

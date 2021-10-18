@@ -1,41 +1,41 @@
-Particl Core
+Falcon Core
 =============
 
 Setup
 ---------------------
-Particl Core is the original Particl client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Particl transactions, which requires a few gigabytes of disk space. Depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
+Falcon Core is the original Falcon client and it builds the backbone of the network. It downloads and, by default, stores the entire history of Falcon transactions, which requires a few gigabytes of disk space. Depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more.
 
-To download Particl Core, visit [particl.io](https://particl.io/downloads/).
+To download Falcon Core, visit [falcon.io](https://falcon.io/downloads/).
 
 Running
 ---------------------
-The following are some helpful notes on how to run Particl Core on your native platform.
+The following are some helpful notes on how to run Falcon Core on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- `bin/particl-qt` (GUI) or
-- `bin/particld` (headless)
+- `bin/falcon-qt` (GUI) or
+- `bin/falcond` (headless)
 
 ### Windows
 
-Unpack the files into a directory, and then run particl-qt.exe.
+Unpack the files into a directory, and then run falcon-qt.exe.
 
 ### macOS
 
-Drag Particl Core to your applications folder, and then run Particl Core.
+Drag Falcon Core to your applications folder, and then run Falcon Core.
 
 ### Need Help?
 
-* See the documentation at the [Particl Wiki](https://particl.wiki/start)
+* See the documentation at the [Falcon Wiki](https://falcon.wiki/start)
 for help and more information.
-* Ask for help on [#particl](https://riot.im/app/#/room/#particl:matrix.org) on Riot.
-* Ask for help on [Discord](https://discord.me/particl).
+* Ask for help on [#falcon](https://riot.im/app/#/room/#falcon:matrix.org) on Riot.
+* Ask for help on [Discord](https://discord.me/falcon).
 
 Building
 ---------------------
-The following are developer notes on how to build Particl Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Falcon Core on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [Dependencies](dependencies.md)
 - [macOS Build Notes](build-osx.md)
@@ -48,7 +48,7 @@ The following are developer notes on how to build Particl Core on your native pl
 
 Development
 ---------------------
-The Particl repo's [root README](/README.md) contains relevant information on the development process and automated testing.
+The Falcon repo's [root README](/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Productivity Notes](productivity.md)
@@ -67,7 +67,7 @@ The Particl repo's [root README](/README.md) contains relevant information on th
 
 ### Resources
 * Discuss on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1835782.0) forums.
-* Discuss project-specific development on [#particl](https://riot.im/app/#/room/#particl-dev:matrix.org) on Riot.
+* Discuss project-specific development on [#falcon](https://riot.im/app/#/room/#falcon-dev:matrix.org) on Riot.
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

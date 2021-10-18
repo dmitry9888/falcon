@@ -186,8 +186,8 @@ bool TransactionCanBeBumped(const CWallet* wallet, const uint256& txid)
     auto locked_chain = wallet->chain().lock();
     LOCK(wallet->cs_wallet);
 
-    if (fParticlMode) {
-        const CHDWallet *pw = GetParticlWallet(wallet);
+    if (fFalconMode) {
+        const CHDWallet *pw = GetFalconWallet(wallet);
         if (!pw) {
             return false;
         }
@@ -224,8 +224,8 @@ Result CreateTotalBumpTransaction(const CWallet* wallet, const uint256& txid, co
     LOCK(wallet->cs_wallet);
     errors.clear();
 
-    if (IsParticlWallet(wallet)) {
-        const CHDWallet *pw = GetParticlWallet(wallet);
+    if (IsFalconWallet(wallet)) {
+        const CHDWallet *pw = GetFalconWallet(wallet);
         auto it = wallet->mapWallet.find(txid);
         if (it != wallet->mapWallet.end()) {
             const CWalletTx& wtx = it->second;
@@ -498,7 +498,7 @@ Result CreateRateBumpTransaction(CWallet* wallet, const uint256& txid, const CCo
 
     // Fill in recipients(and preserve a single change key if there is one)
     std::vector<CRecipient> recipients;
-    if (IsParticlWallet(wallet)) {
+    if (IsFalconWallet(wallet)) {
         assert(false);
     } else
     for (const auto& output : wtx.tx->vout) {

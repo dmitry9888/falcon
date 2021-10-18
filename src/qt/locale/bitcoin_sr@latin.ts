@@ -66,12 +66,12 @@
         <translation>Adresa na koju se prima</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Ovo su Vaše Particl adrese na koju se vrše uplate. Uvek proverite iznos i prijemnu adresu pre slanja novčića.</translation>
+        <source>These are your Falcon addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Ovo su Vaše Falcon adrese na koju se vrše uplate. Uvek proverite iznos i prijemnu adresu pre slanja novčića.</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
-        <translation>Ovo su vaše Particl adrese za primanje isplete. Upotrebite dugme 'Kreiraj novu adresu prijema' na kartici za prijem da biste kreirali nove adrese.</translation>
+        <source>These are your Falcon addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
+        <translation>Ovo su vaše Falcon adrese za primanje isplete. Upotrebite dugme 'Kreiraj novu adresu prijema' na kartici za prijem da biste kreirali nove adrese.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -168,7 +168,7 @@
         <translation>Potvrdite šifrovanje novčanika</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PARTICL&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FALCON&lt;/b&gt;!</source>
         <translation>Upozorenje: Ako šifrujete svoj novčanik, i potom izgubite svoju pristupnu frazu &lt;b&gt;IZGUBIĆETE SVE SVOJE BITKOINE&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -342,8 +342,8 @@
         <translation>Ponovo obeležavam blokove na disku...</translation>
     </message>
     <message>
-        <source>Send coins to a Particl address</source>
-        <translation>Pošalji novčiće na Particl adresu</translation>
+        <source>Send coins to a Falcon address</source>
+        <translation>Pošalji novčiće na Falcon adresu</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -386,12 +386,12 @@
         <translation>Enkriptuj privatne ključeve novčanika</translation>
     </message>
     <message>
-        <source>Sign messages with your Particl addresses to prove you own them</source>
-        <translation>Potpišite poruke sa svojim Particl adresama da biste dokazali njihovo vlasništvo</translation>
+        <source>Sign messages with your Falcon addresses to prove you own them</source>
+        <translation>Potpišite poruke sa svojim Falcon adresama da biste dokazali njihovo vlasništvo</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Particl addresses</source>
-        <translation>Proverite poruke da biste utvrdili sa kojim Particl adresama su potpisane</translation>
+        <source>Verify messages to ensure they were signed with specified Falcon addresses</source>
+        <translation>Proverite poruke da biste utvrdili sa kojim Falcon adresama su potpisane</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -410,8 +410,8 @@
         <translation>Alatke za tabove</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and particl: URIs)</source>
-        <translation>Zatražite plaćanje (generiše QR kodove i particl: URI-e)</translation>
+        <source>Request payments (generates QR codes and falcon: URIs)</source>
+        <translation>Zatražite plaćanje (generiše QR kodove i falcon: URI-e)</translation>
     </message>
     <message>
         <source>Error</source>
@@ -529,8 +529,8 @@
 <context>
     <name>Intro</name>
     <message>
-        <source>Particl</source>
-        <translation>Particl</translation>
+        <source>Falcon</source>
+        <translation>Falcon</translation>
     </message>
     <message>
         <source>Error</source>

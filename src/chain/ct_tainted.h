@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file license.txt or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PARTICL_CHAIN_CT_TAINTED_H
-#define PARTICL_CHAIN_CT_TAINTED_H
+#ifndef FALCON_CHAIN_CT_TAINTED_H
+#define FALCON_CHAIN_CT_TAINTED_H
 
 unsigned char ct_tainted_filter_data[] = {
   0xfd, 0xfa, 0x08, 0x9b, 0x95, 0xc5, 0x27, 0x80, 0x45, 0x61, 0xdc, 0x30,
@@ -202,4 +202,4 @@ unsigned char ct_tainted_filter_data[] = {
 };
 unsigned int ct_tainted_filter_data_len = 2310;
 
-#endif // PARTICL_CHAIN_CT_TAINTED_H
+#endif // FALCON_CHAIN_CT_TAINTED_H

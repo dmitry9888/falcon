@@ -1,10 +1,10 @@
 // Copyright (c) 2014-2015 The ShadowCoin developers
-// Copyright (c) 2017-2019 The Particl Core developers
+// Copyright (c) 2017-2019 The Falcon Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PARTICL_KEY_EXTKEY_H
-#define PARTICL_KEY_EXTKEY_H
+#ifndef FALCON_KEY_EXTKEY_H
+#define FALCON_KEY_EXTKEY_H
 
 #include <util/system.h>
 #include <key.h>
@@ -929,4 +929,4 @@ std::string HDKeyIDToString(const CKeyID &id);
 
 std::string GetDefaultAccountPath();
 
-#endif // PARTICL_KEY_EXTKEY_H
+#endif // FALCON_KEY_EXTKEY_H

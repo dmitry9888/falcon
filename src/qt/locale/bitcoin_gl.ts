@@ -182,8 +182,8 @@
         <translation>Reindexando bloques no disco...</translation>
     </message>
     <message>
-        <source>Send coins to a Particl address</source>
-        <translation>Enviar moedas a unha dirección Particl</translation>
+        <source>Send coins to a Falcon address</source>
+        <translation>Enviar moedas a unha dirección Falcon</translation>
     </message>
     <message>
         <source>Backup wallet to another location</source>
@@ -226,12 +226,12 @@
         <translation>Encriptar as claves privadas que pertencen ao teu moedeiro</translation>
     </message>
     <message>
-        <source>Sign messages with your Particl addresses to prove you own them</source>
-        <translation>Asina mensaxes cos teus enderezos Particl para probar que che pertencen</translation>
+        <source>Sign messages with your Falcon addresses to prove you own them</source>
+        <translation>Asina mensaxes cos teus enderezos Falcon para probar que che pertencen</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Particl addresses</source>
-        <translation>Verifica mensaxes para asegurar que foron asinados con enderezos Particl específicos.</translation>
+        <source>Verify messages to ensure they were signed with specified Falcon addresses</source>
+        <translation>Verifica mensaxes para asegurar que foron asinados con enderezos Falcon específicos.</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -250,8 +250,8 @@
         <translation>Barra de ferramentas</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and particl: URIs)</source>
-        <translation>Solicitar pagamentos (xera códigos QR e particl: URIs)</translation>
+        <source>Request payments (generates QR codes and falcon: URIs)</source>
+        <translation>Solicitar pagamentos (xera códigos QR e falcon: URIs)</translation>
     </message>
     <message>
         <source>Show the list of used sending addresses and labels</source>
@@ -262,8 +262,8 @@
         <translation>Amosar a listaxe de etiquetas e enderezos usadas para recibir</translation>
     </message>
     <message>
-        <source>Open a particl: URI or payment request</source>
-        <translation>Abrir un particl: URI ou solicitude de pagamento</translation>
+        <source>Open a falcon: URI or payment request</source>
+        <translation>Abrir un falcon: URI ou solicitude de pagamento</translation>
     </message>
     <message>
         <source>&amp;Command-line options</source>
@@ -503,8 +503,8 @@
         <translation>Empregar un directorio de datos personalizado</translation>
     </message>
     <message>
-        <source>Particl</source>
-        <translation>Particl</translation>
+        <source>Falcon</source>
+        <translation>Falcon</translation>
     </message>
     <message>
         <source>Error</source>
@@ -587,8 +587,8 @@
         <translation>Experto</translation>
     </message>
     <message>
-        <source>Automatically open the Particl client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Abrir automáticamente o porto do cliente Particl no router. Esto so funciona se o teu router soporta UPnP e está habilitado.</translation>
+        <source>Automatically open the Falcon client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Abrir automáticamente o porto do cliente Falcon no router. Esto so funciona se o teu router soporta UPnP e está habilitado.</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
@@ -694,8 +694,8 @@
         <translation>Formulario</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Particl network after a connection is established, but this process has not completed yet.</source>
-        <translation>A información amosada por estar desactualizada. O teu moedeiro sincronízase automáticamente coa rede Particl despois de que se estableza unha conexión, mais este proceso non está todavía rematado.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Falcon network after a connection is established, but this process has not completed yet.</source>
+        <translation>A información amosada por estar desactualizada. O teu moedeiro sincronízase automáticamente coa rede Falcon despois de que se estableza unha conexión, mais este proceso non está todavía rematado.</translation>
     </message>
     <message>
         <source>Your current spendable balance</source>
@@ -1129,8 +1129,8 @@
         <translation>Copiar a sinatura actual ao portapapeis do sistema</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Particl address</source>
-        <translation>Asina a mensaxe para probar que posúes este enderezo Particl</translation>
+        <source>Sign the message to prove you own this Falcon address</source>
+        <translation>Asina a mensaxe para probar que posúes este enderezo Falcon</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -1149,8 +1149,8 @@
         <translation>&amp;Verificar Mensaxe</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Particl address</source>
-        <translation>Verificar a mensaxe para asegurar que foi asinada coa dirección Particl especificada</translation>
+        <source>Verify the message to ensure it was signed with the specified Falcon address</source>
+        <translation>Verificar a mensaxe para asegurar que foi asinada coa dirección Falcon especificada</translation>
     </message>
     <message>
         <source>Verify &amp;Message</source>

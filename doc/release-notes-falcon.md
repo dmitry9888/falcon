@@ -85,7 +85,7 @@
   - list_frozen_outputs: List all spendable and unspendable frozen blinded outputs.
   - spend_frozen_output: Spends the largest spendable frozen blinded output, after next hard fork.
   - trace_frozen_outputs: Dumps amounts, blinding values and optionally spent anon keys to aid in validating frozen outputs.
-    - See: https://github.com/tecnovert/particl_debug_scripts/blob/main/trace_frozen.py
+    - See: https://github.com/tecnovert/falcon_debug_scripts/blob/main/trace_frozen.py
 - New insight -balancesindex
   - New rpc command: getblockbalances
   - balancesindex tracks the amount of plain coin sent to and from blind and anon.
@@ -148,7 +148,7 @@
 ==============
 
 - Merged Bitcoin 0.19.1 backports.
-- Added generatemnemonic command to particl-wallet.
+- Added generatemnemonic command to falcon-wallet.
 - Qt receiving addresses table displays relative paths.
 - Qt receiving addresses page can verify an address on a hardware device.
   - Window -> Receiving addreses, right click on address -> Verify Address On Hardware Wallet
@@ -244,7 +244,7 @@
 - Fixed help text for createsignaturewith commands.
 - Added 'pubkey' to output of extkey info extended-secret-key.
 - Fixed help text for getspentinfo.
-- Enabled segwit addresses in Particl mode for easier integrations.
+- Enabled segwit addresses in Falcon mode for easier integrations.
 - Raised minimum peer version to 90009.
 
 

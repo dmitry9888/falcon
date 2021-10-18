@@ -70,10 +70,10 @@
 // Application startup time (used for uptime calculation)
 const int64_t nStartupTime = GetTime();
 
-const char * const BITCOIN_CONF_FILENAME = "particl.conf";
+const char * const BITCOIN_CONF_FILENAME = "falcon.conf";
 
-bool fParticlMode = true;
-bool fParticlWallet = false;
+bool fFalconMode = true;
+bool fFalconWallet = false;
 ArgsManager gArgs;
 
 /** A map that contains all the currently held directory locks. After
@@ -841,7 +841,7 @@ std::string ArgsManager::GetHelpMessage() const
                 usage += HelpMessageGroup("SMSG Commands:");
                 break;
             case OptionsCategory::PART_WALLET:
-                usage += HelpMessageGroup("Particl wallet Commands:");
+                usage += HelpMessageGroup("Falcon wallet Commands:");
                 break;
             case OptionsCategory::PART_STAKING:
                 usage += HelpMessageGroup("Staking Commands:");
@@ -900,7 +900,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(nullptr, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "particl";
+    const char* pszModule = "falcon";
 #endif
     if (pex)
         return strprintf(
@@ -919,13 +919,13 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
 
 fs::path GetDefaultDataDir()
 {
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Particl
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Particl
-    // Mac: ~/Library/Application Support/Particl
-    // Unix: ~/.particl
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\Falcon
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\Falcon
+    // Mac: ~/Library/Application Support/Falcon
+    // Unix: ~/.falcon
 #ifdef WIN32
     // Windows
-    return GetSpecialFolderPath(CSIDL_APPDATA) / "Particl";
+    return GetSpecialFolderPath(CSIDL_APPDATA) / "Falcon";
 #else
     fs::path pathRet;
     char* pszHome = getenv("HOME");
@@ -935,10 +935,10 @@ fs::path GetDefaultDataDir()
         pathRet = fs::path(pszHome);
 #ifdef MAC_OSX
     // Mac
-    return pathRet / "Library/Application Support/Particl";
+    return pathRet / "Library/Application Support/Falcon";
 #else
     // Unix
-    return pathRet / ".particl";
+    return pathRet / ".falcon";
 #endif
 #endif
 }

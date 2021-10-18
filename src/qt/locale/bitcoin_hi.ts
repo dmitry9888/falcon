@@ -66,11 +66,11 @@
         <translation>पतों को प्राप्त कर रहा है</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Falcon addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation>ये भुगतान भेजने के लिए ये आपके बिटकॉइन पते हैं। हमेशा सिक्के भेजने से पहले राशि और प्राप्तकर्ता पते की जांच करें।</translation>
     </message>
     <message>
-        <source>These are your Particl addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
+        <source>These are your Falcon addresses for receiving payments. Use the 'Create new receiving address' button in the receive tab to create new addresses.</source>
         <translation>भुगतान प्राप्त करने के लिए ये आपके बिटकॉइन एड्रेस हैं। नया एड्रेस बनाने के लिए रिसीव टैब में 'नया एड्रेस बनाएं' बटन का प्रयोग करें</translation>
     </message>
     <message>
@@ -168,7 +168,7 @@
         <translation>वॉलेट एन्क्रिप्शन की पुष्टि करें</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR PARTICL&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR FALCON&lt;/b&gt;!</source>
         <translation>चेतावनी: यदि आपने वॉलेट को एन्क्रिप्ट करने के बाद पदबंध खो दी तो &lt;b&gt;आप सारे बिटकॉइन खो देंगे &lt;/b&gt;!</translation>
     </message>
     <message>
@@ -188,7 +188,7 @@
         <translation>बटुए "वॉलेट" में पुराना एवं नया सुरक्षा संवाद दर्ज करें ।</translation>
     </message>
     <message>
-        <source>Remember that encrypting your wallet cannot fully protect your particl from being stolen by malware infecting your computer.</source>
+        <source>Remember that encrypting your wallet cannot fully protect your falcon from being stolen by malware infecting your computer.</source>
         <translation>याद रखें कि अपने बटुए "वॉलेट" एन्क्रिप्ट करना आपके कंप्यूटर को संक्रमित करने वाले मैलवेयर द्वारा आपके बिटकॉइन को चोरी होने से पूरी तरह से सुरक्षित नहीं कर सकता है।</translation>
     </message>
     <message>
@@ -323,7 +323,7 @@
         <translation>तिजोरी</translation>
     </message>
     <message>
-        <source>Send coins to a Particl address</source>
+        <source>Send coins to a Falcon address</source>
         <translation>इस पते पर बिटकौइन भेजें</translation>
     </message>
     <message>
@@ -464,7 +464,7 @@
 <context>
     <name>Intro</name>
     <message>
-        <source>Particl</source>
+        <source>Falcon</source>
         <translation>बीटकोइन</translation>
     </message>
     <message>

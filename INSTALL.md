@@ -1,5 +1,5 @@
-Building Particl
+Building Falcon
 ================
 
 See doc/build-*.md for instructions on building the various
-elements of the Particl Core reference implementation of Particl.
+elements of the Falcon Core reference implementation of Falcon.

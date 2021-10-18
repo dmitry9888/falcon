@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2021 The Particl Core developers
+// Copyright (c) 2017-2021 The Falcon Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PARTICL_WALLET_HDWALLETDB_H
-#define PARTICL_WALLET_HDWALLETDB_H
+#ifndef FALCON_WALLET_HDWALLETDB_H
+#define FALCON_WALLET_HDWALLETDB_H
 
 #include <primitives/transaction.h>
 #include <wallet/walletdb.h>
@@ -414,4 +414,4 @@ public:
     bool WriteEKLKey(const CKeyID &id, const CEKLKey &c);
 };
 
-#endif // PARTICL_WALLET_HDWALLETDB_H
+#endif // FALCON_WALLET_HDWALLETDB_H

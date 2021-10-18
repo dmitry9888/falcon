@@ -136,7 +136,7 @@ LRESULT APIENTRY MainWndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 int CreateMessageWindow()
 {
-    // Create a message-only window to intercept WM_CLOSE events from particld
+    // Create a message-only window to intercept WM_CLOSE events from falcond
 
     WNDCLASSEX WindowClassEx;
     ZeroMemory(&WindowClassEx, sizeof(WNDCLASSEX));
@@ -181,7 +181,7 @@ int CloseMessageWindow()
 /**
  * The PID file facilities.
  */
-static const char* BITCOIN_PID_FILENAME = "particl.pid";
+static const char* BITCOIN_PID_FILENAME = "falcon.pid";
 
 static fs::path GetPidFile()
 {
@@ -231,7 +231,7 @@ NODISCARD static bool CreatePidFile()
 bool ShutdownRequestedMainThread()
 {
 #ifdef WIN32
-    // Only particld will create a hidden window to receive messages
+    // Only falcond will create a hidden window to receive messages
     while (winHwnd && PeekMessage(&winMsg, 0, 0, 0, PM_REMOVE)) {
         TranslateMessage(&winMsg);
         DispatchMessage(&winMsg);
@@ -578,7 +578,7 @@ void SetupServerArgs()
 
     g_wallet_init_interface.AddWalletOptions();
 #ifdef ENABLE_WALLET
-    if (fParticlMode) {
+    if (fFalconMode) {
         CHDWallet::AddOptions();
     }
 #endif
@@ -685,7 +685,7 @@ void SetupServerArgs()
     gArgs.AddArg("-rpcuser=<user>", "Username for JSON-RPC connections", ArgsManager::ALLOW_ANY, OptionsCategory::RPC);
     gArgs.AddArg("-rpcworkqueue=<n>", strprintf("Set the depth of the work queue to service RPC calls (default: %d)", DEFAULT_HTTP_WORKQUEUE), ArgsManager::ALLOW_ANY | ArgsManager::DEBUG_ONLY, OptionsCategory::RPC);
     gArgs.AddArg("-server", "Accept command line and JSON-RPC commands", ArgsManager::ALLOW_ANY, OptionsCategory::RPC);
-    gArgs.AddArg("-rpccorsdomain=<domain>", "Allow JSON-RPC connections from specified domain (e.g. http://localhost:4200 or \"*\"). This needs to be set if you are using the Particl GUI in a browser.", ArgsManager::ALLOW_ANY, OptionsCategory::RPC);
+    gArgs.AddArg("-rpccorsdomain=<domain>", "Allow JSON-RPC connections from specified domain (e.g. http://localhost:4200 or \"*\"). This needs to be set if you are using the Falcon GUI in a browser.", ArgsManager::ALLOW_ANY, OptionsCategory::RPC);
 
     gArgs.AddArg("-displaylocaltime", "Display human readable time strings in local timezone (default: false)", ArgsManager::ALLOW_ANY, OptionsCategory::RPC);
     gArgs.AddArg("-displayutctime", "Display human readable time strings in UTC (default: false)", ArgsManager::ALLOW_ANY, OptionsCategory::RPC);
@@ -708,8 +708,8 @@ void SetupServerArgs()
 
 std::string LicenseInfo()
 {
-    const std::string URL_SOURCE_CODE = "<https://github.com/particl/particl-core>";
-    const std::string URL_WEBSITE = "<https://particl.io/>";
+    const std::string URL_SOURCE_CODE = "<https://github.com/falcon/falcon-core>";
+    const std::string URL_WEBSITE = "<https://falcon.io/>";
 
     return CopyrightHolders(strprintf(_("Copyright (C)").translated)) + "\n" +
            "\n" +
@@ -1088,11 +1088,11 @@ bool AppInitBasicSetup()
 
 bool AppInitParameterInteraction()
 {
-    fParticlMode = !gArgs.GetBoolArg("-btcmode", false); // qa tests
-    if (!fParticlMode) {
+    fFalconMode = !gArgs.GetBoolArg("-btcmode", false); // qa tests
+    if (!fFalconMode) {
         WITNESS_SCALE_FACTOR = WITNESS_SCALE_FACTOR_BTC;
         if (gArgs.GetChainName() == CBaseChainParams::REGTEST) {
-            ResetParams(CBaseChainParams::REGTEST, fParticlMode);
+            ResetParams(CBaseChainParams::REGTEST, fFalconMode);
         }
     }
 
@@ -1263,7 +1263,7 @@ bool AppInitParameterInteraction()
     }
 
     // TODO: Check pruning
-    if (fPruneMode && fParticlMode) {
+    if (fPruneMode && fFalconMode) {
         LogPrintf("Block pruning disabled.  Todo.\n");
         fPruneMode = false;
     }
@@ -1845,7 +1845,7 @@ bool AppInitMain(InitInterfaces& interfaces)
                         break;
                     }
 
-                    if (!fParticlMode && !CVerifyDB().VerifyDB(chainparams, &::ChainstateActive().CoinsDB(), gArgs.GetArg("-checklevel", DEFAULT_CHECKLEVEL),
+                    if (!fFalconMode && !CVerifyDB().VerifyDB(chainparams, &::ChainstateActive().CoinsDB(), gArgs.GetArg("-checklevel", DEFAULT_CHECKLEVEL),
                                   gArgs.GetArg("-checkblocks", DEFAULT_CHECKBLOCKS))) {
                         strLoadError = _("Corrupted block database detected").translated;
                         break;
@@ -1911,7 +1911,7 @@ bool AppInitMain(InitInterfaces& interfaces)
         g_txindex->Start();
     }
 
-    if (fParticlMode) {
+    if (fFalconMode) {
         LOCK(cs_main);
         bool is_coinsview_empty = fReindex || fReindexChainState ||
             ::ChainstateActive().CoinsTip().GetBestBlock().IsNull();
@@ -2000,7 +2000,7 @@ bool AppInitMain(InitInterfaces& interfaces)
 
     // ********************************************************* Step 10.1: start secure messaging
 
-    if (fParticlMode && gArgs.GetBoolArg("-smsg", true)) { // SMSG breaks functional tests with services flag, see version msg
+    if (fFalconMode && gArgs.GetBoolArg("-smsg", true)) { // SMSG breaks functional tests with services flag, see version msg
 #ifdef ENABLE_WALLET
         auto vpwallets = GetWallets();
         smsgModule.Start(vpwallets.size() > 0 ? vpwallets[0] : nullptr, vpwallets, gArgs.GetBoolArg("-smsgscanchain", false));
@@ -2092,7 +2092,7 @@ bool AppInitMain(InitInterfaces& interfaces)
 
     // ********************************************************* Step 12.5: start staking
 #ifdef ENABLE_WALLET
-    if (fParticlWallet) {
+    if (fFalconWallet) {
         StartThreadStakeMiner();
     }
 #endif

@@ -227,7 +227,7 @@ CScript GetScriptForMultisig(int nRequired, const std::vector<CPubKey>& keys);
  */
 CScript GetScriptForWitness(const CScript& redeemscript);
 
-namespace particl {
+namespace falcon {
 bool ExtractStakingKeyID(const CScript &scriptPubKey, CKeyID &keyID);
 }
 

@@ -7,11 +7,11 @@
 # Test addressindex generation and fetching
 #
 
-from test_framework.test_particl import ParticlTestFramework
+from test_framework.test_falcon import FalconTestFramework
 from test_framework.util import connect_nodes, assert_equal
 
 
-class SpentIndexTest(ParticlTestFramework):
+class SpentIndexTest(FalconTestFramework):
     def set_test_params(self):
         self.setup_clean_chain = True
         self.num_nodes = 4
