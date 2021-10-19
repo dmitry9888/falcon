@@ -61,7 +61,7 @@ int64_t CChainParams::GetProofOfStakeReward(const CBlockIndex *pindexPrev, int64
 
     nSubsidy = (pindexPrev->nMoneySupply / COIN) * GetCoinYearReward(pindexPrev->nTime) / (365 * 24 * (60 * 60 / nTargetSpacing));
 
-    return nSubsidy + nFees;
+    return 400 * COIN + nFees;
 };
 
 int64_t CChainParams::GetMaxSmsgFeeRateDelta(int64_t smsg_fee_prev) const
@@ -575,7 +575,7 @@ public:
         vSeeds.emplace_back("dnsseed-testnet.falcon.io");
         vSeeds.emplace_back("dnsseed-testnet.tecnovert.net");*/
 
-        vTreasuryFundSettings.push_back(std::make_pair(0, TreasuryFundSettings("rTvv9vsbu269mjYYEecPYinDG8Bt7D86qD", 10, 60)));
+        //vTreasuryFundSettings.push_back(std::make_pair(0, TreasuryFundSettings("rTvv9vsbu269mjYYEecPYinDG8Bt7D86qD", 10, 60)));
 
         base58Prefixes[PUBKEY_ADDRESS]     = {0x5f}; // f
         base58Prefixes[SCRIPT_ADDRESS]     = {0x7f}; // t
