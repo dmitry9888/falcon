@@ -3,7 +3,7 @@ Falcon Core integration/staging tree
 
 [![Build Status](https://travis-ci.org/falcon/falcon-core.svg?branch=master)](https://travis-ci.org/falcon/falcon-core)
 
-https://falcon.io
+https://falconofficial.com/
 
 What is Falcon?
 ----------------
@@ -12,7 +12,7 @@ An open source, decentralized privacy platform
 built for global person to person eCommerce.
 
 For more information, as well as an immediately useable, binary version of
-the Falcon Core software, see https://falcon.io.
+the Falcon Core software, see https://falconofficial.com/.
 
 
 Getting Started
@@ -43,7 +43,7 @@ Development Process
 -------------------
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/falcon/falcon-core/tags) are created
+completely stable. [Tags](https://github.com/dmitry9888/falcon/tags) are created
 regularly to indicate new official, stable release versions of Falcon Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md)

@@ -24,7 +24,7 @@ packages:
 - "apt-transport-https"
 - "libjpeg-dev"
 remotes:
-- "url": "https://github.com/falcon/falcon-desktop"
+- "url": "https://github.com/dmitry9888/falcon-desktop"
   "dir": "falcon-desktop"
 files: []
 script: |

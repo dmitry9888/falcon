@@ -6,8 +6,7 @@ Falcon is an open source, decentralized privacy platform
 built for global person to person eCommerce.
 
 For more information, as well as an immediately useable, binary version of
-the Falcon Core software, see https://falcon.io.
-
+the Falcon Core software, see https://falconofficial.com/
 
 Setup
 -----

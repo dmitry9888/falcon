@@ -25,7 +25,7 @@ packages:
 - "python3"
 - "rename"
 remotes:
-- "url": "https://github.com/falcon/falcon-core.git"
+- "url": "https://github.com/dmitry9888/falcon.git"
   "dir": "falcon-core"
 files: []
 script: |
