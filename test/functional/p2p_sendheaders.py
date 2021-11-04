@@ -277,7 +277,7 @@ class SendHeadersTest(BitcoinTestFramework):
     def test_nonnull_locators(self, test_node, inv_node):
         tip = int(self.nodes[0].getbestblockhash(), 16)
 
-        # PART 1
+        # FNC 1
         # 1. Mine a block; expect inv announcements each time
         self.log.info("Part 1: headers don't start before sendheaders message...")
         for i in range(4):
@@ -315,7 +315,7 @@ class SendHeadersTest(BitcoinTestFramework):
 
         self.log.info("Part 1: success!")
         self.log.info("Part 2: announce blocks with headers after sendheaders message...")
-        # PART 2
+        # FNC 2
         # 2. Send a sendheaders message and test that headers announcements
         # commence and keep working.
         test_node.send_message(msg_sendheaders())
@@ -381,7 +381,7 @@ class SendHeadersTest(BitcoinTestFramework):
 
         self.log.info("Part 3: headers announcements can stop after large reorg, and resume after headers/inv from peer...")
 
-        # PART 3.  Headers announcements can stop after large reorg, and resume after
+        # FNC 3.  Headers announcements can stop after large reorg, and resume after
         # getheaders or inv from peer.
         for j in range(2):
             self.log.debug("Part 3.{}: starting...".format(j))
