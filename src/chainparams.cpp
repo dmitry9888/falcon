@@ -5,6 +5,8 @@
 
 #include <chainparams.h>
 
+#include <iostream>
+
 #include <chainparamsseeds.h>
 #include <consensus/merkle.h>
 #include <tinyformat.h>
@@ -57,9 +59,9 @@ bool CChainParams::PushTreasuryFundSettings(int64_t time_from, TreasuryFundSetti
 
 int64_t CChainParams::GetProofOfStakeReward(const CBlockIndex *pindexPrev, int64_t nFees) const
 {
-    int64_t nSubsidy;
+    //int64_t nSubsidy;
 
-    nSubsidy = (pindexPrev->nMoneySupply / COIN) * GetCoinYearReward(pindexPrev->nTime) / (365 * 24 * (60 * 60 / nTargetSpacing));
+    //nSubsidy = (pindexPrev->nMoneySupply / COIN) * GetCoinYearReward(pindexPrev->nTime) / (365 * 24 * (60 * 60 / nTargetSpacing));
 
     return 400 * COIN + nFees;
 };
@@ -370,7 +372,7 @@ public:
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
-        consensus.defaultAssumeValid = uint256S("0x0000ee0784c195317ac95623e22fddb8c7b8825dc3998e0bb924d66866eccf4c"); // 0
+        consensus.defaultAssumeValid = uint256S("0x0000d276241c48708a18e5dc32a5d1fa7c0c7c2eb9b4a72586880513bb267756"); // 0
 
         consensus.nMinRCTOutputDepth = 12;
 
@@ -398,12 +400,12 @@ public:
         m_assumed_blockchain_size = 1;
         m_assumed_chain_state_size = 1;
 
-        genesis = CreateGenesisBlockMainNet(1634551200, 31429, 0x1f00ffff); // 2021-10-18 13:00:00
+        genesis = CreateGenesisBlockMainNet(1638770400, 78182, 0x1f00ffff); // 2021-12-06 09:00:00
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        /*assert(consensus.hashGenesisBlock == uint256S("0x0000ee0784c195317ac95623e22fddb8c7b8825dc3998e0bb924d66866eccf4c"));
-        assert(genesis.hashMerkleRoot == uint256S("0xc95fb023cf4bc02ddfed1a59e2b2f53edd1a726683209e2780332edf554f1e3e"));
-        assert(genesis.hashWitnessMerkleRoot == uint256S("0x619e94a7f9f04c8a1d018eb8bcd9c42d3c23171ebed8f351872256e36959d66c"));*/
+        assert(consensus.hashGenesisBlock == uint256S("0x0000d276241c48708a18e5dc32a5d1fa7c0c7c2eb9b4a72586880513bb267756"));
+        assert(genesis.hashMerkleRoot == uint256S("0x39d9145979d41476ab22fba857bfd04772fe8b3b5ec75b88d90206643ec1cc3e"));
+        assert(genesis.hashWitnessMerkleRoot == uint256S("0x0c77828dc964e02ae0b602bc85fcb770054a0a5d0533f8377b590eff6cf0d352"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -416,12 +418,12 @@ public:
         vSeeds.emplace_back("dnsseed.tecnovert.net");*/
 
 
-        vTreasuryFundSettings.emplace_back(0,
-            TreasuryFundSettings("RJAPhgckEgRGVPZa9WoGSWW24spskSfLTQ", 10, 60));
-        vTreasuryFundSettings.emplace_back(consensus.OpIsCoinstakeTime,
-            TreasuryFundSettings("RBiiQBnQsVPPQkUaJVQTjsZM9K2xMKozST", 10, 60));
-        vTreasuryFundSettings.emplace_back(consensus.exploit_fix_2_time,
-            TreasuryFundSettings("RQYUDd3EJohpjq62So4ftcV5XZfxZxJPe9", 50, 650));
+        // vTreasuryFundSettings.emplace_back(0,
+        //     TreasuryFundSettings("RJAPhgckEgRGVPZa9WoGSWW24spskSfLTQ", 10, 60));
+        // vTreasuryFundSettings.emplace_back(consensus.OpIsCoinstakeTime,
+        //     TreasuryFundSettings("RBiiQBnQsVPPQkUaJVQTjsZM9K2xMKozST", 10, 60));
+        // vTreasuryFundSettings.emplace_back(consensus.exploit_fix_2_time,
+        //     TreasuryFundSettings("RQYUDd3EJohpjq62So4ftcV5XZfxZxJPe9", 50, 650));
 
 
         base58Prefixes[PUBKEY_ADDRESS]     = {0x24}; // F
@@ -459,7 +461,7 @@ public:
 
         checkpointData = {
             {
-                { 0,     uint256S("0000ee0784c195317ac95623e22fddb8c7b8825dc3998e0bb924d66866eccf4c")},
+                { 0,     uint256S("0x0000d276241c48708a18e5dc32a5d1fa7c0c7c2eb9b4a72586880513bb267756")},
             }
         };
 
