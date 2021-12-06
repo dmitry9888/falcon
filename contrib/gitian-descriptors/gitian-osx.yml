@@ -29,7 +29,7 @@ packages:
 - "python3-setuptools"
 - "fonts-tuffy"
 remotes:
-- "url": "https://github.com/dmitry9888/falcon.git"
+- "url": "https://github.com/ProjectFalcon/falcon-core.git"
   "dir": "falcon-core"
 files:
 - "MacOSX10.11.sdk.tar.gz"

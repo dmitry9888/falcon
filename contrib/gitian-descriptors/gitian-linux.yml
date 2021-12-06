@@ -35,7 +35,7 @@ packages:
 - "python3"
 - "libudev-dev"
 remotes:
-- "url": "https://github.com/dmitry9888/falcon.git"
+- "url": "https://github.com/ProjectFalcon/falcon-core.git"
   "dir": "falcon-core"
 files: []
 script: |

@@ -310,4 +310,4 @@ Thanks to Falcon Team and everyone at Bitcoin Core who contributed to these chan
 
 WARNING
 Despite this version being heavily tested, this version may still contain bugs. 
-Always backup your wallet.dat file before upgrading. If you encounter any issues, please let us know by reporting them at https://github.com/dmitry9888/falcon/issues
+Always backup your wallet.dat file before upgrading. If you encounter any issues, please let us know by reporting them at https://github.com/ProjectFalcon/falcon-core/issues

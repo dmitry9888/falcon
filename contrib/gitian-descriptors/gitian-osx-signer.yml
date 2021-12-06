@@ -8,7 +8,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/dmitry9888/falcon-detached-sigs.git"
+- "url": "https://github.com/ProjectFalcon/falcon-detached-sigs.git"
   "dir": "signature"
 files:
 - "falcon-osx-unsigned.tar.gz"

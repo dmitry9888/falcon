@@ -43,7 +43,7 @@ Development Process
 -------------------
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/dmitry9888/falcon/tags) are created
+completely stable. [Tags](https://github.com/ProjectFalcon/falcon-core/tags) are created
 regularly to indicate new official, stable release versions of Falcon Core.
 
 The contribution workflow is described in [CONTRIBUTING.md](CONTRIBUTING.md)
