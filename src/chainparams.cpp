@@ -198,11 +198,22 @@ const std::pair<const char*, CAmount> regTestOutputs[] = {
 const size_t nGenesisOutputsRegtest = sizeof(regTestOutputs) / sizeof(regTestOutputs[0]);
 
 const std::pair<const char*, CAmount> genesisOutputs[] = {
-    std::make_pair("62a62c80e0b41f2857ba83eb438d5caa46e36bcb",7017084118),
-    std::make_pair("c515c636ae215ebba2a98af433a3fa6c74f84415",221897417980),
-    std::make_pair("711b5e1fd0b0f4cdf92cb53b00061ef742dda4fb",120499999),
-    std::make_pair("20c17c53337d80408e0b488b5af7781320a0a311",18074999),
-    std::make_pair("aba8c6f8dbcf4ecfb598e3c08e12321d884bfe0b",92637054909),
+    std::make_pair("f5ca7e6fd0474c46bfb0965ae36e024fc2d9eae6",100000 * COIN),   // FsaLaRwUM2QNNE4emhgn9ZEYABNq4z5Pq9                  
+    std::make_pair("af5927b14a5faadd536f524c3891ddd18c1fbc46",100000 * COIN),   // Fm9sW5h4L8mpjgAtHZf3YTUDREFrVDKGrJ
+    std::make_pair("561bd9e6c75529f687ef7a6d373eedfdfad33761",100000 * COIN),   // Fd21vYLcLoEE9Lf9G5wPz66kFBXWhiJZy4
+    std::make_pair("44b7295c589024cfd5c82779627bfc2f5bfe48c1",100000 * COIN),   // FbS3pF43CRF2R7FRxDhquSxyj3y6Shb6E7
+    std::make_pair("2d108d884755ce62059e240f008935d358f479d2",100000 * COIN),   // FZGzgexYAJRooCqJF3YWdU3yeq12c9kChe
+    std::make_pair("22b039301ff51aba1d5f14ac1342fd5e98dbecf9",100000 * COIN),   // FYL8XeYEJQqDZvfKDs6dA4uAGHrfYKgP7T
+    std::make_pair("e3039bba0232d17f5bf9c3f26b37007c0ce7008c",100000 * COIN),   // Fqs4AAXSAC5foJ8vSwR9nFf98PXzhsn8L1
+    std::make_pair("31cee7e4477a327cd3ef08e832de465754cd18e5",100000 * COIN),   // FZi5RNugKjvtiGDKCpTnTHog9uLaKJ1FFi
+    std::make_pair("582f4b44bfdb06c7dd8734c4d8f823f670fb1167",100000 * COIN),   // FdCzZqVwLW62KqjZMvGo3bnsJXYemc8G9j
+    std::make_pair("e237f933155224b031e3d860dcd221e1b4ad2297",100000 * COIN),   // FqnrDNBvdoMY9gRDnCJHLL7B6mpMWaT1Wh
+    std::make_pair("e31db3c6af10eca78af376f7ec816ccf1cf7b212",1000000000 * COIN),   // FqsbRCnYDUoWVNRVo2wxLZiJuzAWgpci7P
+    std::make_pair("b95b220809588f5ab0295e23641e53af6385822b",10000000000 * COIN),   // Fn4ndRf69KotLpm3w844TzFJRbUL95rtKW
+    std::make_pair("95debb9147e896f9450441febe8f1a684a29508d",17808180000 * COIN),   // Fiq9xEMKzGGzf7WXh8KJ6efGwHt5EJi9GJ
+    std::make_pair("556e3e549d83c4c0e751509fe1230d3c4be9fbcc",17808180000 * COIN),   // FcxRx4pjfETsHriEPknw34dgBhXoz3rJ3t
+    std::make_pair("89e35a29e5a73f6ce80fdebc78a299d790efb016",17808180000 * COIN),   // FhjoNu5JYnYe9ZyrQUJ4jyG5ugcBq5u3Mq
+    std::make_pair("80dff1c5bbbebdd254523e61acb2098286862985",17808180000 * COIN),   // Fgv9DPtzGCtBwZJDc7fvpSMKQkkizzT9iS
 };
 const size_t nGenesisOutputs = sizeof(genesisOutputs) / sizeof(genesisOutputs[0]);
 
@@ -372,7 +383,7 @@ public:
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
-        consensus.defaultAssumeValid = uint256S("0x0000d276241c48708a18e5dc32a5d1fa7c0c7c2eb9b4a72586880513bb267756"); // 0
+        consensus.defaultAssumeValid = uint256S("0x0000cbcb207b65b383fb73dcaf8dae85843e0e1e69f3fad1f9039aff082cf219"); // 0
 
         consensus.nMinRCTOutputDepth = 12;
 
@@ -400,12 +411,12 @@ public:
         m_assumed_blockchain_size = 1;
         m_assumed_chain_state_size = 1;
 
-        genesis = CreateGenesisBlockMainNet(1638770400, 78182, 0x1f00ffff); // 2021-12-06 09:00:00
+        genesis = CreateGenesisBlockMainNet(1640757600, 32688, 0x1f00ffff); // 2021-12-29 09:00:00
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0x0000d276241c48708a18e5dc32a5d1fa7c0c7c2eb9b4a72586880513bb267756"));
-        assert(genesis.hashMerkleRoot == uint256S("0x39d9145979d41476ab22fba857bfd04772fe8b3b5ec75b88d90206643ec1cc3e"));
-        assert(genesis.hashWitnessMerkleRoot == uint256S("0x0c77828dc964e02ae0b602bc85fcb770054a0a5d0533f8377b590eff6cf0d352"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000cbcb207b65b383fb73dcaf8dae85843e0e1e69f3fad1f9039aff082cf219"));
+        assert(genesis.hashMerkleRoot == uint256S("0x11acd042f4370fa831cc3498bd33a36b8929a9fe6b861c6ef6fdae63023122fc"));
+        assert(genesis.hashWitnessMerkleRoot == uint256S("0xb537252066e0ec8fe548dbf4a54f342cd22d62608313da3ca11d437acee867e2"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -461,7 +472,7 @@ public:
 
         checkpointData = {
             {
-                { 0,     uint256S("0x0000d276241c48708a18e5dc32a5d1fa7c0c7c2eb9b4a72586880513bb267756")},
+                { 0,     uint256S("0x0000cbcb207b65b383fb73dcaf8dae85843e0e1e69f3fad1f9039aff082cf219")},
             }
         };
 
