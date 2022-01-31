@@ -403,7 +403,7 @@ public:
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
-        consensus.defaultAssumeValid = uint256S("0x0000cbcb207b65b383fb73dcaf8dae85843e0e1e69f3fad1f9039aff082cf219"); // 0
+        consensus.defaultAssumeValid = uint256S("0x00008ef8ff52bbb6d9493059a3ed0560e75c1aa38f4d29c2ed4e6e982ef1056f"); // 0
 
         consensus.nMinRCTOutputDepth = 12;
 
@@ -431,55 +431,12 @@ public:
         m_assumed_blockchain_size = 1;
         m_assumed_chain_state_size = 1;
 
-        genesis = CreateGenesisBlockMainNet(1643605200, 32688, 0x1f00ffff); // 2022-01-31 08:00:00
+        genesis = CreateGenesisBlockMainNet(1643605200, 4214, 0x1f00ffff); // 2022-01-31 08:00:00
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        //calculate Genesis Block
-        //Reset genesis
-        consensus.hashGenesisBlock = uint256S("0x");
-        std::cout << std::string("Begin calculating Mainnet Genesis Block:\n");
-        if (true && (genesis.GetHash() != consensus.hashGenesisBlock)) {
-            std::cout << std::string("Calculating Mainnet Genesis Block:\n");
-            arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits);
-            uint256 hash;
-            genesis.nNonce = 0;
-            // This will figure out a valid hash and Nonce if you're
-            // creating a different genesis block:
-            // uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
-            // hashTarget.SetCompact(genesis.nBits, &fNegative, &fOverflow).getuint256();
-            // while (genesis.GetHash() > hashTarget)
-            std::cout  << "HashTarget: " << hashTarget.ToString() << "\n";
-            while (UintToArith256(genesis.GetHash()) > hashTarget)
-            {
-                ++genesis.nNonce;
-                if (genesis.nNonce == 0)
-                {
-                    std::cout << std::string("NONCE WRAPPED, incrementing time");
-                    std::cout << std::string("NONCE WRAPPED, incrementing time:\n");
-                    ++genesis.nTime;
-                }
-                if (genesis.nNonce % 10000 == 0)
-                {
-                    std::cout << std::string("Mainnet: nonce ");
-                    std::cout << genesis.nNonce;
-                    std::cout << std::string(", hash = ");
-                    std::cout << genesis.GetHash().ToString().c_str();
-                    std::cout << std::string("\n");
-                    // std::cout << strNetworkID << " nonce: " << genesis.nNonce << " time: " << genesis.nTime << " hash: " << genesis.GetHash().ToString().c_str() << "\n";
-                }
-            }
-            std::cout << "Mainnet ---\n";
-            std::cout << "   nonce: " << genesis.nNonce <<  "\n";
-            std::cout << "   time: " << genesis.nTime << "\n";
-            std::cout << "   hash: " << genesis.GetHash().ToString().c_str() << "\n";
-            std::cout << "   merklehash: "  << genesis.hashMerkleRoot.ToString().c_str() << "\n";
-            std::cout << "   witnessmerklehash: " << genesis.hashWitnessMerkleRoot.ToString().c_str() << "\n";
-        }
-        std::cout << std::string("Finished calculating Mainnet Genesis Block:\n");
-
-        assert(consensus.hashGenesisBlock == uint256S("0x0000cbcb207b65b383fb73dcaf8dae85843e0e1e69f3fad1f9039aff082cf219"));
-        assert(genesis.hashMerkleRoot == uint256S("0x11acd042f4370fa831cc3498bd33a36b8929a9fe6b861c6ef6fdae63023122fc"));
-        assert(genesis.hashWitnessMerkleRoot == uint256S("0xb537252066e0ec8fe548dbf4a54f342cd22d62608313da3ca11d437acee867e2"));
+        assert(consensus.hashGenesisBlock == uint256S("0x00008ef8ff52bbb6d9493059a3ed0560e75c1aa38f4d29c2ed4e6e982ef1056f"));
+        assert(genesis.hashMerkleRoot == uint256S("0x21c5a0c2c610cf3d19f363fdb5dfb1328817c79198921073317d304d26f335b7"));
+        assert(genesis.hashWitnessMerkleRoot == uint256S("0xdd1ea7185f1cac6822341e51c4212a769b0a527ca88aeef2e6493d0d7b575798"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -535,7 +492,7 @@ public:
 
         checkpointData = {
             {
-                { 0,     uint256S("0x0000cbcb207b65b383fb73dcaf8dae85843e0e1e69f3fad1f9039aff082cf219")},
+                { 0,     uint256S("0x00008ef8ff52bbb6d9493059a3ed0560e75c1aa38f4d29c2ed4e6e982ef1056f")},
             }
         };
 
