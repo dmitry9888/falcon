@@ -434,8 +434,8 @@ public:
         genesis = CreateGenesisBlockMainNet(1643605200, 32688, 0x1f00ffff); // 2022-01-31 08:00:00
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        calculate Genesis Block
-        Reset genesis
+        //calculate Genesis Block
+        //Reset genesis
         consensus.hashGenesisBlock = uint256S("0x");
         std::cout << std::string("Begin calculating Mainnet Genesis Block:\n");
         if (true && (genesis.GetHash() != consensus.hashGenesisBlock)) {
