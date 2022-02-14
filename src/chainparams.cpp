@@ -218,16 +218,16 @@ const size_t nGenesisOutputsRegtest = sizeof(regTestOutputs) / sizeof(regTestOut
 // const size_t nGenesisOutputs = sizeof(genesisOutputs) / sizeof(genesisOutputs[0]);
 
 const std::pair<const char*, CAmount> genesisOutputs[] = {
-    std::make_pair("f5ca7e6fd0474c46bfb0965ae36e024fc2d9eae6", 8223372000 * COIN),  // FsaLaRwUM2QNNE4emhgn9ZEYABNq4z5Pq9
-    std::make_pair("af5927b14a5faadd536f524c3891ddd18c1fbc46", 8223372000 * COIN),  // Fm9sW5h4L8mpjgAtHZf3YTUDREFrVDKGrJ
-    std::make_pair("561bd9e6c75529f687ef7a6d373eedfdfad33761", 8223372000 * COIN),  // Fd21vYLcLoEE9Lf9G5wPz66kFBXWhiJZy4
-    std::make_pair("44b7295c589024cfd5c82779627bfc2f5bfe48c1", 8223372000 * COIN),  // FbS3pF43CRF2R7FRxDhquSxyj3y6Shb6E7
-    std::make_pair("2d108d884755ce62059e240f008935d358f479d2", 8223372000 * COIN),  // FZGzgexYAJRooCqJF3YWdU3yeq12c9kChe
-    std::make_pair("22b039301ff51aba1d5f14ac1342fd5e98dbecf9", 8223372000 * COIN),  // FYL8XeYEJQqDZvfKDs6dA4uAGHrfYKgP7T
-    std::make_pair("e3039bba0232d17f5bf9c3f26b37007c0ce7008c", 8223372000 * COIN),  // Fqs4AAXSAC5foJ8vSwR9nFf98PXzhsn8L1
-    std::make_pair("31cee7e4477a327cd3ef08e832de465754cd18e5", 8223372000 * COIN),  // FZi5RNugKjvtiGDKCpTnTHog9uLaKJ1FFi
-    std::make_pair("582f4b44bfdb06c7dd8734c4d8f823f670fb1167", 8223372000 * COIN),  // FdCzZqVwLW62KqjZMvGo3bnsJXYemc8G9j
-    std::make_pair("e237f933155224b031e3d860dcd221e1b4ad2297", 8223372000 * COIN),  // FqnrDNBvdoMY9gRDnCJHLL7B6mpMWaT1Wh
+    std::make_pair("9f25fd3c42497abdf7886ddd95b80a292765764a", 8223372000 * COIN),  // FjgDPwsmKFK1rDDWEQx1bJrNanKhQjokcR
+    std::make_pair("54d25bb9507baa8e38003fb6aaffbb9dd99e7fbd", 8223372000 * COIN),  // FcuDCyU6m3vCqrz8FRTUJ535dcRe4Q8U4q
+    std::make_pair("a24b5985d7f54eefc41affca75653ac5461ab7e5", 8223372000 * COIN),  // Fd21vYLcLoEE9Lf9G5wPz66kFBXWhiJZy4
+    std::make_pair("8bf11b7d2ccff177f3aa690506dcddbee0459d08", 8223372000 * COIN),  // FbS3pF43CRF2R7FRxDhquSxyj3y6Shb6E7
+    std::make_pair("34828872393646f10c351625a25331898b249743", 8223372000 * COIN),  // FZGzgexYAJRooCqJF3YWdU3yeq12c9kChe
+    std::make_pair("ecc0e5d6eb74fa45dc178727134e4875ccfeaef8", 8223372000 * COIN),  // FYL8XeYEJQqDZvfKDs6dA4uAGHrfYKgP7T
+    std::make_pair("74d9512ced2b394c27d11378873232b2173f2222", 8223372000 * COIN),  // Fqs4AAXSAC5foJ8vSwR9nFf98PXzhsn8L1
+    std::make_pair("27e11b023f9573665cebf169fc80797b3e57273f", 8223372000 * COIN),  // FZi5RNugKjvtiGDKCpTnTHog9uLaKJ1FFi
+    std::make_pair("4cfb6201e3e3e69affa97d679a47570fb98dfd93", 8223372000 * COIN),  // FdCzZqVwLW62KqjZMvGo3bnsJXYemc8G9j
+    std::make_pair("f5a33a0b0e3f59a598424db63ee9edf1523813bf", 8223372000 * COIN),  // FqnrDNBvdoMY9gRDnCJHLL7B6mpMWaT1Wh
     // std::make_pair("e31db3c6af10eca78af376f7ec816ccf1cf7b212", 1000000000 * COIN),  // FqsbRCnYDUoWVNRVo2wxLZiJuzAWgpci7P
     // std::make_pair("b95b220809588f5ab0295e23641e53af6385822b", 10000000000 * COIN), // Fn4ndRf69KotLpm3w844TzFJRbUL95rtKW
     // std::make_pair("95debb9147e896f9450441febe8f1a684a29508d", 17808180000 * COIN), // Fiq9xEMKzGGzf7WXh8KJ6efGwHt5EJi9GJ
@@ -403,7 +403,7 @@ public:
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
-        consensus.defaultAssumeValid = uint256S("0x00008ef8ff52bbb6d9493059a3ed0560e75c1aa38f4d29c2ed4e6e982ef1056f"); // 0
+        consensus.defaultAssumeValid = uint256S("0x0000b0c13b738ed2bdbfa0b652324e261121f35cb220bce4648bed24ba1bb88d"); // 0
 
         consensus.nMinRCTOutputDepth = 12;
 
@@ -431,12 +431,61 @@ public:
         m_assumed_blockchain_size = 1;
         m_assumed_chain_state_size = 1;
 
-        genesis = CreateGenesisBlockMainNet(1643605200, 4214, 0x1f00ffff); // 2022-01-31 08:00:00
+        genesis = CreateGenesisBlockMainNet(1643605200, 198552, 0x1f00ffff); // 2022-01-31 08:00:00
         consensus.hashGenesisBlock = genesis.GetHash();
 
-        assert(consensus.hashGenesisBlock == uint256S("0x00008ef8ff52bbb6d9493059a3ed0560e75c1aa38f4d29c2ed4e6e982ef1056f"));
-        assert(genesis.hashMerkleRoot == uint256S("0x21c5a0c2c610cf3d19f363fdb5dfb1328817c79198921073317d304d26f335b7"));
-        assert(genesis.hashWitnessMerkleRoot == uint256S("0xdd1ea7185f1cac6822341e51c4212a769b0a527ca88aeef2e6493d0d7b575798"));
+        //  //calculate Genesis Block
+        // //Reset genesis
+        // consensus.hashGenesisBlock = uint256S("0x");
+        // std::cout << std::string("Begin calculating Mainnet Genesis Block:\n");
+        // if (true && (genesis.GetHash() != consensus.hashGenesisBlock)) {
+        //     std::cout << std::string("Calculating Mainnet Genesis Block:\n");
+        //     arith_uint256 hashTarget = arith_uint256().SetCompact(genesis.nBits);
+        //     uint256 hash;
+        //     genesis.nNonce = 0;
+        //     // This will figure out a valid hash and Nonce if you're
+        //     // creating a different genesis block:
+        //     // uint256 hashTarget = CBigNum().SetCompact(genesis.nBits).getuint256();
+        //     // hashTarget.SetCompact(genesis.nBits, &fNegative, &fOverflow).getuint256();
+        //     // while (genesis.GetHash() > hashTarget)
+        //     std::cout  << "HashTarget: " << hashTarget.ToString() << "\n";
+        //     while (UintToArith256(genesis.GetHash()) > hashTarget)
+        //     {
+        //         ++genesis.nNonce;
+        //         if (genesis.nNonce == 0)
+        //         {
+        //             std::cout << std::string("NONCE WRAPPED, incrementing time");
+        //             std::cout << std::string("NONCE WRAPPED, incrementing time:\n");
+        //             ++genesis.nTime;
+        //         }
+        //         if (genesis.nNonce % 10000 == 0)
+        //         {
+        //             std::cout << std::string("Mainnet: nonce ");
+        //             std::cout << genesis.nNonce;
+        //             std::cout << std::string(", hash = ");
+        //             std::cout << genesis.GetHash().ToString().c_str();
+        //             std::cout << std::string("\n");
+        //             // std::cout << strNetworkID << " nonce: " << genesis.nNonce << " time: " << genesis.nTime << " hash: " << genesis.GetHash().ToString().c_str() << "\n";
+        //         }
+        //     }
+        //     std::cout << "Mainnet ---\n";
+        //     std::cout << "   nonce: " << genesis.nNonce <<  "\n";
+        //     std::cout << "   time: " << genesis.nTime << "\n";
+        //     std::cout << "   hash: " << genesis.GetHash().ToString().c_str() << "\n";
+        //     std::cout << "   merklehash: "  << genesis.hashMerkleRoot.ToString().c_str() << "\n";
+        //     std::cout << "   witnessmerklehash: " << genesis.hashWitnessMerkleRoot.ToString().c_str() << "\n";
+        // }
+        // std::cout << std::string("Finished calculating Mainnet Genesis Block:\n");
+
+//         nonce: 198552
+//    time: 1643605200
+//    hash: 0000b0c13b738ed2bdbfa0b652324e261121f35cb220bce4648bed24ba1bb88d
+//    merklehash: 4d61e113684df5c386309371a3ce074ff0e1612823f806ef62004f82928ae8b3
+//    witnessmerklehash: 5b2d149d3068a7459eea284a921fe21bfd82325289dfae514f6fd0d6bfe9121b
+
+        assert(consensus.hashGenesisBlock == uint256S("0x0000b0c13b738ed2bdbfa0b652324e261121f35cb220bce4648bed24ba1bb88d"));
+        assert(genesis.hashMerkleRoot == uint256S("0x4d61e113684df5c386309371a3ce074ff0e1612823f806ef62004f82928ae8b3"));
+        assert(genesis.hashWitnessMerkleRoot == uint256S("0x5b2d149d3068a7459eea284a921fe21bfd82325289dfae514f6fd0d6bfe9121b"));
 
         // Note that of those which support the service bits prefix, most only support a subset of
         // possible options.
@@ -492,7 +541,7 @@ public:
 
         checkpointData = {
             {
-                { 0,     uint256S("0x00008ef8ff52bbb6d9493059a3ed0560e75c1aa38f4d29c2ed4e6e982ef1056f")},
+                { 0,     uint256S("0x0000b0c13b738ed2bdbfa0b652324e261121f35cb220bce4648bed24ba1bb88d")},
             }
         };
 
