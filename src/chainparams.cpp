@@ -436,7 +436,7 @@ public:
 
          //calculate Genesis Block
         //Reset genesis
-        //consensus.hashGenesisBlock = uint256S("0x");
+        consensus.hashGenesisBlock = uint256S("0x");
         std::cout << std::string("Begin calculating Mainnet Genesis Block:\n");
         if (true && (genesis.GetHash() != consensus.hashGenesisBlock)) {
             std::cout << std::string("Calculating Mainnet Genesis Block:\n");
