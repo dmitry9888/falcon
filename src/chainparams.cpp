@@ -403,7 +403,7 @@ public:
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
-        consensus.defaultAssumeValid = uint256S("0x00005f6499d008ef5f9416763a12cf87987e35db75c3a5b7a75db35325c050b9"); // 0
+        consensus.defaultAssumeValid = uint256S("0x0000cef2de58340ef116494fe53e79327b5c0260b7661c7c5c8a394abbed500b"); // 0
 
         consensus.nMinRCTOutputDepth = 12;
 
@@ -431,7 +431,7 @@ public:
         m_assumed_blockchain_size = 1;
         m_assumed_chain_state_size = 1;
 
-        genesis = CreateGenesisBlockMainNet(1649365200, 20947, 0x1f00ffff); // 2022-02-22 12:00:00
+        genesis = CreateGenesisBlockMainNet(1649365200, 61849, 0x1f00ffff); // 2022-02-22 12:00:00
         consensus.hashGenesisBlock = genesis.GetHash();
 
          //calculate Genesis Block
@@ -483,7 +483,7 @@ public:
 //    merklehash: 4d61e113684df5c386309371a3ce074ff0e1612823f806ef62004f82928ae8b3
 //    witnessmerklehash: 5b2d149d3068a7459eea284a921fe21bfd82325289dfae514f6fd0d6bfe9121b
 
-        assert(consensus.hashGenesisBlock == uint256S("0x00005f6499d008ef5f9416763a12cf87987e35db75c3a5b7a75db35325c050b9"));
+        assert(consensus.hashGenesisBlock == uint256S("0x0000cef2de58340ef116494fe53e79327b5c0260b7661c7c5c8a394abbed500b"));
         assert(genesis.hashMerkleRoot == uint256S("0x21fc5b8b0b6778c1ff03e5c096940908ce392861b19a3a142c5f8ca5d6cc8431"));
         assert(genesis.hashWitnessMerkleRoot == uint256S("0x0ee9358fc685821e721f032eec86a14839b0be6b702521d0143f1643a12d3be6"));
 
@@ -541,7 +541,7 @@ public:
 
         checkpointData = {
             {
-                { 0,     uint256S("0x00005f6499d008ef5f9416763a12cf87987e35db75c3a5b7a75db35325c050b9")},
+                { 0,     uint256S("0x0000cef2de58340ef116494fe53e79327b5c0260b7661c7c5c8a394abbed500b")},
             }
         };
 
