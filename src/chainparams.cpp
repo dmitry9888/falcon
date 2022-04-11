@@ -218,16 +218,16 @@ const size_t nGenesisOutputsRegtest = sizeof(regTestOutputs) / sizeof(regTestOut
 // const size_t nGenesisOutputs = sizeof(genesisOutputs) / sizeof(genesisOutputs[0]);
 
 const std::pair<const char*, CAmount> genesisOutputs[] = {
-    std::make_pair("a713d50099ad97c57416b4a281d094e01443d07f", 8223372000 * COIN), // FjgDPwsmKFK1rDDWEQx1bJrNanKhQjokcR
-    std::make_pair("4bc488bcd5b720c9519c47a23ace1b94e0f28df9", 8223372000 * COIN), // FcuDCyU6m3vCqrz8FRTUJ535dcRe4Q8U4q
-    std::make_pair("9bbee903018e9b9b3e43fe357f78d896bfab87d1", 8223372000 * COIN), // Fd21vYLcLoEE9Lf9G5wPz66kFBXWhiJZy4
-    std::make_pair("0b7ecd31a26fb7d20474633e3a36a96b70f2acbf", 8223372000 * COIN), // FbS3pF43CRF2R7FRxDhquSxyj3y6Shb6E7
-    std::make_pair("5b7aef1d748f0df0ba1527ae8f4623859e19f976", 8223372000 * COIN), // FZGzgexYAJRooCqJF3YWdU3yeq12c9kChe
-    std::make_pair("ed914b26f939bc90df5cf0b6a0fa7b93554a5be3", 8223372000 * COIN), // FYL8XeYEJQqDZvfKDs6dA4uAGHrfYKgP7T
-    std::make_pair("3f70a25b54670a5c45507ffd280f91be44ba26de", 8223372000 * COIN), // Fqs4AAXSAC5foJ8vSwR9nFf98PXzhsn8L1
-    std::make_pair("1c0fc62428304be9a8a4da54f924217ac8d4a04f", 8223372000 * COIN), // FZi5RNugKjvtiGDKCpTnTHog9uLaKJ1FFi
-    std::make_pair("8ffd4f626802672fbb6a8b2a898e560bbc27c7e0", 8223372000 * COIN), // FdCzZqVwLW62KqjZMvGo3bnsJXYemc8G9j
-    std::make_pair("37bd7877c5aa9b1265c0c69ad2932a017b681d87", 8223372000 * COIN), // FqnrDNBvdoMY9gRDnCJHLL7B6mpMWaT1Wh
+    std::make_pair("3583cd03cef04f6f05eba161710680acef3cf219", 8223372000 * COIN), // FjgDPwsmKFK1rDDWEQx1bJrNanKhQjokcR
+    std::make_pair("3b215afe78fb6712bd218f67b25fe01c55099a4e", 8223372000 * COIN), // FcuDCyU6m3vCqrz8FRTUJ535dcRe4Q8U4q
+    std::make_pair("e1a2a21391f056a35f49f14fa960054745c5ef4c", 8223372000 * COIN), // Fd21vYLcLoEE9Lf9G5wPz66kFBXWhiJZy4
+    std::make_pair("86b5f801deccccc1ffd6362ef99fc4a3501d2824", 8223372000 * COIN), // FbS3pF43CRF2R7FRxDhquSxyj3y6Shb6E7
+    std::make_pair("8e1f4d4cc39492c2673ffa9e7da62bb3cf6292e5", 8223372000 * COIN), // FZGzgexYAJRooCqJF3YWdU3yeq12c9kChe
+    std::make_pair("1d268e16ac4d6ee528eed6625c0c5fd2c136fb32", 8223372000 * COIN), // FYL8XeYEJQqDZvfKDs6dA4uAGHrfYKgP7T
+    std::make_pair("4c0a160227a21a686e10a693d7e2a3162063f21e", 8223372000 * COIN), // Fqs4AAXSAC5foJ8vSwR9nFf98PXzhsn8L1
+    std::make_pair("5a9e4a67bb1bc3834e0d61257b78d8a869a0dc6b", 8223372000 * COIN), // FZi5RNugKjvtiGDKCpTnTHog9uLaKJ1FFi
+    std::make_pair("b50bbb4d1c01c6c0f5d22956e309c6ac5e20eaa0", 8223372000 * COIN), // FdCzZqVwLW62KqjZMvGo3bnsJXYemc8G9j
+    std::make_pair("6ab3afb442892a273afa4c244fd33c9b18891581", 8223372000 * COIN), // FqnrDNBvdoMY9gRDnCJHLL7B6mpMWaT1Wh
     // std::make_pair("e31db3c6af10eca78af376f7ec816ccf1cf7b212", 1000000000 * COIN),  // FqsbRCnYDUoWVNRVo2wxLZiJuzAWgpci7P
     // std::make_pair("b95b220809588f5ab0295e23641e53af6385822b", 10000000000 * COIN), // Fn4ndRf69KotLpm3w844TzFJRbUL95rtKW
     // std::make_pair("95debb9147e896f9450441febe8f1a684a29508d", 17808180000 * COIN), // Fiq9xEMKzGGzf7WXh8KJ6efGwHt5EJi9GJ
